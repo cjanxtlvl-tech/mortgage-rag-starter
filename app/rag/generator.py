@@ -14,7 +14,7 @@ def generate_grounded_answer(question: str, context: str) -> str:
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY missing from .env")
 
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = settings.openai_model
     client = OpenAI(api_key=api_key)
 
     system_prompt = (
