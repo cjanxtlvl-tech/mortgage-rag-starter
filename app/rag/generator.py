@@ -1,6 +1,5 @@
-import os
-
 from openai import OpenAI
+from app.config import get_settings
 
 
 def generate_grounded_answer(question: str, context: str) -> str:
@@ -10,9 +9,10 @@ def generate_grounded_answer(question: str, context: str) -> str:
             "to answer that confidently."
         )
 
-    api_key = os.getenv("OPENAI_API_KEY")
+    settings = get_settings()
+    api_key = settings.openai_api_key.get_secret_value()
     if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is not set. Add it to your environment before calling /ask.")
+        raise RuntimeError("OPENAI_API_KEY missing from .env")
 
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     client = OpenAI(api_key=api_key)
