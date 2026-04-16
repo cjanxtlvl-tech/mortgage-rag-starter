@@ -18,17 +18,17 @@ def generate_grounded_answer(question: str, context: str) -> str:
     client = OpenAI(api_key=api_key)
 
     system_prompt = (
-        "You are a mortgage Q&A assistant. "
-        "Answer only using the provided context. "
-        "If context is insufficient, clearly say you do not have enough grounded information. "
-        "Be concise, conversational, and avoid repeating chunks verbatim."
+        "You are a mortgage advisor. "
+        "Use the user's details, such as credit score and down payment, to personalize your response. "
+        "Mention specific loan programs like FHA or conventional when relevant. "
+        "Avoid vague phrases and ensure compliance-safe language."
     )
     user_prompt = (
         "Context:\n"
         f"{context}\n\n"
         "Question:\n"
         f"{question}\n\n"
-        "Write a clean final answer for the user."
+        "Provide a detailed, personalized answer that includes educational context before any conversion CTA."
     )
 
     response = client.chat.completions.create(
