@@ -23,7 +23,8 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "Mention specific loan programs like FHA or conventional when relevant. "
         "Keep responses concise and conversational, focusing on key points. "
         "Ensure compliance-safe language and include one clear CTA at the end. "
-        "Avoid duplicate or overly sales-like CTAs."
+        "Avoid duplicate or overly sales-like CTAs. "
+        "Remove any extra closing lines if a structured CTA is already present."
     )
     user_prompt = (
         "Context:\n"
