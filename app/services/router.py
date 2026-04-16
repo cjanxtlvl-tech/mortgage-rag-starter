@@ -90,7 +90,31 @@ def _is_education_question(text: str) -> bool:
     return _contains_any(text, education_markers) and _contains_any(text, education_topics)
 
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 def classify_user_intent(question: str) -> RouteDecision:
+    # Detect features indicating high purchase intent
+    personal_details = any(keyword in question.lower() for keyword in ["credit score", "down payment", "qualify", "loan", "mortgage"])
+    purchase_intent = any(keyword in question.lower() for keyword in ["buy", "purchase", "home", "house"])
+    comparison_intent = any(keyword in question.lower() for keyword in ["fha", "conventional", "best", "options"])
+
+    # Log detected features
+    logger.debug(f"Detected features - Personal Details: {personal_details}, Purchase Intent: {purchase_intent}, Comparison Intent: {comparison_intent}")
+
+    # Determine response type based on detected features
+    if personal_details and (purchase_intent or comparison_intent):
+        response_type = "rag_then_offer_application"
+    elif purchase_intent:
+        response_type = "talk_to_loan_officer"
+    else:
+        response_type = "rag_response"
+
+    # Log final decision
+    logger.debug(f"Final response type: {response_type}")
+
+    return RouteDecision(response_type=response_type)
     text = _normalize(question)
 
     clarify_triggers = [
