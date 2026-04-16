@@ -22,7 +22,8 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "Use the user's details, such as credit score and down payment, to personalize your response. "
         "Mention specific loan programs like FHA or conventional when relevant. "
         "Keep responses concise and conversational, focusing on key points. "
-        "Ensure compliance-safe language and include one clear CTA at the end."
+        "Ensure compliance-safe language and include one clear CTA at the end. "
+        "Avoid duplicate or overly sales-like CTAs."
     )
     user_prompt = (
         "Context:\n"
