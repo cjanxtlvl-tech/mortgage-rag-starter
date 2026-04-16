@@ -22,8 +22,8 @@ Recommended (project-local virtual environment):
 cd /home/chester-anderson/projects/mortgage-rag-starter
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+./.venv/bin/python -m pip install --upgrade pip
+./.venv/bin/python -m pip install -r requirements.txt
 ```
 
 Set required OpenAI environment variable:
@@ -50,7 +50,7 @@ Accepted JSON shapes:
 ## Build the Index
 
 ```bash
-python scripts/process_data.py
+./.venv/bin/python scripts/process_data.py
 ```
 
 Artifacts are written to `data/index/`:
@@ -62,13 +62,13 @@ Artifacts are written to `data/index/`:
 
 ```bash
 cd /home/chester-anderson/projects/mortgage-rag-starter
-uvicorn app.main:app --reload
+./.venv/bin/python -m uvicorn app.main:app --reload
 ```
 
 If you run the command from another directory, use:
 
 ```bash
-python -m uvicorn --app-dir /home/chester-anderson/projects/mortgage-rag-starter app.main:app --reload
+/home/chester-anderson/projects/mortgage-rag-starter/.venv/bin/python -m uvicorn --app-dir /home/chester-anderson/projects/mortgage-rag-starter app.main:app --reload
 ```
 
 ## Lite Test UI
@@ -96,7 +96,7 @@ curl -X POST http://127.0.0.1:8000/ask \
 Alternative without `curl`:
 
 ```bash
-python - <<'PY'
+./.venv/bin/python - <<'PY'
 import json
 import urllib.request
 
@@ -115,33 +115,56 @@ with urllib.request.urlopen(req, timeout=30) as resp:
 PY
 ```
 
-Example response:
+Example response (RAG question):
 
 ```json
 {
   "type": "rag_response",
   "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow.",
   "suggested_next_action": null,
-  "sources": ["mortgage_knowledge_base.json"]
+  "display_sources": ["mortgage_knowledge_base.json"],
+  "meta": {
+    "request_id": "550e8400-e29b-41d4-a716-446655440000"
+  }
 }
 ```
 
-Expected result: HTTP `200 OK` with this shape:
+Example response (routing question):
+
+```json
+{
+  "type": "start_application",
+  "answer": "Great. We can begin with a few questions to help match you with the right mortgage path.",
+  "suggested_next_action": "start_rasa_application",
+  "display_sources": [],
+  "meta": {
+    "request_id": "550e8400-e29b-41d4-a716-446655440001"
+  }
+}
+```
+
+Expected response format:
 
 ```json
 {
   "type": "rag_response | start_application | talk_to_loan_officer | rate_request | rag_then_offer_application | rag_then_offer_loan_officer | clarify_goal | fallback",
   "answer": "clean user-facing response",
   "suggested_next_action": "string-or-null",
-  "sources": ["source_file_names_for_rag_only"]
+  "display_sources": ["source_file_names_for_rag_only"],
+  "meta": {
+    "request_id": "uuid-string"
+  }
 }
 ```
 
-Response includes:
+Response fields:
 - `type`: routing category that downstream orchestrators (like Rasa) should branch on
 - `answer`: clean borrower-facing text
 - `suggested_next_action`: next orchestration hint for Rasa (`start_rasa_application`, `handoff_to_loan_officer`, etc.)
-- `sources`: source filenames for RAG-based responses; empty for non-RAG routes
+- `display_sources`: source filenames for RAG-based responses; empty for non-RAG routes. Includes only user-facing knowledge datasets
+- `meta.request_id`: unique identifier for request tracking and correlation with server logs
+
+**Note:** Detailed retrieval metrics (similarity scores, full chunk text, etc.) remain in server logs only and are not returned to the public API for cleaner responses.
 
 ### Rasa Routing Contract
 
@@ -192,7 +215,49 @@ Run a full local smoke test that:
 - shuts the API down automatically
 
 ```bash
-python scripts/smoke_test.py
+./.venv/bin/python scripts/smoke_test.py
+```
+
+## Docker Desktop Full Stack (RAG + Rasa + Actions)
+
+You can run the complete integrated stack in Docker Desktop with one compose file:
+
+- `rag-api` (this FastAPI app + UI)
+- `rasa` (Rasa server)
+- `rasa-actions` (custom action server)
+
+Prerequisites:
+
+- Docker Desktop running
+- `OPENAI_API_KEY` in this project's `.env`
+- A sibling Rasa project exists. By default compose uses `../mortgage-rasa-chatbot`.
+
+Start everything:
+
+```bash
+docker compose -f docker-compose.full-stack.yml up --build
+```
+
+If you want to use `my-rasa-bot` instead, run:
+
+```bash
+RASA_PROJECT_DIR=../my-rasa-bot docker compose -f docker-compose.full-stack.yml up --build
+```
+
+Open:
+
+- UI: `http://127.0.0.1:8010/ui`
+- Rasa API: `http://127.0.0.1:5005`
+- Rasa Action Server: `http://127.0.0.1:5055`
+
+Notes:
+
+- The first startup may take longer because Rasa trains a model in-container.
+- The UI can use `/chat` mode to bridge handoff intents to Rasa.
+- To stop and remove containers:
+
+```bash
+docker compose -f docker-compose.full-stack.yml down
 ```
 
 ## Troubleshooting
@@ -211,7 +276,7 @@ uvicorn app.main:app --reload
 Or from anywhere:
 
 ```bash
-python -m uvicorn --app-dir /home/chester-anderson/projects/mortgage-rag-starter app.main:app --reload
+/home/chester-anderson/projects/mortgage-rag-starter/.venv/bin/python -m uvicorn --app-dir /home/chester-anderson/projects/mortgage-rag-starter app.main:app --reload
 ```
 
 ### Port Already In Use
