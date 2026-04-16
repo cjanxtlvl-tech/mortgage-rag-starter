@@ -108,8 +108,26 @@ def classify_user_intent(question: str) -> RouteDecision:
         response_type = "rag_then_offer_application"
     elif purchase_intent:
         response_type = "talk_to_loan_officer"
+        return RouteDecision(
+            response_type="rag_then_offer_application",
+            answer="",
+            suggested_next_action="offer_start_rasa_application",
+            needs_rag=True,
+        )
+    elif purchase_intent:
+        return RouteDecision(
+            response_type="talk_to_loan_officer",
+            answer="Yes. We can connect you with a loan officer for personalized guidance.",
+            suggested_next_action="handoff_to_loan_officer",
+            needs_rag=False,
+        )
     else:
-        response_type = "rag_response"
+        return RouteDecision(
+            response_type="rag_response",
+            answer="",
+            suggested_next_action=None,
+            needs_rag=True,
+        )
 
     # Log final decision
     logger.debug(f"Final response type: {response_type}")
