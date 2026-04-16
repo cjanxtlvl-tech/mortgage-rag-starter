@@ -31,3 +31,20 @@ def get_settings() -> Settings:
         vectorizer_path=index_dir / "mortgage_vectorizer.pkl",
         rasa_webhook_url=os.getenv("RASA_WEBHOOK_URL", "http://127.0.0.1:5005/webhooks/rest/webhook").strip(),
     )
+from pydantic import BaseSettings, SecretStr
+from functools import lru_cache
+from pathlib import Path
+
+class Settings(BaseSettings):
+    openai_api_key: SecretStr
+    openai_model: str = "gpt-4.1-mini"
+    embedding_model: str = "text-embedding-3-small"
+    vector_store_path: str = "./data/vector_store"
+    app_env: str = "local"
+
+    class Config:
+        env_file = Path(__file__).resolve().parents[1] / ".env"
+
+@lru_cache()
+def get_settings() -> Settings:
+    return Settings()
