@@ -18,3 +18,4 @@ venv/
 # Local generated artifacts
 *.log
 .aider*
+.env
