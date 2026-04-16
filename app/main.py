@@ -73,7 +73,11 @@ def _route_question(payload: AskRequest) -> AskResponse:
         return response
 
     try:
-        result = pipeline.ask(payload.question, top_k=payload.top_k)
+        result = pipeline.ask(
+            payload.question,
+            top_k=payload.top_k,
+            include_application_cta=decision.response_type == "rag_then_offer_application",
+        )
     except Exception as exc:
         logger.error("RAG pipeline error (request_id=%s): %s", request_id, exc)
         raise HTTPException(status_code=500, detail=str(exc)) from exc
@@ -84,12 +88,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
     # Filter sources to only display user-facing datasets
     display_sources = filter_sources(raw_sources)
 
-    if decision.response_type == "rag_then_offer_application":
-        answer = (
-            f"{answer}\n\n"
-            "If you'd like, we can start a short application flow to match you with the right mortgage path."
-        )
-    elif decision.response_type == "rag_then_offer_loan_officer":
+    if decision.response_type == "rag_then_offer_loan_officer":
         answer = (
             f"{answer}\n\n"
             "If you'd prefer, I can also connect you with a loan officer for personalized guidance."

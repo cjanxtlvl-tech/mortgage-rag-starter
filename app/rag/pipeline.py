@@ -13,6 +13,10 @@ from .vector_store import build_index, load_artifacts, save_artifacts
 
 logger = logging.getLogger(__name__)
 
+APPLICATION_CTA = (
+    "If you'd like, we can start a short application flow to match you with the right mortgage path."
+)
+
 
 def _normalize_text(text: str) -> str:
     return " ".join(text.split()).strip().lower()
@@ -51,6 +55,42 @@ def _extract_sources(matches: List[dict], max_sources: int = 5) -> List[str]:
             break
 
     return sources
+
+
+def _normalize_paragraph(text: str) -> str:
+    text = text.lower().replace("ashort", "a short")
+    return " ".join(text.split())
+
+
+def _is_application_cta_paragraph(text: str) -> bool:
+    normalized = _normalize_paragraph(text)
+    if "right mortgage path" not in normalized:
+        return False
+
+    return (
+        "application flow" in normalized
+        or "start a short application flow" in normalized
+        or ("few questions" in normalized and ("start" in normalized or "begin" in normalized))
+    )
+
+
+def _assemble_answer(answer: str, include_application_cta: bool) -> str:
+    parts = [part.strip() for part in answer.split("\n\n") if part.strip()]
+    deduped: List[str] = []
+    seen_application_cta = False
+
+    for part in parts:
+        if _is_application_cta_paragraph(part):
+            if seen_application_cta:
+                continue
+            seen_application_cta = True
+            part = APPLICATION_CTA
+        deduped.append(part)
+
+    if include_application_cta and not seen_application_cta:
+        deduped.append(APPLICATION_CTA)
+
+    return "\n\n".join(deduped)
 
 
 class RAGPipeline:
@@ -119,31 +159,24 @@ class RAGPipeline:
             logger.info("RAG artifacts not found; building from raw data")
             self.build_from_raw()
 
-    def ask(self, question: str, top_k: int) -> dict:
+    def ask(self, question: str, top_k: int, include_application_cta: bool = False) -> dict:
         self.ensure_ready()
         assert self.index is not None
         assert self.embedder is not None
 
-matches = retrieve(
-    index=self.index,
-    embedder=self.embedder,
-    chunks=self.chunks,
-    question=question,
-    top_k=max(2, top_k),
-)
+        matches = retrieve(
+            index=self.index,
+            embedder=self.embedder,
+            chunks=self.chunks,
+            question=question,
+            top_k=max(2, top_k),
+        )
 
-context = _build_context(matches, max_chunks=2)
-answer = generate_grounded_answer(question, context)
+        context = _build_context(matches, max_chunks=2)
+        answer = generate_grounded_answer(question, context)
+        answer = _assemble_answer(answer, include_application_cta=include_application_cta)
 
-# ✅ CTA DEDUP FIX
-cta = "If you'd like, we can start a short application flow to match you with the right mortgage path."
-
-# Remove duplicate CTA if it appears more than once
-if answer.count(cta) > 1:
-    parts = answer.split(cta)
-    answer = cta.join(parts[:2])  # keep only first occurrence
-
-return {
-    "answer": answer,
-    "sources": _extract_sources(matches),
-}
+        return {
+            "answer": answer,
+            "sources": _extract_sources(matches),
+        }

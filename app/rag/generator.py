@@ -22,9 +22,8 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "Use the user's details, such as credit score and down payment, to personalize your response. "
         "Mention specific loan programs like FHA or conventional when relevant. "
         "Keep responses concise and conversational, focusing on key points. "
-        "Ensure compliance-safe language and include one clear CTA at the end. "
-        "Avoid duplicate or overly sales-like CTAs. "
-        "Remove any extra closing lines if a structured CTA is already present."
+        "Ensure compliance-safe language. "
+        "Avoid repetitive closings or sales-like language."
     )
     user_prompt = (
         "Context:\n"
@@ -32,9 +31,8 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "Question:\n"
         f"{question}\n\n"
         "Craft a concise, personalized response with educational value. "
-        "Limit to 2-4 short paragraphs or bullets, and ensure the response ends with one clear CTA: "
-        "'If you'd like, we can start a short application flow to match you with the right mortgage path.' "
-        "Remove any pre-CTA or duplicate CTA sentences."
+        "Limit to 2-4 short paragraphs or bullets. "
+        "Do not add a call to action; the caller will add any final next-step language separately."
     )
 
     response = client.chat.completions.create(
@@ -50,9 +48,5 @@ def generate_grounded_answer(question: str, context: str) -> str:
     answer = (content or "").strip()
     if not answer:
         raise RuntimeError("The language model returned an empty answer.")
-    # Deduplicate the final CTA if it appears more than once
-    final_cta = "If you'd like, we can start a short application flow to match you with the right mortgage path."
-    if answer.endswith(final_cta + "\n\n" + final_cta):
-        answer = answer[: -len(final_cta) - 2]
 
     return answer
