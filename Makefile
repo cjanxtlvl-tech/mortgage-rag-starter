@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := help
+
 PYTHON := .venv/bin/python
 PIP := .venv/bin/pip
 UVICORN := .venv/bin/uvicorn
@@ -21,11 +23,12 @@ venv:
 	@if [ ! -d ".venv" ]; then \
 		echo "[setup] Creating virtual environment"; \
 		python3 -m venv .venv; \
-		$(PIP) install --upgrade pip; \
 	fi
+	$(PYTHON) -m pip install --upgrade pip
 
 install: venv
 	@echo "[setup] Installing dependencies"
+	$(PYTHON) -m pip install --upgrade pip
 	$(PIP) install -r requirements.txt
 
 check-env:
@@ -61,5 +64,5 @@ freeze:
 
 clean:
 	@echo "[clean] Removing temporary files"
-	find . -type d -name "__pycache__" -exec rm -r {} +;
+	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete

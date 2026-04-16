@@ -1,7 +1,10 @@
 fastapi
-uvicorn
-faiss-cpu
-numpy
+uvicorn[standard]
 pydantic
+numpy
+faiss-cpu
 scikit-learn
+sentence-transformers
+requests
 openai
+python-dotenv

@@ -68,15 +68,21 @@ def validate_response(payload: dict) -> None:
     if "suggested_next_action" not in payload:
         raise AssertionError("Missing 'suggested_next_action' field")
 
-    if "sources" not in payload or not isinstance(payload["sources"], list):
-        raise AssertionError("Missing or invalid 'sources' field")
+    if "display_sources" not in payload or not isinstance(payload["display_sources"], list):
+        raise AssertionError("Missing or invalid 'display_sources' field")
+
+    if "meta" not in payload or not isinstance(payload["meta"], dict):
+        raise AssertionError("Missing or invalid 'meta' field")
+    
+    if "request_id" not in payload["meta"] or not payload["meta"]["request_id"]:
+        raise AssertionError("Missing or invalid 'request_id' in meta")
 
     rag_based_types = {"rag_response", "rag_then_offer_application", "rag_then_offer_loan_officer"}
-    if response_type in rag_based_types and len(payload["sources"]) == 0:
-        raise AssertionError("RAG-based responses must include at least one source")
+    if response_type in rag_based_types and len(payload["display_sources"]) == 0:
+        raise AssertionError("RAG-based responses must include at least one display_source")
 
-    if response_type not in rag_based_types and payload["sources"]:
-        raise AssertionError("Non-RAG responses must not include sources")
+    if response_type not in rag_based_types and payload["display_sources"]:
+        raise AssertionError("Non-RAG responses must not include display_sources")
 
 
 def run() -> int:

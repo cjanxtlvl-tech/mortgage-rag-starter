@@ -124,17 +124,26 @@ class RAGPipeline:
         assert self.index is not None
         assert self.embedder is not None
 
-        matches = retrieve(
-            index=self.index,
-            embedder=self.embedder,
-            chunks=self.chunks,
-            question=question,
-            top_k=max(3, top_k),
-        )
+matches = retrieve(
+    index=self.index,
+    embedder=self.embedder,
+    chunks=self.chunks,
+    question=question,
+    top_k=max(2, top_k),
+)
 
-        context = _build_context(matches, max_chunks=3)
-        answer = generate_grounded_answer(question, context)
-        return {
-            "answer": answer,
-            "sources": _extract_sources(matches),
-        }
+context = _build_context(matches, max_chunks=2)
+answer = generate_grounded_answer(question, context)
+
+# ✅ CTA DEDUP FIX
+cta = "If you'd like, we can start a short application flow to match you with the right mortgage path."
+
+# Remove duplicate CTA if it appears more than once
+if answer.count(cta) > 1:
+    parts = answer.split(cta)
+    answer = cta.join(parts[:2])  # keep only first occurrence
+
+return {
+    "answer": answer,
+    "sources": _extract_sources(matches),
+}

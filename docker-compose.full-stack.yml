@@ -1,0 +1,45 @@
+services:
+  rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mortgage-rag-api
+    env_file:
+      - .env
+    environment:
+      RASA_WEBHOOK_URL: http://rasa:5005/webhooks/rest/webhook
+      HOST: 0.0.0.0
+      PORT: 8010
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - rasa
+
+  rasa-actions:
+    image: rasa/rasa-sdk:3.6.2
+    container_name: mortgage-rasa-actions
+    working_dir: /app
+    command: >-
+      sh -c "pip install --no-cache-dir requests &&
+      rasa run actions --actions actions --port 5055"
+    volumes:
+      - ${RASA_PROJECT_DIR:-../mortgage-rasa-chatbot}:/app
+    ports:
+      - "5055:5055"
+
+  rasa:
+    image: rasa/rasa:3.6.20-full
+    container_name: mortgage-rasa-server
+    working_dir: /app
+    command: >-
+      sh -c "rasa train --quiet &&
+      rasa run --enable-api --cors '*' --port 5005
+      --credentials credentials.yml --endpoints endpoints.docker.yml"
+    volumes:
+      - ${RASA_PROJECT_DIR:-../mortgage-rasa-chatbot}:/app
+    ports:
+      - "5005:5005"
+    depends_on:
+      - rasa-actions

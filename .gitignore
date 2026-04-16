@@ -18,4 +18,8 @@ venv/
 # Local generated artifacts
 *.log
 .aider*
-.env
+
+# Indexed/model artifacts
+data/index/
+data/*.faiss
+data/*.pkl

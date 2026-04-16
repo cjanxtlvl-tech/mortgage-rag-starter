@@ -35,6 +35,11 @@ class RouteIntentTests(unittest.TestCase):
         self.assertEqual(decision.response_type, "rag_response")
         self.assertTrue(decision.needs_rag)
 
+    def test_dscr_education_question_uses_rag_path(self) -> None:
+        decision = classify_user_intent("What is a DSCR loan?")
+        self.assertEqual(decision.response_type, "rag_response")
+        self.assertTrue(decision.needs_rag)
+
     def test_non_mortgage_question_routes_to_fallback(self) -> None:
         decision = classify_user_intent("How do I cook pasta?")
         self.assertEqual(decision.response_type, "fallback")

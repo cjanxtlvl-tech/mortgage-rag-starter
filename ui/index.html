@@ -102,6 +102,34 @@
 
     .status.error { color: var(--danger); }
 
+    .pill {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: #f8fafc;
+    }
+
+    .pill.ok {
+      color: #166534;
+      border-color: #86efac;
+      background: #f0fdf4;
+    }
+
+    .pill.warn {
+      color: #92400e;
+      border-color: #fcd34d;
+      background: #fffbeb;
+    }
+
+    .pill.off {
+      color: var(--muted);
+    }
+
     .result {
       margin-top: 1rem;
       border-top: 1px solid var(--border);
@@ -151,7 +179,13 @@
   <main class="container">
     <section class="card">
       <h1>Mortgage RAG Lite UI</h1>
-      <p class="helper">Enter a question and get a clean grounded response from POST /ask.</p>
+      <p class="helper">Use /ask for direct routing+RAG, or /chat to bridge handoff intents into Rasa from the same UI.</p>
+
+      <label for="useChatBridge">
+        <input id="useChatBridge" type="checkbox" checked>
+        Use /chat endpoint (Rasa bridge for handoff intents)
+      </label>
+      <div id="rasaHealth" class="pill off">Rasa bridge: checking...</div>
 
       <div class="row">
         <div>
@@ -180,10 +214,43 @@
     const topKEl = document.getElementById("topK");
     const statusEl = document.getElementById("status");
     const answerEl = document.getElementById("answer");
+    const useChatBridgeEl = document.getElementById("useChatBridge");
+    const rasaHealthEl = document.getElementById("rasaHealth");
+
+    const senderKey = "mortgage_ui_sender_id";
+    let senderId = localStorage.getItem(senderKey);
+    if (!senderId) {
+      senderId = `ui-${Math.random().toString(36).slice(2, 10)}`;
+      localStorage.setItem(senderKey, senderId);
+    }
 
     function setStatus(text, isError = false) {
       statusEl.textContent = text;
       statusEl.className = isError ? "status error" : "status";
+    }
+
+    async function refreshRasaHealth() {
+      if (!useChatBridgeEl.checked) {
+        rasaHealthEl.textContent = "Rasa bridge: off";
+        rasaHealthEl.className = "pill off";
+        return;
+      }
+
+      try {
+        const response = await fetch("/health/rasa");
+        const data = await response.json();
+
+        if (response.ok && data.connected) {
+          rasaHealthEl.textContent = "Rasa bridge: connected";
+          rasaHealthEl.className = "pill ok";
+        } else {
+          rasaHealthEl.textContent = "Rasa bridge: disconnected";
+          rasaHealthEl.className = "pill warn";
+        }
+      } catch (error) {
+        rasaHealthEl.textContent = "Rasa bridge: disconnected";
+        rasaHealthEl.className = "pill warn";
+      }
     }
 
     async function ask() {
@@ -199,10 +266,15 @@
       setStatus("Sending request...");
 
       try {
-        const response = await fetch("/ask", {
+        const endpoint = useChatBridgeEl.checked ? "/chat" : "/ask";
+        const requestBody = useChatBridgeEl.checked
+          ? { question, top_k, sender_id: senderId }
+          : { question, top_k };
+
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question, top_k }),
+          body: JSON.stringify(requestBody),
         });
 
         const data = await response.json();
@@ -217,7 +289,14 @@
           ? `\n\nSources: ${data.sources.join(", ")}`
           : "";
 
-        answerEl.textContent = `[${type}] ${data.answer || "No answer returned."}${action}${sources}`;
+        const rasaBridgeStatus = data.routed_to_rasa
+          ? "\n\nRasa bridge: connected"
+          : "";
+        const rasaMessages = Array.isArray(data.rasa_messages) && data.rasa_messages.length
+          ? `\n\nRasa replies:\n- ${data.rasa_messages.join("\n- ")}`
+          : "";
+
+        answerEl.textContent = `[${type}] ${data.answer || "No answer returned."}${action}${sources}${rasaBridgeStatus}${rasaMessages}`;
         setStatus("Request complete.");
       } catch (error) {
         setStatus(`Error: ${error.message}`, true);
@@ -227,11 +306,15 @@
     }
 
     askBtn.addEventListener("click", ask);
+    useChatBridgeEl.addEventListener("change", refreshRasaHealth);
     questionEl.addEventListener("keydown", (event) => {
       if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
         ask();
       }
     });
+
+    refreshRasaHealth();
+    setInterval(refreshRasaHealth, 10000);
   </script>
 </body>
 </html>
