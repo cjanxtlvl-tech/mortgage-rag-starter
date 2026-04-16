@@ -157,16 +157,15 @@ def classify_user_intent(question: str) -> RouteDecision:
     mortgage_related = _is_mortgage_related(text)
     has_combo_connector = _contains_any(text, [" and ", " also ", " plus "])
 
-    if app_intent and education_intent and has_combo_connector:
-        return RouteDecision(
-            response_type="rag_then_offer_application",
-            answer="",
-            suggested_next_action="offer_start_rasa_application",
-            needs_rag=True,
-        )
-
-    # Educational prompts like "what is a DSCR loan" should stay in RAG.
-    if app_intent and education_intent and not explicit_app_intent:
+    # Educational queries with potential conversion intent
+    if education_intent and mortgage_related:
+        if any(phrase in text for phrase in ["does", "will", "how", "what", "can i qualify"]):
+            return RouteDecision(
+                response_type="rag_then_offer_application",
+                answer="",
+                suggested_next_action="offer_start_rasa_application",
+                needs_rag=True,
+            )
         return RouteDecision(
             response_type="rag_response",
             answer="",
@@ -182,7 +181,8 @@ def classify_user_intent(question: str) -> RouteDecision:
             needs_rag=True,
         )
 
-    if app_intent:
+    # Direct application intent
+    if explicit_app_intent:
         return RouteDecision(
             response_type="start_application",
             answer="Great. We can begin with a few questions to help match you with the right mortgage path.",
