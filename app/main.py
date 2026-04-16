@@ -4,8 +4,9 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 
 from app.config import get_settings
+from app.intent_router import route_intent
 from app.rag.pipeline import RAGPipeline
-from app.schemas import AskRequest, AskResponse
+from app.schemas import AskHandoffResponse, AskRagResponse, AskRequest, AskResponse
 
 logging.basicConfig(level=logging.INFO)
 
@@ -44,8 +45,12 @@ def ui() -> HTMLResponse:
 
 @app.post("/ask", response_model=AskResponse)
 def ask_question(payload: AskRequest) -> AskResponse:
+    action = route_intent(payload.question)
+    if action is not None:
+        return AskHandoffResponse(action=action)
+
     try:
         result = pipeline.ask(payload.question, top_k=payload.top_k)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
-    return AskResponse(answer=result["answer"])
+    return AskRagResponse(answer=result["answer"])

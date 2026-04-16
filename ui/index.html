@@ -211,7 +211,11 @@
           throw new Error(data.detail || "Request failed");
         }
 
-        answerEl.textContent = data.answer || "No answer returned.";
+        if (data.type === "handoff") {
+          answerEl.textContent = `Handoff to Rasa: ${data.action}`;
+        } else {
+          answerEl.textContent = data.answer || "No answer returned.";
+        }
         setStatus("Request complete.");
       } catch (error) {
         setStatus(`Error: ${error.message}`, true);

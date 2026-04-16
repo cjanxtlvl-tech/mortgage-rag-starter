@@ -45,12 +45,24 @@ def wait_for_health(timeout_seconds: int = 20) -> None:
 def validate_response(payload: dict) -> None:
     if not isinstance(payload, dict):
         raise AssertionError("Expected JSON object response")
-    if "answer" not in payload:
-        raise AssertionError("Missing 'answer' field in response")
-    if "sources" in payload:
-        raise AssertionError("Response must not include 'sources'")
-    if not isinstance(payload["answer"], str) or not payload["answer"].strip():
-        raise AssertionError("'answer' must be a non-empty string")
+
+    response_type = payload.get("type")
+    if response_type not in {"rag_response", "handoff"}:
+        raise AssertionError("Response 'type' must be 'rag_response' or 'handoff'")
+
+    if response_type == "rag_response":
+        if "answer" not in payload:
+            raise AssertionError("Missing 'answer' in rag_response")
+        if not isinstance(payload["answer"], str) or not payload["answer"].strip():
+            raise AssertionError("'answer' must be a non-empty string")
+        return
+
+    if "action" not in payload:
+        raise AssertionError("Missing 'action' in handoff response")
+
+    valid_actions = {"start_application", "get_rates", "connect_loan_officer"}
+    if payload["action"] not in valid_actions:
+        raise AssertionError("Unexpected handoff action")
 
 
 def run() -> int:
@@ -95,8 +107,20 @@ def run() -> int:
         )
         validate_response(response)
 
+        handoff_response = post_json(
+            ASK_URL,
+            {
+                "question": "I want to apply for a mortgage",
+                "top_k": 3,
+            },
+        )
+        validate_response(handoff_response)
+        if handoff_response.get("type") != "handoff":
+            raise AssertionError("Expected handoff response for apply intent")
+
         print("Smoke test PASSED")
-        print(f"Answer length: {len(response['answer'])}")
+        print(f"RAG answer length: {len(response.get('answer', ''))}")
+        print(f"Handoff action: {handoff_response.get('action')}")
         return 0
     finally:
         proc.terminate()
