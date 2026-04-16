@@ -105,14 +105,13 @@ def classify_user_intent(question: str) -> RouteDecision:
 
     # Determine response type based on detected features
     if personal_details and (purchase_intent or comparison_intent):
-        response_type = "rag_then_offer_application"
-    elif purchase_intent:
-        response_type = "talk_to_loan_officer"
         return RouteDecision(
             response_type="rag_then_offer_application",
             answer="",
             suggested_next_action="offer_start_rasa_application",
             needs_rag=True,
+        )
+        )
         )
     elif purchase_intent:
         return RouteDecision(
@@ -120,6 +119,35 @@ def classify_user_intent(question: str) -> RouteDecision:
             answer="Yes. We can connect you with a loan officer for personalized guidance.",
             suggested_next_action="handoff_to_loan_officer",
             needs_rag=False,
+        )
+        )
+        )
+        )
+        )
+    )
+
+    app_intent = _contains_any(text, application_triggers)
+    explicit_app_intent = _contains_any(text, explicit_application_triggers)
+    officer_intent = _contains_any(text, officer_triggers)
+    rate_intent = _contains_any(text, rate_triggers)
+    education_intent = _is_education_question(text)
+    mortgage_related = _is_mortgage_related(text)
+    has_combo_connector = _contains_any(text, [" and ", " also ", " plus "])
+
+    # Educational queries with potential conversion intent
+    if education_intent and mortgage_related:
+        if any(phrase in text for phrase in ["does", "will", "how", "what", "can i qualify"]):
+            return RouteDecision(
+                response_type="rag_then_offer_application",
+                answer="",
+                suggested_next_action="offer_start_rasa_application",
+                needs_rag=True,
+            )
+        return RouteDecision(
+            response_type="rag_response",
+            answer="",
+            suggested_next_action=None,
+            needs_rag=True,
         )
     else:
         return RouteDecision(
