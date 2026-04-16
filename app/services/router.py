@@ -42,6 +42,7 @@ def _is_mortgage_related(text: str) -> bool:
         "pre-qualified",
         "prequalified",
         "refinance",
+        "refinancing",
         "interest rate",
         "rate",
         "down payment",
@@ -52,8 +53,37 @@ def _is_mortgage_related(text: str) -> bool:
         "debt to income",
         "dti",
         "buy a home",
+        "buying a home",
+        "buying home",
+        "home buying",
+        "purchase a home",
+        "purchasing a home",
+        "first home",
+        "first-time buyer",
+        "first time buyer",
+        "home buyer",
+        "homebuyer",
+        "home purchase",
+        "home ownership",
+        "homeownership",
         "house",
         "property",
+        "lender",
+        "borrower",
+        "credit score",
+        "qualify",
+        "qualification",
+        "underwriting",
+        "appraisal",
+        "title",
+        "equity",
+        "amortization",
+        "pmi",
+        "points",
+        "origination",
+        "afford",
+        "budget",
+        "process",
     ]
     return _contains_any(text, mortgage_terms)
 
@@ -79,6 +109,7 @@ def _is_education_question(text: str) -> bool:
         "pre approved",
         "prequalified",
         "refinance",
+        "refinancing",
         "dscr",
         "rate",
         "apr",
@@ -88,6 +119,20 @@ def _is_education_question(text: str) -> bool:
         "house",
         "property",
         "afford",
+        "buying",
+        "purchase",
+        "lender",
+        "credit",
+        "down payment",
+        "qualify",
+        "step",
+        "process",
+        "approval",
+        "escrow",
+        "equity",
+        "title",
+        "underwriting",
+        "appraisal",
     ]
     return _contains_any(text, education_markers) and _contains_any(text, education_topics)
 
@@ -112,8 +157,17 @@ def classify_user_intent(question: str) -> RouteDecision:
         "prequalified",
         "pre-qualified",
         "buy a home",
+        "buying a home",
+        "purchase a home",
+        "purchasing a home",
         "refinance my mortgage",
         "dscr loan",
+    ]
+    explicit_application_triggers = [
+        "apply",
+        "get started",
+        "buy a home",
+        "refinance my mortgage",
     ]
     officer_triggers = [
         "talk to a loan officer",
@@ -143,6 +197,7 @@ def classify_user_intent(question: str) -> RouteDecision:
         )
 
     app_intent = _contains_any(text, application_triggers)
+    explicit_app_intent = _contains_any(text, explicit_application_triggers)
     officer_intent = _contains_any(text, officer_triggers)
     rate_intent = _contains_any(text, rate_triggers)
     education_intent = _is_education_question(text)
@@ -154,6 +209,15 @@ def classify_user_intent(question: str) -> RouteDecision:
             response_type="rag_then_offer_application",
             answer="",
             suggested_next_action="offer_start_rasa_application",
+            needs_rag=True,
+        )
+
+    # Educational prompts like "what is a DSCR loan" should stay in RAG.
+    if app_intent and education_intent and not explicit_app_intent:
+        return RouteDecision(
+            response_type="rag_response",
+            answer="",
+            suggested_next_action=None,
             needs_rag=True,
         )
 
