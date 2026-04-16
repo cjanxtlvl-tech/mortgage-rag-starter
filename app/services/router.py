@@ -100,18 +100,71 @@ def classify_user_intent(question: str) -> RouteDecision:
     purchase_intent = any(keyword in question.lower() for keyword in ["buy", "purchase", "home", "house"])
     comparison_intent = any(keyword in question.lower() for keyword in ["fha", "conventional", "best", "options"])
 
-    # Determine response type based on detected features
-    response_type = None
-    suggested_next_action = None
+    text = _normalize(question)
 
-    if personal_details and (purchase_intent or comparison_intent):
-        response_type = "rag_then_offer_application"
-        suggested_next_action = "offer_start_rasa_application"
-    elif purchase_intent:
-        response_type = "talk_to_loan_officer"
-        suggested_next_action = "handoff_to_loan_officer"
+    clarify_triggers = [
+        "i need help",
+        "need help",
+        "not sure where to start",
+        "where do i start",
+        "help me",
+    ]
+    application_triggers = [
+        "apply",
+        "get started",
+        "pre-approved",
+        "pre approved",
+        "preapproval",
+        "pre-approval",
+        "prequalified",
+        "pre-qualified",
+        "buy a home",
+        "buying a home",
+        "purchase a home",
+        "purchasing a home",
+        "refinance my mortgage",
+        "dscr loan",
+    ]
+    explicit_application_triggers = [
+        "apply",
+        "get started",
+        "buy a home",
+        "refinance my mortgage",
+    ]
+    officer_triggers = [
+        "talk to a loan officer",
+        "talk to loan officer",
+        "speak with someone",
+        "talk to someone",
+        "have someone call me",
+        "contact me",
+        "call me",
+    ]
+    rate_triggers = [
+        "today's rates",
+        "todays rates",
+        "rate quote",
+        "best mortgage rate",
+        "what rate can i get",
+        "get rates",
+        "rates",
+    ]
 
-    # Log detected features
+    if _contains_any(text, clarify_triggers):
+        return RouteDecision(
+            response_type="clarify_goal",
+            answer="I can help with mortgage education, rates, or next steps like applying. What would you like to do first?",
+            suggested_next_action="ask_clarifying_question",
+            needs_rag=False,
+        )
+
+    app_intent = _contains_any(text, application_triggers)
+    explicit_app_intent = _contains_any(text, explicit_application_triggers)
+    officer_intent = _contains_any(text, officer_triggers)
+    rate_intent = _contains_any(text, rate_triggers)
+    education_intent = _is_education_question(text)
+    mortgage_related = _is_mortgage_related(text)
+    has_combo_connector = _contains_any(text, [" and ", " also ", " plus "])
     logger.debug(
         "intent_features",
         extra={
