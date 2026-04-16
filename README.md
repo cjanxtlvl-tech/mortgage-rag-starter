@@ -6,8 +6,9 @@ Minimal local RAG starter for mortgage Q&A.
 - Endpoint: `POST /ask`
 - Retrieval: TF-IDF embeddings + FAISS cosine-style similarity
 - Generation: OpenAI LLM with context built from top retrieved chunks
+- Routing: lightweight intent router for Rasa handoff and flow-start actions
 
-The endpoint returns only a clean answer string.
+The endpoint returns a structured routing response for orchestration and Rasa integration.
 
 ## Requirements
 
@@ -89,7 +90,7 @@ UI features:
 ```bash
 curl -X POST http://127.0.0.1:8000/ask \
   -H "Content-Type: application/json" \
-  -d '{"question":"What is mortgage pre-approval?","top_k":4}'
+  -d '{"question":"What is mortgage pre-approval?"}'
 ```
 
 Alternative without `curl`:
@@ -100,7 +101,7 @@ import json
 import urllib.request
 
 url = "http://127.0.0.1:8000/ask"
-payload = {"question": "What is mortgage pre-approval?", "top_k": 4}
+payload = {"question": "What is mortgage pre-approval?"}
 
 req = urllib.request.Request(
     url,
@@ -118,14 +119,68 @@ Example response:
 
 ```json
 {
-  "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow. It is stronger than pre-qualification and can help when you submit an offer."
+  "type": "rag_response",
+  "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow.",
+  "suggested_next_action": null,
+  "sources": ["mortgage_knowledge_base.json"]
 }
 ```
 
-Expected result: HTTP `200 OK` with a JSON body containing only `answer`.
+Expected result: HTTP `200 OK` with this shape:
+
+```json
+{
+  "type": "rag_response | start_application | talk_to_loan_officer | rate_request | rag_then_offer_application | rag_then_offer_loan_officer | clarify_goal | fallback",
+  "answer": "clean user-facing response",
+  "suggested_next_action": "string-or-null",
+  "sources": ["source_file_names_for_rag_only"]
+}
+```
 
 Response includes:
-- `answer`: clean conversational response grounded in retrieved context
+- `type`: routing category that downstream orchestrators (like Rasa) should branch on
+- `answer`: clean borrower-facing text
+- `suggested_next_action`: next orchestration hint for Rasa (`start_rasa_application`, `handoff_to_loan_officer`, etc.)
+- `sources`: source filenames for RAG-based responses; empty for non-RAG routes
+
+### Rasa Routing Contract
+
+Use `type` as the primary switch in Rasa or middleware:
+
+- `start_application` -> start mortgage application flow
+- `talk_to_loan_officer` -> start loan-officer handoff flow
+- `rate_request` -> start rate-quote flow
+- `rag_response` -> send answer directly to user
+- `rag_then_offer_application` -> send answer and offer application CTA
+- `rag_then_offer_loan_officer` -> send answer and offer loan officer CTA
+- `clarify_goal` -> ask a guided clarifying question
+- `fallback` -> out-of-scope fallback message
+
+### Additional Curl Examples
+
+Start application intent:
+
+```bash
+curl -X POST http://127.0.0.1:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question":"I want to apply for a mortgage"}'
+```
+
+Talk to loan officer intent:
+
+```bash
+curl -X POST http://127.0.0.1:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Can I talk to a loan officer?"}'
+```
+
+Rate request intent:
+
+```bash
+curl -X POST http://127.0.0.1:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question":"What rate can I get today?"}'
+```
 
 ## One-Command Smoke Test
 
@@ -133,7 +188,7 @@ Run a full local smoke test that:
 - rebuilds the index
 - starts the API temporarily
 - sends a POST request to `/ask`
-- validates `answer`-only response structure
+- validates structured routing response shape
 - shuts the API down automatically
 
 ```bash
@@ -187,6 +242,7 @@ export OPENAI_API_KEY="your_api_key_here"
 - `app/main.py`: FastAPI app and `/ask` route
 - `app/config.py`: local paths and defaults
 - `app/schemas.py`: request/response models
+- `app/services/router.py`: intent classification and route decisioning
 - `app/rag/loader.py`: JSON knowledge loader
 - `app/rag/chunking.py`: chunking logic
 - `app/rag/embedder.py`: TF-IDF embedding logic

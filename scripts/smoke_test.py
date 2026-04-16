@@ -47,22 +47,36 @@ def validate_response(payload: dict) -> None:
         raise AssertionError("Expected JSON object response")
 
     response_type = payload.get("type")
-    if response_type not in {"rag_response", "handoff"}:
-        raise AssertionError("Response 'type' must be 'rag_response' or 'handoff'")
+    valid_types = {
+        "rag_response",
+        "start_application",
+        "talk_to_loan_officer",
+        "rate_request",
+        "rag_then_offer_application",
+        "rag_then_offer_loan_officer",
+        "clarify_goal",
+        "fallback",
+    }
+    if response_type not in valid_types:
+        raise AssertionError("Unexpected response type")
 
-    if response_type == "rag_response":
-        if "answer" not in payload:
-            raise AssertionError("Missing 'answer' in rag_response")
-        if not isinstance(payload["answer"], str) or not payload["answer"].strip():
-            raise AssertionError("'answer' must be a non-empty string")
-        return
+    if "answer" not in payload:
+        raise AssertionError("Missing 'answer' field")
+    if not isinstance(payload["answer"], str) or not payload["answer"].strip():
+        raise AssertionError("'answer' must be a non-empty string")
 
-    if "action" not in payload:
-        raise AssertionError("Missing 'action' in handoff response")
+    if "suggested_next_action" not in payload:
+        raise AssertionError("Missing 'suggested_next_action' field")
 
-    valid_actions = {"start_application", "get_rates", "connect_loan_officer"}
-    if payload["action"] not in valid_actions:
-        raise AssertionError("Unexpected handoff action")
+    if "sources" not in payload or not isinstance(payload["sources"], list):
+        raise AssertionError("Missing or invalid 'sources' field")
+
+    rag_based_types = {"rag_response", "rag_then_offer_application", "rag_then_offer_loan_officer"}
+    if response_type in rag_based_types and len(payload["sources"]) == 0:
+        raise AssertionError("RAG-based responses must include at least one source")
+
+    if response_type not in rag_based_types and payload["sources"]:
+        raise AssertionError("Non-RAG responses must not include sources")
 
 
 def run() -> int:
@@ -107,20 +121,32 @@ def run() -> int:
         )
         validate_response(response)
 
-        handoff_response = post_json(
+        apply_response = post_json(
             ASK_URL,
             {
                 "question": "I want to apply for a mortgage",
                 "top_k": 3,
             },
         )
-        validate_response(handoff_response)
-        if handoff_response.get("type") != "handoff":
-            raise AssertionError("Expected handoff response for apply intent")
+        validate_response(apply_response)
+        if apply_response.get("type") != "start_application":
+            raise AssertionError("Expected start_application for apply intent")
+
+        fallback_response = post_json(
+            ASK_URL,
+            {
+                "question": "How do I cook pasta?",
+                "top_k": 3,
+            },
+        )
+        validate_response(fallback_response)
+        if fallback_response.get("type") != "fallback":
+            raise AssertionError("Expected fallback for out-of-scope intent")
 
         print("Smoke test PASSED")
         print(f"RAG answer length: {len(response.get('answer', ''))}")
-        print(f"Handoff action: {handoff_response.get('action')}")
+        print(f"Apply route type: {apply_response.get('type')}")
+        print(f"Fallback route type: {fallback_response.get('type')}")
         return 0
     finally:
         proc.terminate()

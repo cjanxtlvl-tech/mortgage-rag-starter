@@ -211,11 +211,13 @@
           throw new Error(data.detail || "Request failed");
         }
 
-        if (data.type === "handoff") {
-          answerEl.textContent = `Handoff to Rasa: ${data.action}`;
-        } else {
-          answerEl.textContent = data.answer || "No answer returned.";
-        }
+        const type = data.type || "unknown";
+        const action = data.suggested_next_action ? `\n\nNext action: ${data.suggested_next_action}` : "";
+        const sources = Array.isArray(data.sources) && data.sources.length
+          ? `\n\nSources: ${data.sources.join(", ")}`
+          : "";
+
+        answerEl.textContent = `[${type}] ${data.answer || "No answer returned."}${action}${sources}`;
         setStatus("Request complete.");
       } catch (error) {
         setStatus(`Error: ${error.message}`, true);

@@ -37,6 +37,22 @@ def _build_context(matches: List[dict], max_chunks: int = 3) -> str:
     return "\n\n".join(selected)
 
 
+def _extract_sources(matches: List[dict], max_sources: int = 5) -> List[str]:
+    sources: List[str] = []
+    seen = set()
+
+    for item in matches:
+        source = str(item.get("source", "")).strip()
+        if not source or source in seen:
+            continue
+        seen.add(source)
+        sources.append(source)
+        if len(sources) >= max_sources:
+            break
+
+    return sources
+
+
 class RAGPipeline:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
@@ -118,4 +134,7 @@ class RAGPipeline:
 
         context = _build_context(matches, max_chunks=3)
         answer = generate_grounded_answer(question, context)
-        return {"answer": answer}
+        return {
+            "answer": answer,
+            "sources": _extract_sources(matches),
+        }
