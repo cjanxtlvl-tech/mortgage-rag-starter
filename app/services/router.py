@@ -101,6 +101,17 @@ def classify_user_intent(question: str) -> RouteDecision:
     comparison_intent = any(keyword in question.lower() for keyword in ["fha", "conventional", "best", "options"])
 
     # Log detected features
+    logger.debug(
+        "intent_features",
+        extra={
+            "personal_details": personal_details,
+            "purchase_intent": purchase_intent,
+            "comparison_intent": comparison_intent,
+            "response_type": response_type,
+            "suggested_next_action": suggested_next_action,
+            "classification": "educational" if education_intent else "scenario/high-intent" if personal_details else "fallback/out-of-domain",
+        },
+    )
     logger.debug(f"Detected features - Personal Details: {personal_details}, Purchase Intent: {purchase_intent}, Comparison Intent: {comparison_intent}")
 
     # Determine response type based on detected features

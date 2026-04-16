@@ -103,6 +103,20 @@ def _route_question(payload: AskRequest) -> AskResponse:
     )
 
     # Log detailed retrieval information for debugging and analytics
+    logger.info(
+        "ask_request",
+        extra={
+            "request_id": request_id,
+            "question": payload.question,
+            "response_type": decision.response_type,
+            "suggested_next_action": decision.suggested_next_action,
+            "display_sources": display_sources,
+            "top_k": payload.top_k,
+            "used_rag": decision.needs_rag,
+            "used_fallback": decision.response_type == "fallback",
+            "timestamp": time.time(),
+        },
+    )
     logging_service.log_ask_request(
         request_id=request_id,
         question=payload.question,
