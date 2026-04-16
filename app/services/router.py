@@ -119,6 +119,64 @@ def classify_user_intent(question: str) -> RouteDecision:
             needs_rag=False,
         )
 
+    text = _normalize(question)
+
+    clarify_triggers = [
+        "i need help",
+        "need help",
+        "not sure where to start",
+        "where do i start",
+        "help me",
+    ]
+    application_triggers = [
+        "apply",
+        "get started",
+        "pre-approved",
+        "pre approved",
+        "preapproval",
+        "pre-approval",
+        "prequalified",
+        "pre-qualified",
+        "buy a home",
+        "buying a home",
+        "purchase a home",
+        "purchasing a home",
+        "refinance my mortgage",
+        "dscr loan",
+    ]
+    explicit_application_triggers = [
+        "apply",
+        "get started",
+        "buy a home",
+        "refinance my mortgage",
+    ]
+    officer_triggers = [
+        "talk to a loan officer",
+        "talk to loan officer",
+        "speak with someone",
+        "talk to someone",
+        "have someone call me",
+        "contact me",
+        "call me",
+    ]
+    rate_triggers = [
+        "today's rates",
+        "todays rates",
+        "rate quote",
+        "best mortgage rate",
+        "what rate can i get",
+        "get rates",
+        "rates",
+    ]
+
+    if _contains_any(text, clarify_triggers):
+        return RouteDecision(
+            response_type="clarify_goal",
+            answer="I can help with mortgage education, rates, or next steps like applying. What would you like to do first?",
+            suggested_next_action="ask_clarifying_question",
+            needs_rag=False,
+        )
+
     app_intent = _contains_any(text, application_triggers)
     explicit_app_intent = _contains_any(text, explicit_application_triggers)
     officer_intent = _contains_any(text, officer_triggers)
@@ -142,7 +200,41 @@ def classify_user_intent(question: str) -> RouteDecision:
             suggested_next_action=None,
             needs_rag=True,
         )
-    else:
+
+    if officer_intent and education_intent and has_combo_connector:
+        return RouteDecision(
+            response_type="rag_then_offer_loan_officer",
+            answer="",
+            suggested_next_action="offer_handoff_to_loan_officer",
+            needs_rag=True,
+        )
+
+    # Direct application intent
+    if explicit_app_intent:
+        return RouteDecision(
+            response_type="start_application",
+            answer="Great. We can begin with a few questions to help match you with the right mortgage path.",
+            suggested_next_action="start_rasa_application",
+            needs_rag=False,
+        )
+
+    if officer_intent:
+        return RouteDecision(
+            response_type="talk_to_loan_officer",
+            answer="Yes. We can connect you with a loan officer for personalized guidance.",
+            suggested_next_action="handoff_to_loan_officer",
+            needs_rag=False,
+        )
+
+    if rate_intent:
+        return RouteDecision(
+            response_type="rate_request",
+            answer="I can help with rate guidance. To provide personalized options, we should start a quick rate request flow.",
+            suggested_next_action="start_rate_flow",
+            needs_rag=False,
+        )
+
+    if mortgage_related or _is_mortgage_related(text):
         return RouteDecision(
             response_type="rag_response",
             answer="",
@@ -150,11 +242,20 @@ def classify_user_intent(question: str) -> RouteDecision:
             needs_rag=True,
         )
 
-    # Log final decision
-    logger.debug(f"Final response type: {response_type}")
+    if any(phrase in text for phrase in ["can i", "does it", "will it"]) and mortgage_related:
+        return RouteDecision(
+            response_type="rag_then_offer_application",
+            answer="",
+            suggested_next_action="offer_start_rasa_application",
+            needs_rag=True,
+        )
 
-    return RouteDecision(response_type=response_type)
-    text = _normalize(question)
+    return RouteDecision(
+        response_type="fallback",
+        answer="I can currently help with mortgage and home-loan questions. If you share your mortgage goal, I can guide your next step.",
+        suggested_next_action=None,
+        needs_rag=False,
+    )
 
     clarify_triggers = [
         "i need help",
