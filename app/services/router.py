@@ -110,6 +110,7 @@ def classify_user_intent(question: str) -> RouteDecision:
             answer="",
             suggested_next_action="offer_start_rasa_application",
             needs_rag=True,
+        )
     elif purchase_intent:
         return RouteDecision(
             response_type="talk_to_loan_officer",
