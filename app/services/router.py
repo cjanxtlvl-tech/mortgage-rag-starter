@@ -32,60 +32,13 @@ def _contains_any(text: str, phrases: list[str]) -> bool:
 
 
 def _is_mortgage_related(text: str) -> bool:
-    mortgage_terms = [
-        "mortgage",
-        "home loan",
-        "loan",
-        "preapproval",
-        "pre-approval",
-        "preapproved",
-        "pre-qualified",
-        "prequalified",
-        "refinance",
-        "refinancing",
-        "interest rate",
-        "rate",
-        "down payment",
-        "closing cost",
-        "escrow",
-        "apr",
-        "dscr",
-        "debt to income",
-        "dti",
-        "buy a home",
-        "buying a home",
-        "buying home",
-        "home buying",
-        "purchase a home",
-        "purchasing a home",
-        "first home",
-        "first-time buyer",
-        "first time buyer",
-        "home buyer",
-        "homebuyer",
-        "home purchase",
-        "home ownership",
-        "homeownership",
-        "house",
-        "property",
-        "lender",
-        "borrower",
-        "credit score",
-        "qualify",
-        "qualification",
-        "underwriting",
-        "appraisal",
-        "title",
-        "equity",
-        "amortization",
-        "pmi",
-        "points",
-        "origination",
-        "afford",
-        "budget",
-        "process",
+    keywords = [
+        "mortgage", "loan", "home", "house", "refinance", "rate",
+        "pre approval", "pre-approval", "prequal", "pre-qualify",
+        "prequalification", "credit", "dscr", "fha", "va loan",
+        "pre approval credit", "credit check mortgage"
     ]
-    return _contains_any(text, mortgage_terms)
+    return any(keyword in text.lower() for keyword in keywords)
 
 
 def _is_education_question(text: str) -> bool:
@@ -253,11 +206,19 @@ def classify_user_intent(question: str) -> RouteDecision:
             needs_rag=False,
         )
 
-    if mortgage_related:
+    if mortgage_related or _is_mortgage_related(text):
         return RouteDecision(
             response_type="rag_response",
             answer="",
             suggested_next_action=None,
+            needs_rag=True,
+        )
+
+    if any(phrase in text for phrase in ["can i", "does it", "will it"]) and mortgage_related:
+        return RouteDecision(
+            response_type="rag_then_offer_application",
+            answer="",
+            suggested_next_action="offer_start_rasa_application",
             needs_rag=True,
         )
 
