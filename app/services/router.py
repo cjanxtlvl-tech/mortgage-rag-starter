@@ -100,6 +100,17 @@ def classify_user_intent(question: str) -> RouteDecision:
     purchase_intent = any(keyword in question.lower() for keyword in ["buy", "purchase", "home", "house"])
     comparison_intent = any(keyword in question.lower() for keyword in ["fha", "conventional", "best", "options"])
 
+    # Determine response type based on detected features
+    response_type = None
+    suggested_next_action = None
+
+    if personal_details and (purchase_intent or comparison_intent):
+        response_type = "rag_then_offer_application"
+        suggested_next_action = "offer_start_rasa_application"
+    elif purchase_intent:
+        response_type = "talk_to_loan_officer"
+        suggested_next_action = "handoff_to_loan_officer"
+
     # Log detected features
     logger.debug(
         "intent_features",
