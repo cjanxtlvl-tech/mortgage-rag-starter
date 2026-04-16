@@ -32,7 +32,9 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "Question:\n"
         f"{question}\n\n"
         "Craft a concise, personalized response with educational value. "
-        "Limit to 2-4 short paragraphs or bullets, and include one CTA at the end."
+        "Limit to 2-4 short paragraphs or bullets, and ensure the response ends with one clear CTA: "
+        "'If you'd like, we can start a short application flow to match you with the right mortgage path.' "
+        "Remove any pre-CTA or duplicate CTA sentences."
     )
 
     response = client.chat.completions.create(
