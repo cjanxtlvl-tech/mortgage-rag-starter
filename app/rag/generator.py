@@ -21,14 +21,16 @@ def generate_grounded_answer(question: str, context: str) -> str:
         "You are a mortgage advisor. "
         "Use the user's details, such as credit score and down payment, to personalize your response. "
         "Mention specific loan programs like FHA or conventional when relevant. "
-        "Avoid vague phrases and ensure compliance-safe language."
+        "Keep responses concise and conversational, focusing on key points. "
+        "Ensure compliance-safe language and include one clear CTA at the end."
     )
     user_prompt = (
         "Context:\n"
         f"{context}\n\n"
         "Question:\n"
         f"{question}\n\n"
-        "Provide a detailed, personalized answer that includes educational context before any conversion CTA."
+        "Craft a concise, personalized response with educational value. "
+        "Limit to 2-4 short paragraphs or bullets, and include one CTA at the end."
     )
 
     response = client.chat.completions.create(
