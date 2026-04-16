@@ -295,13 +295,15 @@ def classify_user_intent(question: str) -> RouteDecision:
             needs_rag=True,
         )
 
-    # Direct application intent
-    if explicit_app_intent:
+    # Document-related questions should provide educational response first
+    document_related = any(keyword in question.lower() for keyword in ["documents", "paperwork", "required documents", "application documents"])
+
+    if document_related:
         return RouteDecision(
-            response_type="start_application",
-            answer="Great. We can begin with a few questions to help match you with the right mortgage path.",
-            suggested_next_action="start_rasa_application",
-            needs_rag=False,
+            response_type="rag_then_offer_application",
+            answer="To apply for a mortgage, you'll typically need documents like proof of income, tax returns, and bank statements. If you're ready, we can start the application process.",
+            suggested_next_action="offer_start_rasa_application",
+            needs_rag=True,
         )
 
     if officer_intent:
