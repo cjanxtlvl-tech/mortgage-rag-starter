@@ -178,5 +178,35 @@
     "topic": "Compliance / Education",
     "question": "Are these investor loan answers final approval decisions?",
     "answer": "No. These responses are for general educational purposes only. Final approval, pricing, and program eligibility always depend on lender review, documentation, appraisal or valuation where applicable, and underwriting."
+  },
+  {
+    "title": "First step to buying a rental property",
+    "topic": "Investor / Strategy",
+    "question": "What is the first step to buying a rental property?",
+    "answer": "The first step is to assess your financial situation and investment goals. Researching the market and getting pre-approved for financing can help you understand your budget and options."
+  },
+  {
+    "title": "How do I finance my first investment property?",
+    "topic": "Investor / Financing",
+    "question": "How can I finance my first investment property?",
+    "answer": "Financing options include conventional loans, DSCR loans, and portfolio loans. Each has different requirements and benefits. Consulting with a lender can help you choose the best option for your situation."
+  },
+  {
+    "title": "What is cash-on-cash return?",
+    "topic": "Investor / Metrics",
+    "question": "What does cash-on-cash return mean in real estate investing?",
+    "answer": "Cash-on-cash return measures the annual return on an investment compared to the cash invested. It helps investors evaluate the profitability of a property. Calculations vary based on expenses and income."
+  },
+  {
+    "title": "What is cap rate?",
+    "topic": "Investor / Metrics",
+    "question": "What is cap rate in real estate investing?",
+    "answer": "Cap rate, or capitalization rate, is a metric used to assess the potential return on an investment property. It is calculated by dividing the net operating income by the property's value. Higher cap rates indicate higher potential returns."
+  },
+  {
+    "title": "How do I know if a rental property is a good investment?",
+    "topic": "Investor / Strategy",
+    "question": "How can I determine if a rental property is a good investment?",
+    "answer": "Evaluating a rental property involves analyzing cash flow, cap rate, location, and market trends. Consulting with real estate professionals and conducting thorough research can help you make informed decisions."
   }
 ]

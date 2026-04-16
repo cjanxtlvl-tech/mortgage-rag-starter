@@ -88,5 +88,33 @@
     "topic": "Rates",
     "question": "What does it mean to lock a mortgage rate?",
     "answer": "Locking your rate means securing your interest rate for a specific period while your loan is processed. This protects you from rate increases during that time, though terms vary by lender."
+  },
+  {
+    "question": "How much house can I afford?",
+    "answer": "The amount you can afford depends on your income, debts, credit score, and down payment. Lenders typically use a debt-to-income ratio to determine affordability. It's important to consider your budget and future financial goals."
+  },
+  {
+    "question": "How do mortgage rates affect affordability?",
+    "answer": "Higher mortgage rates increase monthly payments, reducing the amount you can borrow. Lower rates can improve affordability by allowing you to qualify for a larger loan with the same budget."
+  },
+  {
+    "question": "What is debt-to-income ratio and what is the maximum allowed?",
+    "answer": "The debt-to-income ratio compares your monthly debt payments to your income. Lenders prefer a ratio below 43%, but some programs allow higher ratios with compensating factors."
+  },
+  {
+    "question": "Can I still qualify with bad credit?",
+    "answer": "Qualifying with bad credit can be challenging, but some loan programs are more flexible. Improving your credit score and providing a larger down payment can enhance your chances. Guidelines vary by lender."
+  },
+  {
+    "question": "What is the minimum credit score needed?",
+    "answer": "Minimum credit score requirements vary by loan type and lender. Some programs accept scores as low as 580, while others require higher scores for better rates. Your full financial profile is also considered."
+  },
+  {
+    "question": "Can I qualify with self-employment income?",
+    "answer": "Yes, self-employed borrowers can qualify for a mortgage, but the income review is often more document-intensive. Lenders may require tax returns, business records, or alternative documentation."
+  },
+  {
+    "question": "How does student loan debt affect qualification?",
+    "answer": "Student loan debt impacts your debt-to-income ratio, which lenders use to assess repayment capacity. Managing your debt and maintaining a good credit score can improve your chances of qualifying."
   }
 ]

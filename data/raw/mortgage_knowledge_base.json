@@ -148,5 +148,71 @@
     "topic": "Compliance / Education",
     "question": "Are chatbot answers final loan approvals or underwriting decisions?",
     "answer": "No. Chatbot responses should be treated as general educational information only. Final eligibility, pricing, and approval always depend on a full application, lender review, documentation, appraisal where applicable, and underwriting."
+  },
+  {
+    "title": "Step-by-step home buying process",
+    "topic": "Home Purchase",
+    "question": "What are the steps in the home buying process?",
+    "answer": "The home buying process typically includes getting pre-approved, finding a home, making an offer, conducting inspections, securing financing, and closing the deal. Each step involves specific tasks and timelines."
+  },
+  {
+    "title": "How long does it take to buy a home?",
+    "topic": "Home Purchase",
+    "question": "How long does it take to buy a home?",
+    "answer": "The time to buy a home can vary, but it often takes 30 to 60 days from offer acceptance to closing. Factors like financing, inspections, and negotiations can affect the timeline."
+  },
+  {
+    "title": "What is earnest money?",
+    "topic": "Home Purchase",
+    "question": "What is earnest money in a home purchase?",
+    "answer": "Earnest money is a deposit made to show a buyer's serious intent to purchase a home. It is typically held in escrow and applied to the purchase price at closing. Terms vary by contract."
+  },
+  {
+    "title": "What is an appraisal and why is it required?",
+    "topic": "Home Purchase",
+    "question": "Why do I need an appraisal when buying a home?",
+    "answer": "An appraisal is required to assess the property's market value and ensure the loan amount is appropriate. It protects both the lender and buyer from overpaying. Guidelines vary by lender."
+  },
+  {
+    "title": "What is underwriting?",
+    "topic": "Home Purchase",
+    "question": "What is underwriting in the mortgage process?",
+    "answer": "Underwriting is the lender's process of evaluating a borrower's financial profile to determine loan eligibility. It involves reviewing credit, income, assets, and the property itself."
+  },
+  {
+    "title": "Home inspection vs appraisal",
+    "topic": "Home Purchase",
+    "question": "What is the difference between a home inspection and an appraisal?",
+    "answer": "A home inspection assesses the property's condition, while an appraisal evaluates its market value. Both are important but serve different purposes in the home buying process."
+  },
+  {
+    "title": "Should I get pre-approved before shopping?",
+    "topic": "Home Purchase",
+    "question": "Is it important to get pre-approved before looking for a home?",
+    "answer": "Yes, getting pre-approved helps you understand your budget and shows sellers you are a serious buyer. It can make your offer more competitive in a competitive market."
+  },
+  {
+    "title": "What is a USDA loan?",
+    "topic": "Loan Types",
+    "question": "What is a USDA loan?",
+    "answer": "A USDA loan is a government-backed mortgage for eligible rural and suburban homebuyers. It offers low interest rates and no down payment options. Eligibility depends on location and income."
+  },
+  {
+    "title": "What is a bridge loan?",
+    "topic": "Loan Types",
+    "question": "What is a bridge loan?",
+    "answer": "A bridge loan is a short-term loan used to bridge the gap between buying a new home and selling an existing one. It provides temporary financing until permanent funding is secured."
+  },
+  {
+    "title": "Fixed vs adjustable rate — which is better?",
+    "topic": "Loan Types",
+    "question": "Is a fixed-rate or adjustable-rate mortgage better?",
+    "answer": "The choice depends on your financial situation and risk tolerance. Fixed-rate mortgages offer stability, while adjustable-rate mortgages may start with lower payments but can fluctuate over time."
+  },
+  {
+    "title": "15-year vs 30-year mortgage",
+    "topic": "Loan Types",
+    "question": "What are the differences between a 15-year and a 30-year mortgage?",
+    "answer": "A 15-year mortgage typically has higher monthly payments but lower total interest costs, while a 30-year mortgage offers lower payments with more interest over time. The best choice depends on your financial goals."
   }
 ]
