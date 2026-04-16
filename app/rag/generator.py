@@ -50,4 +50,9 @@ def generate_grounded_answer(question: str, context: str) -> str:
     answer = (content or "").strip()
     if not answer:
         raise RuntimeError("The language model returned an empty answer.")
+    # Deduplicate the final CTA if it appears more than once
+    final_cta = "If you'd like, we can start a short application flow to match you with the right mortgage path."
+    if answer.endswith(final_cta + "\n\n" + final_cta):
+        answer = answer[: -len(final_cta) - 2]
+
     return answer
