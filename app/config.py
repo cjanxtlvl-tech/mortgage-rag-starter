@@ -1,3 +1,4 @@
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -10,6 +11,7 @@ class Settings:
     index_path: Path
     chunks_path: Path
     vectorizer_path: Path
+    rasa_webhook_url: str
     embedding_dim_floor: int = 8
     default_chunk_size_words: int = 120
     default_chunk_overlap_words: int = 30
@@ -27,4 +29,5 @@ def get_settings() -> Settings:
         index_path=index_dir / "mortgage.index.faiss",
         chunks_path=index_dir / "mortgage_chunks.json",
         vectorizer_path=index_dir / "mortgage_vectorizer.pkl",
+        rasa_webhook_url=os.getenv("RASA_WEBHOOK_URL", "http://127.0.0.1:5005/webhooks/rest/webhook").strip(),
     )
