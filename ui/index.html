@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mortgage RAG Tester</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #dbe2ea;
+      --accent: #0f766e;
+      --accent-2: #0b5f59;
+      --danger: #b91c1c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    p.helper {
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.6rem 0 0.4rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    textarea,
+    input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 130px;
+      gap: 0.8rem;
+      align-items: end;
+    }
+
+    button {
+      margin-top: 1rem;
+      border: 0;
+      border-radius: 8px;
+      padding: 0.7rem 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--accent-2); }
+    button:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    .status {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .status.error { color: var(--danger); }
+
+    .result {
+      margin-top: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .answer {
+      white-space: pre-wrap;
+      background: #fbfdff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem;
+    }
+
+    .source {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem;
+      margin-top: 0.6rem;
+      background: #fcfcff;
+    }
+
+    .source h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.92rem;
+    }
+
+    .source .meta {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .source .text {
+      white-space: pre-wrap;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Mortgage RAG Lite UI</h1>
+      <p class="helper">Enter a question and get a clean grounded response from POST /ask.</p>
+
+      <div class="row">
+        <div>
+          <label for="question">Question</label>
+          <textarea id="question" placeholder="Example: What is mortgage pre-approval?"></textarea>
+        </div>
+        <div>
+          <label for="topK">Top K</label>
+          <input id="topK" type="number" min="1" max="10" value="4">
+        </div>
+      </div>
+
+      <button id="askBtn" type="button">Ask</button>
+      <div id="status" class="status"></div>
+
+      <div class="result">
+        <h2>Answer</h2>
+        <div id="answer" class="answer">No response yet.</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const askBtn = document.getElementById("askBtn");
+    const questionEl = document.getElementById("question");
+    const topKEl = document.getElementById("topK");
+    const statusEl = document.getElementById("status");
+    const answerEl = document.getElementById("answer");
+
+    function setStatus(text, isError = false) {
+      statusEl.textContent = text;
+      statusEl.className = isError ? "status error" : "status";
+    }
+
+    async function ask() {
+      const question = questionEl.value.trim();
+      const top_k = Number(topKEl.value || 4);
+
+      if (!question) {
+        setStatus("Please enter a question.", true);
+        return;
+      }
+
+      askBtn.disabled = true;
+      setStatus("Sending request...");
+
+      try {
+        const response = await fetch("/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question, top_k }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.detail || "Request failed");
+        }
+
+        answerEl.textContent = data.answer || "No answer returned.";
+        setStatus("Request complete.");
+      } catch (error) {
+        setStatus(`Error: ${error.message}`, true);
+      } finally {
+        askBtn.disabled = false;
+      }
+    }
+
+    askBtn.addEventListener("click", ask);
+    questionEl.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        ask();
+      }
+    });
+  </script>
+</body>
+</html>

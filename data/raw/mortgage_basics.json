@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "fixed_vs_adjustable",
+    "question": "What is the difference between a fixed-rate mortgage and an adjustable-rate mortgage?",
+    "answer": "A fixed-rate mortgage keeps the same interest rate for the full loan term. An adjustable-rate mortgage (ARM) starts with a fixed rate for an initial period, then can increase or decrease based on market indexes and caps."
+  },
+  {
+    "topic": "down_payment",
+    "question": "How much down payment do I need for a home loan?",
+    "answer": "Down payment requirements vary by loan program, credit profile, and occupancy. Some programs allow lower down payments, while others may require more to reduce lender risk."
+  },
+  {
+    "topic": "preapproval",
+    "question": "What is mortgage pre-approval?",
+    "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow. It is stronger than pre-qualification and often helps when making offers."
+  },
+  {
+    "topic": "closing_costs",
+    "question": "What are closing costs in a mortgage?",
+    "answer": "Closing costs are fees paid at settlement and may include lender fees, title charges, escrow items, recording fees, and prepaid taxes or insurance."
+  }
+]

@@ -1,0 +1,19 @@
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Local secrets
+.env
+.env.*
+
+# Editor/OS files
+.vscode/
+.DS_Store
+
+# Local generated artifacts
+*.log
