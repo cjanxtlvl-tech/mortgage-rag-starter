@@ -1,0 +1,855 @@
+{
+  "version": "2026-04-18-optimized",
+  "title": "Mortgage RAG Ingestion Answers - Gap Coverage and Fragmented Query Batch",
+  "description": "Knowledge chunks answering failed mortgage chatbot questions. Content format optimized for stronger TF-IDF and FAISS retrieval with question variants, search phrases, and keyword anchors.",
+  "source_input_file": "mortgage_rag_ingestion_answers(1).json + tighten_ingestion_content.py + proactive coverage gaps",
+  "source_count": 48,
+  "entries": [
+    {
+      "id": "mtg-gap-001",
+      "question": "What is the difference between a HELOC and a cash-out refinance?",
+      "answer": "A HELOC is a separate revolving line secured by your home, while a cash-out refinance replaces your existing first mortgage with a new, larger mortgage and gives you the difference in cash. Which one is better depends on your current rate, equity, goals, and whether you want one payment or a separate line of credit.",
+      "content": "Primary question: What is the difference between a HELOC and a cash-out refinance?\nBorrower asks: What is the difference between a HELOC and a cash-out refinance?\nSearch phrases: What is the difference between a HELOC and a cash-out refinance? | what is the difference between a heloc and a cash-out refinance\nKeywords: cash out; equity; heloc; refinance\nDirect answer: A HELOC is a separate revolving line secured by your home, while a cash-out refinance replaces your existing first mortgage with a new, larger mortgage and gives you the difference in cash. Which one is better depends on your current rate, equity, goals, and whether you want one payment or a separate line of credit.\nExpanded answer: A HELOC is a separate revolving line secured by your home, while a cash-out refinance replaces your existing first mortgage with a new, larger mortgage and gives you the difference in cash. Which one is better depends on your current rate, equity, goals, and whether you want one payment or a separate line of credit.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "heloc",
+        "cash_out",
+        "refinance",
+        "equity"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-002",
+      "question": "Is a HELOC the same as a second mortgage?",
+      "answer": "A HELOC is one type of second mortgage because it sits behind the first mortgage in lien priority, but not every second mortgage is a HELOC. A closed-end home equity loan is another common type of second mortgage.",
+      "content": "Primary question: Is a HELOC the same as a second mortgage?\nBorrower asks: Is a HELOC the same as a second mortgage?\nSearch phrases: Is a HELOC the same as a second mortgage? | is a heloc the same as a second home loan | is a heloc the same as a second mortgage\nKeywords: equity; heloc; second mortgage\nDirect answer: A HELOC is one type of second mortgage because it sits behind the first mortgage in lien priority, but not every second mortgage is a HELOC. A closed-end home equity loan is another common type of second mortgage.\nExpanded answer: A HELOC is one type of second mortgage because it sits behind the first mortgage in lien priority, but not every second mortgage is a HELOC. A closed-end home equity loan is another common type of second mortgage.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "heloc",
+        "second_mortgage",
+        "equity"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-003",
+      "question": "What is a mortgage recast?",
+      "answer": "A mortgage recast is when the servicer recalculates your monthly principal-and-interest payment after you make a large lump-sum principal payment, but the original loan usually stays in place. It is different from a refinance because you are not replacing the old loan with a new one.",
+      "content": "Primary question: What is a mortgage recast?\nBorrower asks: What is a mortgage recast?\nSearch phrases: What is a mortgage recast? | what is a home loan recast | what is a mortgage recast\nKeywords: payment; recast; servicing\nDirect answer: A mortgage recast is when the servicer recalculates your monthly principal-and-interest payment after you make a large lump-sum principal payment, but the original loan usually stays in place. It is different from a refinance because you are not replacing the old loan with a new one.\nExpanded answer: A mortgage recast is when the servicer recalculates your monthly principal-and-interest payment after you make a large lump-sum principal payment, but the original loan usually stays in place. It is different from a refinance because you are not replacing the old loan with a new one.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "recast",
+        "payment",
+        "servicing"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-004",
+      "question": "Is recasting the same thing as refinancing?",
+      "answer": "No. A recast keeps the same mortgage and lowers the monthly payment after a principal reduction, while a refinance replaces the old mortgage with a new loan that can change the rate, term, and structure.",
+      "content": "Primary question: Is recasting the same thing as refinancing?\nBorrower asks: Is recasting the same thing as refinancing?\nSearch phrases: Is recasting the same thing as refinancing? | is recasting the same thing as refinancing\nKeywords: payment; recast; refinance\nDirect answer: No. A recast keeps the same mortgage and lowers the monthly payment after a principal reduction, while a refinance replaces the old mortgage with a new loan that can change the rate, term, and structure.\nExpanded answer: No. A recast keeps the same mortgage and lowers the monthly payment after a principal reduction, while a refinance replaces the old mortgage with a new loan that can change the rate, term, and structure.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "recast",
+        "refinance",
+        "payment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-005",
+      "question": "What is a 2-1 buydown mortgage?",
+      "answer": "A 2-1 buydown is a temporary interest-rate buydown where the borrower’s payment is typically reduced for the first two years before moving to the full note rate. It can help with early payment shock, but the borrower still needs to qualify under the applicable underwriting rules.",
+      "content": "Primary question: What is a 2-1 buydown mortgage?\nBorrower asks: What is a 2-1 buydown mortgage?\nSearch phrases: What is a 2-1 buydown mortgage? | what is a 2-1 buydown home loan | what is a 2-1 buydown mortgage\nKeywords: payment; rate; temporary buydown\nDirect answer: A 2-1 buydown is a temporary interest-rate buydown where the borrower’s payment is typically reduced for the first two years before moving to the full note rate. It can help with early payment shock, but the borrower still needs to qualify under the applicable underwriting rules.\nExpanded answer: A 2-1 buydown is a temporary interest-rate buydown where the borrower’s payment is typically reduced for the first two years before moving to the full note rate. It can help with early payment shock, but the borrower still needs to qualify under the applicable underwriting rules.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "temporary_buydown",
+        "payment",
+        "rate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b2-1.4-04/temporary-interest-rate-buydowns"
+      ]
+    },
+    {
+      "id": "mtg-gap-006",
+      "question": "Is a temporary buydown the same as discount points?",
+      "answer": "No. Discount points are usually paid to permanently reduce the interest rate, while a temporary buydown lowers the payment only for an introductory period. They can both affect upfront costs, but they work differently.",
+      "content": "Primary question: Is a temporary buydown the same as discount points?\nBorrower asks: Is a temporary buydown the same as discount points?\nSearch phrases: Is a temporary buydown the same as discount points? | is a temporary buydown the same as discount points\nKeywords: discount points; rate; temporary buydown\nDirect answer: No. Discount points are usually paid to permanently reduce the interest rate, while a temporary buydown lowers the payment only for an introductory period. They can both affect upfront costs, but they work differently.\nExpanded answer: No. Discount points are usually paid to permanently reduce the interest rate, while a temporary buydown lowers the payment only for an introductory period. They can both affect upfront costs, but they work differently.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "temporary_buydown",
+        "discount_points",
+        "rate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b2-1.4-04/temporary-interest-rate-buydowns"
+      ]
+    },
+    {
+      "id": "mtg-gap-007",
+      "question": "Can I assume someone else's mortgage?",
+      "answer": "Sometimes. Some government-backed loans, especially certain FHA and VA loans, may be assumable if the lender or servicer approves the transfer and the buyer qualifies. Many conventional loans are not freely assumable because of due-on-sale restrictions.",
+      "content": "Primary question: Can I assume someone else's mortgage?\nBorrower asks: Can I assume someone else's mortgage?\nSearch phrases: Can I assume someone else's mortgage? | can i assume someone else s home loan | can i assume someone else s mortgage\nKeywords: assumable; conventional; fha; va\nAcronyms: FHA: Federal Housing Administration | VA: Veterans Affairs\nDirect answer: Sometimes. Some government-backed loans, especially certain FHA and VA loans, may be assumable if the lender or servicer approves the transfer and the buyer qualifies. Many conventional loans are not freely assumable because of due-on-sale restrictions.\nExpanded answer: Sometimes. Some government-backed loans, especially certain FHA and VA loans, may be assumable if the lender or servicer approves the transfer and the buyer qualifies. Many conventional loans are not freely assumable because of due-on-sale restrictions.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "assumable",
+        "fha",
+        "va",
+        "conventional"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.benefits.va.gov/HOMELOANS/purchase_assumptions.asp"
+      ]
+    },
+    {
+      "id": "mtg-gap-008",
+      "question": "Are FHA loans assumable?",
+      "answer": "Many FHA-insured mortgages are assumable if the required approval and qualification steps are completed. Whether a specific loan can be assumed depends on its documents, servicer process, and program rules.",
+      "content": "Primary question: Are FHA loans assumable?\nBorrower asks: Are FHA loans assumable?\nSearch phrases: Are FHA loans assumable? | are fha loans assumable\nKeywords: assumable; fha\nAcronyms: FHA: Federal Housing Administration\nDirect answer: Many FHA-insured mortgages are assumable if the required approval and qualification steps are completed. Whether a specific loan can be assumed depends on its documents, servicer process, and program rules.\nExpanded answer: Many FHA-insured mortgages are assumable if the required approval and qualification steps are completed. Whether a specific loan can be assumed depends on its documents, servicer process, and program rules.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "fha",
+        "assumable"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-009",
+      "question": "Are VA loans assumable?",
+      "answer": "Many VA loans are assumable if the required approval and qualification steps are completed, but the veteran should also understand possible entitlement effects if the buyer is not an eligible substitute. The servicer and program rules matter.",
+      "content": "Primary question: Are VA loans assumable?\nBorrower asks: Are VA loans assumable?\nSearch phrases: Are VA loans assumable? | are va loans assumable\nKeywords: assumable; entitlement; va\nAcronyms: VA: Veterans Affairs\nDirect answer: Many VA loans are assumable if the required approval and qualification steps are completed, but the veteran should also understand possible entitlement effects if the buyer is not an eligible substitute. The servicer and program rules matter.\nExpanded answer: Many VA loans are assumable if the required approval and qualification steps are completed, but the veteran should also understand possible entitlement effects if the buyer is not an eligible substitute. The servicer and program rules matter.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "va",
+        "assumable",
+        "entitlement"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.benefits.va.gov/HOMELOANS/purchase_assumptions.asp"
+      ]
+    },
+    {
+      "id": "mtg-gap-010",
+      "question": "What is seller financing in real estate?",
+      "answer": "Seller financing is when the seller acts as the lender instead of a bank and the buyer makes payments under a note and security instrument agreed by the parties. It can help in some situations, but legal structure, servicing, title, compliance, and exit strategy matter a lot.",
+      "content": "Primary question: What is seller financing in real estate?\nBorrower asks: What is seller financing in real estate?\nSearch phrases: What is seller financing in real estate? | what is seller financing in real estate\nKeywords: owner financing; seller financing; title\nDirect answer: Seller financing is when the seller acts as the lender instead of a bank and the buyer makes payments under a note and security instrument agreed by the parties. It can help in some situations, but legal structure, servicing, title, compliance, and exit strategy matter a lot.\nExpanded answer: Seller financing is when the seller acts as the lender instead of a bank and the buyer makes payments under a note and security instrument agreed by the parties. It can help in some situations, but legal structure, servicing, title, compliance, and exit strategy matter a lot.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "seller_financing",
+        "owner_financing",
+        "title"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-011",
+      "question": "What is an appraisal gap?",
+      "answer": "An appraisal gap is the difference between the contract price and a lower appraised value. If the appraisal comes in low, the buyer and seller may renegotiate, the buyer may bring extra cash, or the deal may fall through depending on the contract terms.",
+      "content": "Primary question: What is an appraisal gap?\nBorrower asks: What is an appraisal gap?\nSearch phrases: What is an appraisal gap? | what is an appraisal gap\nKeywords: appraisal; cash to close; purchase contract\nDirect answer: An appraisal gap is the difference between the contract price and a lower appraised value. If the appraisal comes in low, the buyer and seller may renegotiate, the buyer may bring extra cash, or the deal may fall through depending on the contract terms.\nExpanded answer: An appraisal gap is the difference between the contract price and a lower appraised value. If the appraisal comes in low, the buyer and seller may renegotiate, the buyer may bring extra cash, or the deal may fall through depending on the contract terms.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "appraisal",
+        "purchase_contract",
+        "cash_to_close"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-012",
+      "question": "Can I waive my appraisal contingency and still get a mortgage?",
+      "answer": "Maybe, but waiving an appraisal contingency does not force the lender to ignore valuation. The lender can still require an appraisal or use automated value tools, and you may need extra cash if the value does not support the loan amount.",
+      "content": "Primary question: Can I waive my appraisal contingency and still get a mortgage?\nBorrower asks: Can I waive my appraisal contingency and still get a mortgage?\nSearch phrases: Can I waive my appraisal contingency and still get a mortgage? | can i waive my appraisal contingency and still get a home loan | can i waive my appraisal contingency and still get a mortgage\nKeywords: appraisal; cash to close; contingency\nDirect answer: Maybe, but waiving an appraisal contingency does not force the lender to ignore valuation. The lender can still require an appraisal or use automated value tools, and you may need extra cash if the value does not support the loan amount.\nExpanded answer: Maybe, but waiving an appraisal contingency does not force the lender to ignore valuation. The lender can still require an appraisal or use automated value tools, and you may need extra cash if the value does not support the loan amount.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "appraisal",
+        "contingency",
+        "cash_to_close"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-013",
+      "question": "What is a rate-lock extension?",
+      "answer": "A rate-lock extension is extra time added to an existing rate lock when the loan is not ready to close before the lock expires. It may involve a fee or pricing adjustment depending on the lender and market conditions.",
+      "content": "Primary question: What is a rate-lock extension?\nBorrower asks: What is a rate-lock extension?\nSearch phrases: What is a rate-lock extension? | what is a rate-lock extension\nKeywords: closing; pricing; rate lock\nDirect answer: A rate-lock extension is extra time added to an existing rate lock when the loan is not ready to close before the lock expires. It may involve a fee or pricing adjustment depending on the lender and market conditions.\nExpanded answer: A rate-lock extension is extra time added to an existing rate lock when the loan is not ready to close before the lock expires. It may involve a fee or pricing adjustment depending on the lender and market conditions.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "rate_lock",
+        "closing",
+        "pricing"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/"
+      ]
+    },
+    {
+      "id": "mtg-gap-014",
+      "question": "What happens if my rate lock expires before closing?",
+      "answer": "If the lock expires before closing, the lender may require a lock extension, a relock at current market pricing, or another pricing adjustment. The exact result depends on the lender’s policy and the reason for the delay.",
+      "content": "Primary question: What happens if my rate lock expires before closing?\nBorrower asks: What happens if my rate lock expires before closing?\nSearch phrases: What happens if my rate lock expires before closing? | what happens if my rate lock expires before closing\nKeywords: closing; pricing; rate lock\nDirect answer: If the lock expires before closing, the lender may require a lock extension, a relock at current market pricing, or another pricing adjustment. The exact result depends on the lender’s policy and the reason for the delay.\nExpanded answer: If the lock expires before closing, the lender may require a lock extension, a relock at current market pricing, or another pricing adjustment. The exact result depends on the lender’s policy and the reason for the delay.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "rate_lock",
+        "closing",
+        "pricing"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/"
+      ]
+    },
+    {
+      "id": "mtg-gap-015",
+      "question": "What is a non-warrantable condo?",
+      "answer": "A non-warrantable condo is a condo unit in a project that does not meet the standard eligibility rules used by many agency-backed lenders and investors. Financing may still be possible, but it is often more limited, more expensive, or handled through portfolio or specialized programs.",
+      "content": "Primary question: What is a non-warrantable condo?\nBorrower asks: What is a non-warrantable condo?\nSearch phrases: What is a non-warrantable condo? | what is a non-warrantable condo | what is a non-warrantable condominium\nKeywords: condo; non warrantable; project review\nDirect answer: A non-warrantable condo is a condo unit in a project that does not meet the standard eligibility rules used by many agency-backed lenders and investors. Financing may still be possible, but it is often more limited, more expensive, or handled through portfolio or specialized programs.\nExpanded answer: A non-warrantable condo is a condo unit in a project that does not meet the standard eligibility rules used by many agency-backed lenders and investors. Financing may still be possible, but it is often more limited, more expensive, or handled through portfolio or specialized programs.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "condo",
+        "non_warrantable",
+        "project_review"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b4-2.1-01/general-information-project-standards",
+        "https://selling-guide.fanniemae.com/sel/b4-2.1-03/ineligible-projects"
+      ]
+    },
+    {
+      "id": "mtg-gap-016",
+      "question": "What is a co-op mortgage or co-op share loan?",
+      "answer": "A co-op share loan finances shares in a cooperative housing corporation together with the right to occupy a specific unit, rather than financing direct fee-simple ownership of the unit itself. The underwriting and appraisal process can differ from a standard condo loan.",
+      "content": "Primary question: What is a co-op mortgage or co-op share loan?\nBorrower asks: What is a co-op mortgage or co-op share loan?\nSearch phrases: What is a co-op mortgage or co-op share loan? | what is a co-op home loan or co-op share loan | what is a co-op mortgage or co-op share loan\nKeywords: appraisal; co op; property type\nDirect answer: A co-op share loan finances shares in a cooperative housing corporation together with the right to occupy a specific unit, rather than financing direct fee-simple ownership of the unit itself. The underwriting and appraisal process can differ from a standard condo loan.\nExpanded answer: A co-op share loan finances shares in a cooperative housing corporation together with the right to occupy a specific unit, rather than financing direct fee-simple ownership of the unit itself. The underwriting and appraisal process can differ from a standard condo loan.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "co_op",
+        "property_type",
+        "appraisal"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b4-1.4-04/co-op-appraisal-requirements"
+      ]
+    },
+    {
+      "id": "mtg-gap-017",
+      "question": "Can manufactured homes be financed with a mortgage?",
+      "answer": "Yes, some manufactured homes can be financed, but eligibility depends on factors like title status, foundation, occupancy, age, property classification, and program rules. Not every manufactured home qualifies for every loan program.",
+      "content": "Primary question: Can manufactured homes be financed with a mortgage?\nBorrower asks: Can manufactured homes be financed with a mortgage?\nSearch phrases: Can manufactured homes be financed with a mortgage? | can manufactured homes be financed with a home loan | can manufactured homes be financed with a mortgage\nKeywords: foundation; manufactured home; property type\nDirect answer: Yes, some manufactured homes can be financed, but eligibility depends on factors like title status, foundation, occupancy, age, property classification, and program rules. Not every manufactured home qualifies for every loan program.\nExpanded answer: Yes, some manufactured homes can be financed, but eligibility depends on factors like title status, foundation, occupancy, age, property classification, and program rules. Not every manufactured home qualifies for every loan program.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "manufactured_home",
+        "property_type",
+        "foundation"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b5-2-01/manufactured-housing"
+      ]
+    },
+    {
+      "id": "mtg-gap-018",
+      "question": "What is a PUD in mortgage lending?",
+      "answer": "PUD stands for Planned Unit Development. It is a property type with common areas or shared amenities governed by a homeowners association, and the lender may review both the individual unit and aspects of the project or community.",
+      "content": "Primary question: What is a PUD in mortgage lending?\nBorrower asks: What is a PUD in mortgage lending?\nSearch phrases: What is a PUD in mortgage lending? | what is a pud in home loan lending | what is a pud in mortgage lending\nKeywords: hoa; property type; pud\nAcronyms: HOA: Homeowners Association\nDirect answer: PUD stands for Planned Unit Development. It is a property type with common areas or shared amenities governed by a homeowners association, and the lender may review both the individual unit and aspects of the project or community.\nExpanded answer: PUD stands for Planned Unit Development. It is a property type with common areas or shared amenities governed by a homeowners association, and the lender may review both the individual unit and aspects of the project or community.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "pud",
+        "property_type",
+        "hoa"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b4-2.1-01/general-information-project-standards"
+      ]
+    },
+    {
+      "id": "mtg-gap-019",
+      "question": "What is a gift of equity?",
+      "answer": "A gift of equity is when a seller, often a family member, sells a property to the buyer for less than market value and treats the difference as a gift. It can sometimes help with down payment or equity requirements if properly documented and allowed by the loan program.",
+      "content": "Primary question: What is a gift of equity?\nBorrower asks: What is a gift of equity?\nSearch phrases: What is a gift of equity? | what is a gift of equity\nKeywords: down payment; family sale; gift of equity\nDirect answer: A gift of equity is when a seller, often a family member, sells a property to the buyer for less than market value and treats the difference as a gift. It can sometimes help with down payment or equity requirements if properly documented and allowed by the loan program.\nExpanded answer: A gift of equity is when a seller, often a family member, sells a property to the buyer for less than market value and treats the difference as a gift. It can sometimes help with down payment or equity requirements if properly documented and allowed by the loan program.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "gift_of_equity",
+        "down_payment",
+        "family_sale"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-020",
+      "question": "What is earnest money and can I get it back?",
+      "answer": "Earnest money is a deposit showing good-faith intent to buy. Whether you get it back depends on the contract terms, timing, contingencies, and whether either party defaults.",
+      "content": "Primary question: What is earnest money and can I get it back?\nBorrower asks: What is earnest money and can I get it back?\nSearch phrases: What is earnest money and can I get it back? | what is earnest money and can i get it back\nKeywords: contingency; earnest money; purchase contract\nDirect answer: Earnest money is a deposit showing good-faith intent to buy. Whether you get it back depends on the contract terms, timing, contingencies, and whether either party defaults.\nExpanded answer: Earnest money is a deposit showing good-faith intent to buy. Whether you get it back depends on the contract terms, timing, contingencies, and whether either party defaults.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "earnest_money",
+        "purchase_contract",
+        "contingency"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-021",
+      "question": "What is the difference between prepaid items and closing costs?",
+      "answer": "Closing costs are the broader set of fees and charges connected to the loan and transaction, while prepaid items are amounts collected in advance for things like interest, taxes, insurance, or escrow setup. Both can affect how much cash you need at closing.",
+      "content": "Primary question: What is the difference between prepaid items and closing costs?\nBorrower asks: What is the difference between prepaid items and closing costs?\nSearch phrases: What is the difference between prepaid items and closing costs? | what is the difference between prepaid items and closing costs\nKeywords: cash to close; closing costs; escrow; prepaids\nDirect answer: Closing costs are the broader set of fees and charges connected to the loan and transaction, while prepaid items are amounts collected in advance for things like interest, taxes, insurance, or escrow setup. Both can affect how much cash you need at closing.\nExpanded answer: Closing costs are the broader set of fees and charges connected to the loan and transaction, while prepaid items are amounts collected in advance for things like interest, taxes, insurance, or escrow setup. Both can affect how much cash you need at closing.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "closing_costs",
+        "prepaids",
+        "cash_to_close",
+        "escrow"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-022",
+      "question": "What is an escrow waiver?",
+      "answer": "An escrow waiver means the borrower pays property taxes and insurance directly instead of having the servicer collect them monthly in an escrow account. Not all lenders or programs allow it, and some may charge pricing adjustments or require more equity.",
+      "content": "Primary question: What is an escrow waiver?\nBorrower asks: What is an escrow waiver?\nSearch phrases: What is an escrow waiver? | what is an escrow waiver\nKeywords: escrow; insurance; taxes; waiver\nDirect answer: An escrow waiver means the borrower pays property taxes and insurance directly instead of having the servicer collect them monthly in an escrow account. Not all lenders or programs allow it, and some may charge pricing adjustments or require more equity.\nExpanded answer: An escrow waiver means the borrower pays property taxes and insurance directly instead of having the servicer collect them monthly in an escrow account. Not all lenders or programs allow it, and some may charge pricing adjustments or require more equity.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "escrow",
+        "waiver",
+        "taxes",
+        "insurance"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://files.consumerfinance.gov/f/documents/cfpb_kbyo_guide-to-loan-estimate-and-closing-disclosure-forms_v2.0.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-023",
+      "question": "Does flood insurance affect mortgage approval?",
+      "answer": "Yes, it can affect qualification and closing costs because required flood insurance increases the housing expense and may be mandatory if the property is in a designated flood zone. Availability and cost can also affect the transaction.",
+      "content": "Primary question: Does flood insurance affect mortgage approval?\nBorrower asks: Does flood insurance affect mortgage approval?\nSearch phrases: Does flood insurance affect mortgage approval? | does flood insurance affect home loan approval | does flood insurance affect mortgage approval\nKeywords: approval; flood insurance; housing expense\nAcronyms: VA: Veterans Affairs\nDirect answer: Yes, it can affect qualification and closing costs because required flood insurance increases the housing expense and may be mandatory if the property is in a designated flood zone. Availability and cost can also affect the transaction.\nExpanded answer: Yes, it can affect qualification and closing costs because required flood insurance increases the housing expense and may be mandatory if the property is in a designated flood zone. Availability and cost can also affect the transaction.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "flood_insurance",
+        "housing_expense",
+        "approval"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-024",
+      "question": "What is title vesting?",
+      "answer": "Title vesting describes how legal ownership of the property is held, such as by one person, joint tenants, tenants in common, or an entity where allowed. Vesting can affect underwriting, title work, and how ownership transfers later.",
+      "content": "Primary question: What is title vesting?\nBorrower asks: What is title vesting?\nSearch phrases: What is title vesting? | what is title vesting\nKeywords: ownership; title; vesting\nDirect answer: Title vesting describes how legal ownership of the property is held, such as by one person, joint tenants, tenants in common, or an entity where allowed. Vesting can affect underwriting, title work, and how ownership transfers later.\nExpanded answer: Title vesting describes how legal ownership of the property is held, such as by one person, joint tenants, tenants in common, or an entity where allowed. Vesting can affect underwriting, title work, and how ownership transfers later.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "title",
+        "vesting",
+        "ownership"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-025",
+      "question": "Can I add someone to the title without adding them to the mortgage?",
+      "answer": "Sometimes, but title and mortgage liability are different things. A person can sometimes be added to ownership without becoming a borrower, but the lender, title company, and legal implications should be reviewed carefully because loan documents may restrict transfers.",
+      "content": "Primary question: Can I add someone to the title without adding them to the mortgage?\nBorrower asks: Can I add someone to the title without adding them to the mortgage?\nSearch phrases: Can I add someone to the title without adding them to the mortgage? | can i add someone to the title without adding them to the home loan | can i add someone to the title without adding them to the mortgage\nKeywords: mortgage liability; ownership; title\nDirect answer: Sometimes, but title and mortgage liability are different things. A person can sometimes be added to ownership without becoming a borrower, but the lender, title company, and legal implications should be reviewed carefully because loan documents may restrict transfers.\nExpanded answer: Sometimes, but title and mortgage liability are different things. A person can sometimes be added to ownership without becoming a borrower, but the lender, title company, and legal implications should be reviewed carefully because loan documents may restrict transfers.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "title",
+        "ownership",
+        "mortgage_liability"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-026",
+      "question": "What is a quitclaim deed and does it remove me from the mortgage?",
+      "answer": "A quitclaim deed transfers whatever ownership interest a person has in the property, but it does not by itself remove that person from the mortgage debt. The note stays in place unless the lender releases liability or the loan is refinanced or otherwise resolved.",
+      "content": "Primary question: What is a quitclaim deed and does it remove me from the mortgage?\nBorrower asks: What is a quitclaim deed and does it remove me from the mortgage?\nSearch phrases: What is a quitclaim deed and does it remove me from the mortgage? | what is a quitclaim deed and does it remove me from the home loan | what is a quitclaim deed and does it remove me from the mortgage\nKeywords: mortgage liability; quitclaim; title\nDirect answer: A quitclaim deed transfers whatever ownership interest a person has in the property, but it does not by itself remove that person from the mortgage debt. The note stays in place unless the lender releases liability or the loan is refinanced or otherwise resolved.\nExpanded answer: A quitclaim deed transfers whatever ownership interest a person has in the property, but it does not by itself remove that person from the mortgage debt. The note stays in place unless the lender releases liability or the loan is refinanced or otherwise resolved.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "quitclaim",
+        "title",
+        "mortgage_liability"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-027",
+      "question": "What is a subordination agreement in a refinance?",
+      "answer": "A subordination agreement is a document that allows an existing junior lien, such as a HELOC or second mortgage, to remain behind a new first mortgage after a refinance. Without it, the refinance may not close as structured.",
+      "content": "Primary question: What is a subordination agreement in a refinance?\nBorrower asks: What is a subordination agreement in a refinance?\nSearch phrases: What is a subordination agreement in a refinance? | what is a subordination agreement in a refinance\nKeywords: heloc; refinance; second mortgage; subordination\nDirect answer: A subordination agreement is a document that allows an existing junior lien, such as a HELOC or second mortgage, to remain behind a new first mortgage after a refinance. Without it, the refinance may not close as structured.\nExpanded answer: A subordination agreement is a document that allows an existing junior lien, such as a HELOC or second mortgage, to remain behind a new first mortgage after a refinance. Without it, the refinance may not close as structured.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "subordination",
+        "refinance",
+        "heloc",
+        "second_mortgage"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-028",
+      "question": "Can I refinance if I have a HELOC?",
+      "answer": "Maybe. Many borrowers can refinance while a HELOC is open, but the lender may require the HELOC to be paid off, frozen, or subordinated depending on lien position, CLTV, and program rules.",
+      "content": "Primary question: Can I refinance if I have a HELOC?\nBorrower asks: Can I refinance if I have a HELOC?\nSearch phrases: Can I refinance if I have a HELOC? | can i refinance if i have a heloc\nKeywords: cltv; heloc; refinance; subordination\nDirect answer: Maybe. Many borrowers can refinance while a HELOC is open, but the lender may require the HELOC to be paid off, frozen, or subordinated depending on lien position, CLTV, and program rules.\nExpanded answer: Maybe. Many borrowers can refinance while a HELOC is open, but the lender may require the HELOC to be paid off, frozen, or subordinated depending on lien position, CLTV, and program rules.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "refinance",
+        "heloc",
+        "subordination",
+        "cltv"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-029",
+      "question": "What is the difference between a home equity loan and a HELOC?",
+      "answer": "A home equity loan is usually a closed-end second mortgage with a fixed amount borrowed upfront, while a HELOC is a revolving line that can be drawn and repaid during its draw period. Both are secured by home equity but work differently.",
+      "content": "Primary question: What is the difference between a home equity loan and a HELOC?\nBorrower asks: What is the difference between a home equity loan and a HELOC?\nSearch phrases: What is the difference between a home equity loan and a HELOC? | what is the difference between a home equity loan and a heloc\nKeywords: heloc; home equity loan; second mortgage\nDirect answer: A home equity loan is usually a closed-end second mortgage with a fixed amount borrowed upfront, while a HELOC is a revolving line that can be drawn and repaid during its draw period. Both are secured by home equity but work differently.\nExpanded answer: A home equity loan is usually a closed-end second mortgage with a fixed amount borrowed upfront, while a HELOC is a revolving line that can be drawn and repaid during its draw period. Both are secured by home equity but work differently.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "home_equity_loan",
+        "heloc",
+        "second_mortgage"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-030",
+      "question": "What is manual underwriting with no credit score?",
+      "answer": "Manual underwriting is a more hands-on review used when automated approval is not available or not sufficient. In some situations, a borrower without a traditional credit score may still qualify using alternative credit references and stronger documentation, depending on the program.",
+      "content": "Primary question: What is manual underwriting with no credit score?\nBorrower asks: What is manual underwriting with no credit score?\nSearch phrases: What is manual underwriting with no credit score? | what is manual underwriting with no credit score\nKeywords: alternative credit; manual underwriting; no score\nDirect answer: Manual underwriting is a more hands-on review used when automated approval is not available or not sufficient. In some situations, a borrower without a traditional credit score may still qualify using alternative credit references and stronger documentation, depending on the program.\nExpanded answer: Manual underwriting is a more hands-on review used when automated approval is not available or not sufficient. In some situations, a borrower without a traditional credit score may still qualify using alternative credit references and stronger documentation, depending on the program.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "manual_underwriting",
+        "no_score",
+        "alternative_credit"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-031",
+      "question": "What is a mortgage modification and is it the same as refinancing?",
+      "answer": "A mortgage modification changes certain terms of an existing loan, usually because of hardship or loss-mitigation needs, while a refinance replaces the old loan with a new one. They are different processes with different eligibility rules.",
+      "content": "Primary question: What is a mortgage modification and is it the same as refinancing?\nBorrower asks: What is a mortgage modification and is it the same as refinancing?\nSearch phrases: What is a mortgage modification and is it the same as refinancing? | what is a home loan modification and is it the same as refinancing | what is a mortgage modification and is it the same as refinancing\nKeywords: loss mitigation; modification; refinance\nDirect answer: A mortgage modification changes certain terms of an existing loan, usually because of hardship or loss-mitigation needs, while a refinance replaces the old loan with a new one. They are different processes with different eligibility rules.\nExpanded answer: A mortgage modification changes certain terms of an existing loan, usually because of hardship or loss-mitigation needs, while a refinance replaces the old loan with a new one. They are different processes with different eligibility rules.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "modification",
+        "refinance",
+        "loss_mitigation"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.hud.gov/sites/dfiles/OCHCO/documents/2025-12hsgml.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-032",
+      "question": "What is an ARM rate cap?",
+      "answer": "An ARM rate cap is a limit on how much the interest rate can adjust at certain times on an adjustable-rate mortgage. There are usually caps on the first adjustment, later adjustments, and over the life of the loan.",
+      "content": "Primary question: What is an ARM rate cap?\nBorrower asks: What is an ARM rate cap?\nSearch phrases: What is an ARM rate cap? | what is an arm rate cap\nKeywords: adjustable rate; arm; rate cap\nDirect answer: An ARM rate cap is a limit on how much the interest rate can adjust at certain times on an adjustable-rate mortgage. There are usually caps on the first adjustment, later adjustments, and over the life of the loan.\nExpanded answer: An ARM rate cap is a limit on how much the interest rate can adjust at certain times on an adjustable-rate mortgage. There are usually caps on the first adjustment, later adjustments, and over the life of the loan.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "arm",
+        "rate_cap",
+        "adjustable_rate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/rules-policy/regulations/1026/43",
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-033",
+      "question": "What is negative amortization?",
+      "answer": "Negative amortization happens when the payment is not high enough to cover all the interest due, so unpaid interest is added to the loan balance. That means the balance can grow instead of shrink.",
+      "content": "Primary question: What is negative amortization?\nBorrower asks: What is negative amortization?\nSearch phrases: What is negative amortization? | what is negative amortization\nKeywords: arm; negative amortization; payment\nDirect answer: Negative amortization happens when the payment is not high enough to cover all the interest due, so unpaid interest is added to the loan balance. That means the balance can grow instead of shrink.\nExpanded answer: Negative amortization happens when the payment is not high enough to cover all the interest due, so unpaid interest is added to the loan balance. That means the balance can grow instead of shrink.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "negative_amortization",
+        "arm",
+        "payment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/rules-policy/regulations/1026/43",
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-034",
+      "question": "What is an interest-only period on a mortgage?",
+      "answer": "An interest-only period is a span of time when the scheduled payment covers interest but not scheduled principal reduction. When that period ends, the payment can rise because principal repayment begins over the remaining term.",
+      "content": "Primary question: What is an interest-only period on a mortgage?\nBorrower asks: What is an interest-only period on a mortgage?\nSearch phrases: What is an interest-only period on a mortgage? | what is an interest-only period on a home loan | what is an interest-only period on a mortgage\nKeywords: amortization; interest only; payment\nDirect answer: An interest-only period is a span of time when the scheduled payment covers interest but not scheduled principal reduction. When that period ends, the payment can rise because principal repayment begins over the remaining term.\nExpanded answer: An interest-only period is a span of time when the scheduled payment covers interest but not scheduled principal reduction. When that period ends, the payment can rise because principal repayment begins over the remaining term.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "interest_only",
+        "payment",
+        "amortization"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/rules-policy/regulations/1026/43",
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-035",
+      "question": "Can I get a mortgage on a leasehold property?",
+      "answer": "Sometimes, but leasehold properties have added complexity because the borrower owns rights tied to a ground lease rather than full fee-simple land ownership. Eligibility depends on the program, remaining lease term, and lender policy.",
+      "content": "Primary question: Can I get a mortgage on a leasehold property?\nBorrower asks: Can I get a mortgage on a leasehold property?\nSearch phrases: Can I get a mortgage on a leasehold property? | can i get a home loan on a leasehold property | can i get a mortgage on a leasehold property\nKeywords: leasehold; property type; title\nDirect answer: Sometimes, but leasehold properties have added complexity because the borrower owns rights tied to a ground lease rather than full fee-simple land ownership. Eligibility depends on the program, remaining lease term, and lender policy.\nExpanded answer: Sometimes, but leasehold properties have added complexity because the borrower owns rights tied to a ground lease rather than full fee-simple land ownership. Eligibility depends on the program, remaining lease term, and lender policy.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "leasehold",
+        "property_type",
+        "title"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b4-1.2-04/leasehold-estates"
+      ]
+    },
+    {
+      "id": "mtg-gap-036",
+      "question": "What is a bridge loan versus a HELOC?",
+      "answer": "A bridge loan is usually a short-term loan designed to help with timing between buying and selling properties, while a HELOC is a revolving line secured by available home equity. The better fit depends on whether you need temporary purchase timing support or flexible access to equity.",
+      "content": "Primary question: What is a bridge loan versus a HELOC?\nBorrower asks: What is a bridge loan versus a HELOC?\nSearch phrases: What is a bridge loan versus a HELOC? | what is a bridge loan versus a heloc\nKeywords: bridge loan; equity; heloc; purchase timing\nDirect answer: A bridge loan is usually a short-term loan designed to help with timing between buying and selling properties, while a HELOC is a revolving line secured by available home equity. The better fit depends on whether you need temporary purchase timing support or flexible access to equity.\nExpanded answer: A bridge loan is usually a short-term loan designed to help with timing between buying and selling properties, while a HELOC is a revolving line secured by available home equity. The better fit depends on whether you need temporary purchase timing support or flexible access to equity.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "bridge_loan",
+        "heloc",
+        "equity",
+        "purchase_timing"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-037",
+      "question": "Can seller credits lower my cash to close?",
+      "answer": "Yes. Seller credits can reduce the amount of cash you need at closing by offsetting eligible closing costs and prepaid items, subject to contract terms and loan-program limits.",
+      "content": "Primary question: Can seller credits lower my cash to close?\nBorrower asks: Can seller credits lower my cash to close?\nSearch phrases: Can seller credits lower my cash to close? | can seller credits lower my cash to close\nKeywords: cash to close; closing costs; seller credits\nDirect answer: Yes. Seller credits can reduce the amount of cash you need at closing by offsetting eligible closing costs and prepaid items, subject to contract terms and loan-program limits.\nExpanded answer: Yes. Seller credits can reduce the amount of cash you need at closing by offsetting eligible closing costs and prepaid items, subject to contract terms and loan-program limits.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "seller_credits",
+        "cash_to_close",
+        "closing_costs"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-038",
+      "question": "What is a break-even point on discount points?",
+      "answer": "The break-even point is the amount of time it takes for monthly payment savings from discount points to recover the upfront cost of buying the rate down. If you may sell, refinance, or move before that point, the economics may be less attractive.",
+      "content": "Primary question: What is a break-even point on discount points?\nBorrower asks: What is a break-even point on discount points?\nSearch phrases: What is a break-even point on discount points? | what is a break-even point on discount points\nKeywords: break even; discount points; rate\nDirect answer: The break-even point is the amount of time it takes for monthly payment savings from discount points to recover the upfront cost of buying the rate down. If you may sell, refinance, or move before that point, the economics may be less attractive.\nExpanded answer: The break-even point is the amount of time it takes for monthly payment savings from discount points to recover the upfront cost of buying the rate down. If you may sell, refinance, or move before that point, the economics may be less attractive.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "discount_points",
+        "break_even",
+        "rate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-039",
+      "question": "What is a lender credit?",
+      "answer": "A lender credit is money the lender applies toward certain closing costs, usually in exchange for a higher interest rate or different pricing. It can lower upfront cash needs, but it is not free because it often changes the loan economics.",
+      "content": "Primary question: What is a lender credit?\nBorrower asks: What is a lender credit?\nSearch phrases: What is a lender credit? | what is a lender credit\nKeywords: closing costs; lender credits; rate\nDirect answer: A lender credit is money the lender applies toward certain closing costs, usually in exchange for a higher interest rate or different pricing. It can lower upfront cash needs, but it is not free because it often changes the loan economics.\nExpanded answer: A lender credit is money the lender applies toward certain closing costs, usually in exchange for a higher interest rate or different pricing. It can lower upfront cash needs, but it is not free because it often changes the loan economics.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "lender_credits",
+        "closing_costs",
+        "rate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-040",
+      "question": "What is cash to close?",
+      "answer": "Cash to close is the estimated amount the borrower must bring to closing after accounting for down payment, closing costs, deposits already paid, credits, and other adjustments shown in the disclosure forms.",
+      "content": "Primary question: What is cash to close?\nBorrower asks: What is cash to close?\nSearch phrases: What is cash to close? | what is cash to close\nKeywords: cash to close; closing costs; loan estimate\nDirect answer: Cash to close is the estimated amount the borrower must bring to closing after accounting for down payment, closing costs, deposits already paid, credits, and other adjustments shown in the disclosure forms.\nExpanded answer: Cash to close is the estimated amount the borrower must bring to closing after accounting for down payment, closing costs, deposits already paid, credits, and other adjustments shown in the disclosure forms.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "cash_to_close",
+        "closing_costs",
+        "loan_estimate"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/loan-estimate/",
+        "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+      ]
+    },
+    {
+      "id": "mtg-gap-041",
+      "question": "580 fico fha?",
+      "answer": "Often, FHA is associated with more flexible credit standards than many conventional options, but the exact minimum score that works depends on program rules, lender overlays, and the rest of the file. Credit score alone does not determine approval.",
+      "content": "Primary question: 580 fico fha?\nBorrower asks: 580 fico fha?\nSearch phrases: 580 fico fha | 580 fico fha?\nKeywords: credit score; fha; fragment; incomplete query\nAcronyms: FHA: Federal Housing Administration\nDirect answer: Often, FHA is associated with more flexible credit standards than many conventional options, but the exact minimum score that works depends on program rules, lender overlays, and the rest of the file. Credit score alone does not determine approval.\nExpanded answer: Often, FHA is associated with more flexible credit standards than many conventional options, but the exact minimum score that works depends on program rules, lender overlays, and the rest of the file. Credit score alone does not determine approval.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "fha",
+        "credit_score",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf"
+      ]
+    },
+    {
+      "id": "mtg-gap-042",
+      "question": "hoa in dti?",
+      "answer": "Usually yes. HOA or condo dues are commonly counted in the housing obligation and can affect debt-to-income calculations because they are a required monthly expense tied to the property.",
+      "content": "Primary question: hoa in dti?\nBorrower asks: hoa in dti?\nSearch phrases: hoa in debt to income | hoa in dti | hoa in dti? | homeowners association in dti\nKeywords: dti; fragment; hoa; incomplete query\nAcronyms: DTI: Debt-to-Income Ratio | HOA: Homeowners Association\nDirect answer: Usually yes. HOA or condo dues are commonly counted in the housing obligation and can affect debt-to-income calculations because they are a required monthly expense tied to the property.\nExpanded answer: Usually yes. HOA or condo dues are commonly counted in the housing obligation and can affect debt-to-income calculations because they are a required monthly expense tied to the property.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "hoa",
+        "dti",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-043",
+      "question": "condo harder?",
+      "answer": "Often yes. Condo financing can be harder because the lender may evaluate not only the unit and borrower but also the project’s insurance, financial health, occupancy mix, litigation, and other eligibility factors.",
+      "content": "Primary question: condo harder?\nBorrower asks: condo harder?\nSearch phrases: condo harder | condo harder? | condominium harder\nKeywords: condo; fragment; incomplete query; project review\nDirect answer: Often yes. Condo financing can be harder because the lender may evaluate not only the unit and borrower but also the project’s insurance, financial health, occupancy mix, litigation, and other eligibility factors.\nExpanded answer: Often yes. Condo financing can be harder because the lender may evaluate not only the unit and borrower but also the project’s insurance, financial health, occupancy mix, litigation, and other eligibility factors.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "condo",
+        "project_review",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://selling-guide.fanniemae.com/sel/b4-2.1-01/general-information-project-standards",
+        "https://selling-guide.fanniemae.com/sel/b4-2.1-03/ineligible-projects"
+      ]
+    },
+    {
+      "id": "mtg-gap-044",
+      "question": "cash out rental?",
+      "answer": "Often yes, but cash-out refinancing on rental or investment property is usually more conservative than on a primary residence. Lenders often require more equity, more reserves, and tighter pricing.",
+      "content": "Primary question: cash out rental?\nBorrower asks: cash out rental?\nSearch phrases: cash out rental | cash out rental?\nKeywords: cash out; fragment; incomplete query; investment property; refinance\nDirect answer: Often yes, but cash-out refinancing on rental or investment property is usually more conservative than on a primary residence. Lenders often require more equity, more reserves, and tighter pricing.\nExpanded answer: Often yes, but cash-out refinancing on rental or investment property is usually more conservative than on a primary residence. Lenders often require more equity, more reserves, and tighter pricing.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "cash_out",
+        "investment_property",
+        "refinance",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-045",
+      "question": "airbnb income ok?",
+      "answer": "Maybe. Some lenders may consider short-term rental income in certain investment or specialized loan scenarios, but treatment is lender- and program-specific and usually depends on documentation, history, and how the property is being financed.",
+      "content": "Primary question: airbnb income ok?\nBorrower asks: airbnb income ok?\nSearch phrases: airbnb income ok | airbnb income ok?\nKeywords: airbnb; fragment; incomplete query; nonqm; rental income\nDirect answer: Maybe. Some lenders may consider short-term rental income in certain investment or specialized loan scenarios, but treatment is lender- and program-specific and usually depends on documentation, history, and how the property is being financed.\nExpanded answer: Maybe. Some lenders may consider short-term rental income in certain investment or specialized loan scenarios, but treatment is lender- and program-specific and usually depends on documentation, history, and how the property is being financed.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "airbnb",
+        "rental_income",
+        "nonqm",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-046",
+      "question": "llc loan?",
+      "answer": "Maybe. Standard owner-occupied residential mortgages are usually made to natural persons, while LLC borrowing is more common for investment, DSCR, commercial, or portfolio-style lending.",
+      "content": "Primary question: llc loan?\nBorrower asks: llc loan?\nSearch phrases: limited liability company loan | llc loan | llc loan?\nKeywords: entity; fragment; incomplete query; investment; llc\nAcronyms: LLC: Limited Liability Company\nDirect answer: Maybe. Standard owner-occupied residential mortgages are usually made to natural persons, while LLC borrowing is more common for investment, DSCR, commercial, or portfolio-style lending.\nExpanded answer: Maybe. Standard owner-occupied residential mortgages are usually made to natural persons, while LLC borrowing is more common for investment, DSCR, commercial, or portfolio-style lending.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "llc",
+        "entity",
+        "investment",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-047",
+      "question": "2 yrs job required?",
+      "answer": "Not always. Lenders often look for a stable employment and income history, but approval can still be possible without two years in the same exact job if the broader work history and current income make sense.",
+      "content": "Primary question: 2 yrs job required?\nBorrower asks: 2 yrs job required?\nSearch phrases: 2 yrs job required | 2 yrs job required?\nKeywords: employment; fragment; incomplete query; job history\nDirect answer: Not always. Lenders often look for a stable employment and income history, but approval can still be possible without two years in the same exact job if the broader work history and current income make sense.\nExpanded answer: Not always. Lenders often look for a stable employment and income history, but approval can still be possible without two years in the same exact job if the broader work history and current income make sense.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "employment",
+        "job_history",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+      ]
+    },
+    {
+      "id": "mtg-gap-048",
+      "question": "why payment up fixed rate?",
+      "answer": "A fixed interest rate does not stop taxes, insurance, mortgage insurance, or escrow shortages from changing. Monthly payment increases often come from those non-interest components rather than from the fixed note rate itself.",
+      "content": "Primary question: why payment up fixed rate?\nBorrower asks: why payment up fixed rate?\nSearch phrases: why payment up fixed rate | why payment up fixed rate?\nKeywords: escrow; fragment; incomplete query; insurance; payment increase; taxes\nDirect answer: A fixed interest rate does not stop taxes, insurance, mortgage insurance, or escrow shortages from changing. Monthly payment increases often come from those non-interest components rather than from the fixed note rate itself.\nExpanded answer: A fixed interest rate does not stop taxes, insurance, mortgage insurance, or escrow shortages from changing. Monthly payment increases often come from those non-interest components rather than from the fixed note rate itself.\nGuidance note: General mortgage guidance. Exact eligibility, limits, pricing, and overlays vary by program and lender.",
+      "tags": [
+        "escrow",
+        "payment_increase",
+        "taxes",
+        "insurance",
+        "incomplete_query",
+        "fragment"
+      ],
+      "source_batch": "gap_batch",
+      "fail_reason": "PROACTIVE_COVERAGE_GAP",
+      "detected_intent": "fragment_or_uncovered_topic",
+      "source_urls": [
+        "https://files.consumerfinance.gov/f/documents/cfpb_kbyo_guide-to-loan-estimate-and-closing-disclosure-forms_v2.0.pdf"
+      ]
+    }
+  ]
+}

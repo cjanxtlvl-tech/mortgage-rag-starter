@@ -1,8 +1,9 @@
 version: '3.8'
 
 services:
-  app:
+  rag-api:
     build: .
+    container_name: rag_api_service
     ports:
       - "8000:8000"
     volumes:
@@ -11,3 +12,11 @@ services:
       - .env
     environment:
       - ENVIRONMENT=production
+    networks:
+      - mortgage_ai_network
+    restart: unless-stopped
+
+networks:
+  mortgage_ai_network:
+    external: true
+    name: mortgage_ai_network

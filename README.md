@@ -260,6 +260,73 @@ Notes:
 docker compose -f docker-compose.full-stack.yml down
 ```
 
+## AWS EC2 Deployment
+
+Deploy the full RAG + RASA stack to AWS EC2 with zero-downtime updates.
+
+### Quick Start
+
+**From your local machine** (to update existing EC2 deployment):
+
+```bash
+./scripts/ec2-update.sh <ec2-ip> /path/to/your-key.pem
+```
+
+**On your EC2 instance** (for initial deployment):
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/cjanxtlvl-tech/mortgage-rag-starter.git
+cd mortgage-rag-starter
+
+# 2. Configure environment
+cp .env.production.template .env.production
+nano .env.production  # Add your OPENAI_API_KEY and other settings
+
+# 3. Run initial deployment
+chmod +x scripts/ec2-deploy.sh
+./scripts/ec2-deploy.sh
+```
+
+### Available Scripts
+
+- `scripts/ec2-update.sh` - Update deployment from local machine with rollback protection
+- `scripts/ec2-deploy.sh` - Initial deployment on EC2 instance
+- `scripts/ec2-backup.sh` - Create backups (run on EC2)
+
+### Documentation
+
+- **[EC2 Deployment Guide](docs/EC2-DEPLOYMENT.md)** - Complete deployment guide
+- **[EC2 Quick Reference](docs/EC2-QUICKSTART.md)** - Quick commands and troubleshooting
+
+### Key Features
+
+- ✅ Zero-downtime deployment with automatic rollback
+- ✅ Automated backup before each update
+- ✅ Health checks with automatic verification
+- ✅ S3 backup support
+- ✅ Production-ready Docker Compose configuration
+- ✅ Comprehensive logging and monitoring
+
+### Quick Commands
+
+```bash
+# Update deployment
+./scripts/ec2-update.sh your-ec2-ip /path/to/key.pem
+
+# View logs (on EC2)
+docker compose -f docker-compose.production.yml logs -f
+
+# Health check (on EC2)
+bash healthcheck.sh
+
+# Create backup (on EC2)
+./scripts/ec2-backup.sh --full --s3-bucket your-bucket
+
+# Rollback (on EC2)
+bash rollback.sh
+```
+
 ## Troubleshooting
 
 ### `ModuleNotFoundError: No module named app`

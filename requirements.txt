@@ -8,3 +8,5 @@ sentence-transformers
 requests
 openai
 python-dotenv
+pydantic
+pydantic-settings

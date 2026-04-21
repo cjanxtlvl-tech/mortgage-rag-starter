@@ -29,6 +29,12 @@ settings = get_settings()
 pipeline = RAGPipeline(settings)
 ui_path = settings.project_root / "ui" / "index.html"
 
+FALLBACK_OVERRIDE_MIN_SCORE = 0.35
+FALLBACK_MARKERS = (
+    "[fallback]",
+    "i can currently help with mortgage and home-loan questions",
+)
+
 
 @app.on_event("startup")
 def warm_index() -> None:
@@ -52,11 +58,99 @@ def ui() -> HTMLResponse:
     return HTMLResponse(content=ui_path.read_text(encoding="utf-8"))
 
 
+def _is_generic_fallback_text(answer_text: str) -> bool:
+    text = (answer_text or "").lower().strip()
+    if not text:
+        return True
+    return any(marker in text for marker in FALLBACK_MARKERS)
+
+
+def _top_match_score(matches: list[dict]) -> float:
+    if not matches:
+        return 0.0
+    first = matches[0] or {}
+    try:
+        return float(first.get("score") or 0.0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def _route_question(payload: AskRequest) -> AskResponse:
     request_id = str(uuid.uuid4())
     decision = classify_user_intent(payload.question)
 
     if not decision.needs_rag:
+        # If router picked fallback, attempt a retrieval-based override.
+        # This keeps answer quality high for domain questions that the router
+        # classified too conservatively.
+        if decision.response_type == "fallback":
+            try:
+                fallback_result = pipeline.ask(payload.question, top_k=payload.top_k)
+                fallback_answer = fallback_result.get("answer", "")
+                fallback_matches = fallback_result.get("matches", [])
+                fallback_score = _top_match_score(fallback_matches)
+                if (
+                    fallback_matches
+                    and fallback_score >= FALLBACK_OVERRIDE_MIN_SCORE
+                    and not _is_generic_fallback_text(fallback_answer)
+                ):
+                    raw_sources = fallback_result.get("sources", [])
+                    display_sources = filter_sources(raw_sources)
+                    response = AskResponse(
+                        type="rag_response",
+                        answer=fallback_answer,
+                        suggested_next_action=None,
+                        display_sources=display_sources,
+                        meta=ResponseMeta(request_id=request_id),
+                    )
+                    logging_service.log_ask_request(
+                        request_id=request_id,
+                        question=payload.question,
+                        response_type="rag_response",
+                        answer=fallback_answer,
+                        suggested_next_action=None,
+                        retrieval_info={
+                            **logging_service.log_retrieval_debug(
+                                request_id=request_id,
+                                question=payload.question,
+                                matches=fallback_matches,
+                                top_k_requested=payload.top_k,
+                            ),
+                            "model_used": settings.openai_model,
+                            "sources_returned": raw_sources,
+                            "sources_filtered": display_sources,
+                            "fallback_overridden": True,
+                            "fallback_override_score": fallback_score,
+                            "fallback_override_threshold": FALLBACK_OVERRIDE_MIN_SCORE,
+                        },
+                    )
+                    return response
+            except Exception as exc:
+                logger.warning(
+                    "Fallback override retrieval failed (request_id=%s): %s",
+                    request_id,
+                    exc,
+                )
+                # Always return a single, user-friendly fallback message on error
+                fallback_text = (
+                    "I can currently help with mortgage and home-loan questions. "
+                    "If you share your mortgage goal, I can guide your next step."
+                )
+                response = AskResponse(
+                    type="fallback",
+                    answer=fallback_text,
+                    suggested_next_action=None,
+                    display_sources=[],
+                    meta=ResponseMeta(request_id=request_id),
+                )
+                logging_service.log_non_rag_route(
+                    request_id=request_id,
+                    question=payload.question,
+                    route_type="fallback",
+                    reason="Fallback override failed; returned static fallback message.",
+                )
+                return response
+
         response = AskResponse(
             type=decision.response_type,
             answer=decision.answer,
@@ -76,7 +170,6 @@ def _route_question(payload: AskRequest) -> AskResponse:
         result = pipeline.ask(
             payload.question,
             top_k=payload.top_k,
-            include_application_cta=decision.response_type == "rag_then_offer_application",
         )
     except Exception as exc:
         logger.error("RAG pipeline error (request_id=%s): %s", request_id, exc)
@@ -84,6 +177,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
 
     answer = result["answer"]
     raw_sources = result.get("sources", [])
+    matches = result.get("matches", [])
     
     # Filter sources to only display user-facing datasets
     display_sources = filter_sources(raw_sources)
@@ -124,6 +218,13 @@ def _route_question(payload: AskRequest) -> AskResponse:
         answer=answer,
         suggested_next_action=decision.suggested_next_action,
         retrieval_info={
+            **logging_service.log_retrieval_debug(
+                request_id=request_id,
+                question=payload.question,
+                matches=matches,
+                top_k_requested=payload.top_k,
+            ),
+            "model_used": settings.openai_model,
             "sources_returned": raw_sources,
             "sources_filtered": display_sources,
         },

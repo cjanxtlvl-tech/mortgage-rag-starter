@@ -1,0 +1,173 @@
+version: '3.8'
+
+services:
+  rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    container_name: mortgage-rag-api-prod
+    restart: always
+    environment:
+      RASA_WEBHOOK_URL: http://rasa:5005/webhooks/rest/webhook
+      HOST: 0.0.0.0
+      PORT: 8000
+      APP_ENV: production
+      PYTHONUNBUFFERED: "1"
+    env_file:
+      - .env.production
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - rag-logs:/app/logs
+    depends_on:
+      rasa:
+        condition: service_healthy
+    networks:
+      - mortgage_network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        tag: "{{.Name}}/{{.ID}}"
+
+  rasa-actions:
+    image: rasa/rasa-sdk:3.6.2
+    container_name: mortgage-rasa-actions-prod
+    restart: always
+    working_dir: /app
+    command: >-
+      sh -c "pip install --no-cache-dir requests &&
+      rasa run actions --actions actions --port 5055"
+    volumes:
+      - ${RASA_PROJECT_DIR:-../mortgage-rasa-chatbot}:/app:ro
+    ports:
+      - "5055:5055"
+    networks:
+      - mortgage_network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5055/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        tag: "{{.Name}}/{{.ID}}"
+
+  rasa:
+    image: rasa/rasa:3.6.20-full
+    container_name: mortgage-rasa-server-prod
+    restart: always
+    working_dir: /app
+    command: >-
+      sh -c "if [ ! -f /app/models/*.tar.gz ]; then rasa train --quiet; fi &&
+      rasa run --enable-api --cors '*' --port 5005
+      --credentials credentials.yml --endpoints endpoints.docker.yml"
+    volumes:
+      - ${RASA_PROJECT_DIR:-../mortgage-rasa-chatbot}:/app
+      - rasa-models:/app/models
+    ports:
+      - "5005:5005"
+    depends_on:
+      rasa-actions:
+        condition: service_healthy
+    networks:
+      - mortgage_network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5005/version || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        tag: "{{.Name}}/{{.ID}}"
+
+  # Optional: Nginx reverse proxy for production
+  nginx:
+    image: nginx:alpine
+    container_name: mortgage-nginx-prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - nginx-cache:/var/cache/nginx
+    depends_on:
+      - rag-api
+    networks:
+      - mortgage_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        tag: "{{.Name}}/{{.ID}}"
+
+networks:
+  mortgage_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+
+volumes:
+  rag-logs:
+    driver: local
+  rasa-models:
+    driver: local
+  nginx-cache:
+    driver: local

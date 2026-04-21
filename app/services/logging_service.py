@@ -40,10 +40,20 @@ def log_ask_request(
     }
 
     if retrieval_info:
+        chunks = retrieval_info.get("chunks")
+        if chunks is None:
+            chunks = retrieval_info.get("matches", [])
+        if chunks is None:
+            chunks = []
+
         log_data["retrieval"] = {
             "model_used": retrieval_info.get("model_used"),
-            "chunks_retrieved": len(retrieval_info.get("chunks", [])),
-            "chunks": retrieval_info.get("chunks", []),
+            "top_k_requested": retrieval_info.get("top_k_requested"),
+            "matches_returned": retrieval_info.get("matches_returned", len(chunks)),
+            "chunks_retrieved": len(chunks),
+            "sources_returned": retrieval_info.get("sources_returned", []),
+            "sources_filtered": retrieval_info.get("sources_filtered", []),
+            "chunks": chunks,
         }
 
     logger.info("RAG_REQUEST: %s", json.dumps(log_data, indent=2))
