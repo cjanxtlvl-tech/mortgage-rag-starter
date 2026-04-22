@@ -23,3 +23,21 @@ venv/
 data/index/
 data/*.faiss
 data/*.pkl
+
+# Dev / duplicate compose files
+docker-compose.yml
+docker-compose.full-stack.yml
+
+# Local scripts / experiments
+deploy.sh
+rollback.sh
+healthcheck.sh
+
+# UI (if not production)
+ui/
+
+# Tests (optional)
+tests/
+
+# Docs (optional for runtime)
+docs/
