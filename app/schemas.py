@@ -34,6 +34,7 @@ class AskResponse(BaseModel):
     """
     type: ResponseType
     answer: str
+    recommended_link: str | None = None
     suggested_next_action: str | None = None
     display_sources: list[str] = Field(default_factory=list, description="User-facing knowledge dataset names")
     meta: ResponseMeta

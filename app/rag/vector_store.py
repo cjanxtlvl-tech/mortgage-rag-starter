@@ -32,7 +32,12 @@ def save_artifacts(
     faiss.write_index(index, str(index_path))
 
     payload = [
-        {"chunk_id": c.chunk_id, "source": c.source, "text": c.text}
+        {
+            "chunk_id": c.chunk_id,
+            "source": c.source,
+            "text": c.text,
+            "metadata": c.metadata,
+        }
         for c in chunks
     ]
     chunks_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
@@ -49,7 +54,12 @@ def load_artifacts(index_path: Path, chunks_path: Path, vectorizer_path: Path):
 
     raw_chunks = json.loads(chunks_path.read_text(encoding="utf-8"))
     chunks = [
-        TextChunk(chunk_id=int(item["chunk_id"]), source=item["source"], text=item["text"])
+        TextChunk(
+            chunk_id=int(item["chunk_id"]),
+            source=item["source"],
+            text=item["text"],
+            metadata=item.get("metadata", {}) or {},
+        )
         for item in raw_chunks
     ]
 

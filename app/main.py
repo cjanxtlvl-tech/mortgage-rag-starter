@@ -13,7 +13,6 @@ from app.config import get_settings
 from app.rag.pipeline import RAGPipeline
 from app.schemas import AskRequest, AskResponse, ChatRequest, ChatResponse, ResponseMeta
 from app.services.router import classify_user_intent
-from app.services.source_filter import filter_sources
 from app.services import logging_service
 
 logging.basicConfig(level=logging.INFO)
@@ -95,10 +94,12 @@ def _route_question(payload: AskRequest) -> AskResponse:
                     and not _is_generic_fallback_text(fallback_answer)
                 ):
                     raw_sources = fallback_result.get("sources", [])
-                    display_sources = filter_sources(raw_sources)
+                    display_sources = fallback_result.get("display_sources", [])
+                    recommended_link = fallback_result.get("recommended_link")
                     response = AskResponse(
                         type="rag_response",
                         answer=fallback_answer,
+                        recommended_link=recommended_link,
                         suggested_next_action=None,
                         display_sources=display_sources,
                         meta=ResponseMeta(request_id=request_id),
@@ -119,6 +120,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
                             "model_used": settings.openai_model,
                             "sources_returned": raw_sources,
                             "sources_filtered": display_sources,
+                            "recommended_link": recommended_link,
                             "fallback_overridden": True,
                             "fallback_override_score": fallback_score,
                             "fallback_override_threshold": FALLBACK_OVERRIDE_MIN_SCORE,
@@ -139,6 +141,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
                 response = AskResponse(
                     type="fallback",
                     answer=fallback_text,
+                    recommended_link=None,
                     suggested_next_action=None,
                     display_sources=[],
                     meta=ResponseMeta(request_id=request_id),
@@ -154,6 +157,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
         response = AskResponse(
             type=decision.response_type,
             answer=decision.answer,
+            recommended_link=None,
             suggested_next_action=decision.suggested_next_action,
             display_sources=[],
             meta=ResponseMeta(request_id=request_id),
@@ -176,11 +180,10 @@ def _route_question(payload: AskRequest) -> AskResponse:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
     answer = result["answer"]
+    recommended_link = result.get("recommended_link")
     raw_sources = result.get("sources", [])
     matches = result.get("matches", [])
-    
-    # Filter sources to only display user-facing datasets
-    display_sources = filter_sources(raw_sources)
+    display_sources = result.get("display_sources", [])
 
     if decision.response_type == "rag_then_offer_loan_officer":
         answer = (
@@ -191,6 +194,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
     response = AskResponse(
         type=decision.response_type,
         answer=answer,
+        recommended_link=recommended_link,
         suggested_next_action=decision.suggested_next_action,
         display_sources=display_sources,
         meta=ResponseMeta(request_id=request_id),
@@ -227,6 +231,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
             "model_used": settings.openai_model,
             "sources_returned": raw_sources,
             "sources_filtered": display_sources,
+            "recommended_link": recommended_link,
         },
     )
 

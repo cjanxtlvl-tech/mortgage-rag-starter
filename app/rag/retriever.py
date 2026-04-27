@@ -20,7 +20,7 @@ def retrieve(
     faiss.normalize_L2(query_vec)
 
     safe_k = min(max(1, top_k), index.ntotal)
-    scores, ids = index.search(query_vec, safe_k)
+    scores, ids = index.search(query_vec, safe_k)  # type: ignore[call-arg]
 
     results: List[dict] = []
     for score, idx in zip(scores[0], ids[0]):
@@ -32,6 +32,7 @@ def retrieve(
                 "chunk_id": chunk.chunk_id,
                 "source": chunk.source,
                 "text": chunk.text,
+                "metadata": chunk.metadata,
                 "score": float(score),
             }
         )

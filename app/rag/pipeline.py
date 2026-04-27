@@ -1,5 +1,6 @@
 import logging
 from typing import List
+from urllib.parse import urlparse
 
 from app.config import Settings
 
@@ -51,6 +52,68 @@ def _extract_sources(matches: List[dict], max_sources: int = 5) -> List[str]:
             break
 
     return sources
+
+
+def _extract_recommended_link(matches: List[dict]) -> str | None:
+    if not matches:
+        return None
+
+    top = matches[0] or {}
+    metadata = top.get("metadata") or {}
+
+    recommended_link = str(metadata.get("recommended_link") or "").strip()
+    if recommended_link:
+        return recommended_link
+
+    source_url = str(metadata.get("source_url") or "").strip()
+    if source_url:
+        return source_url
+
+    source = str(top.get("source") or "").strip()
+    return source or None
+
+
+def _display_source_label(item: dict) -> str:
+    metadata = item.get("metadata") or {}
+    title = str(metadata.get("title") or "").strip()
+    if title:
+        return title
+
+    source_url = str(metadata.get("source_url") or "").strip()
+    recommended_link = str(metadata.get("recommended_link") or "").strip()
+    fallback_source = str(item.get("source") or "").strip()
+
+    candidate = source_url or recommended_link or fallback_source
+    if not candidate:
+        return ""
+
+    parsed = urlparse(candidate)
+    if not parsed.scheme or not parsed.netloc:
+        return candidate
+
+    path = parsed.path.strip("/")
+    if not path:
+        return parsed.netloc
+    return path.split("/")[-1] or parsed.netloc
+
+
+def _extract_display_sources(matches: List[dict], max_sources: int = 3) -> List[str]:
+    labels: List[str] = []
+    seen = set()
+
+    for item in matches:
+        label = _display_source_label(item)
+        if not label:
+            continue
+        key = label.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        labels.append(label)
+        if len(labels) >= max_sources:
+            break
+
+    return labels
 
 
 class RAGPipeline:
@@ -144,4 +207,7 @@ class RAGPipeline:
         return {
             "answer": answer,
             "sources": _extract_sources(matches),
+            "recommended_link": _extract_recommended_link(matches),
+            "display_sources": _extract_display_sources(matches, max_sources=3),
+            "matches": matches,
         }
