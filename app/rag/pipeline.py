@@ -73,6 +73,15 @@ def _extract_recommended_link(matches: List[dict]) -> str | None:
     return source or None
 
 
+def _extract_suggested_next_action(matches: List[dict]) -> str | None:
+    for match in matches:
+        metadata = match.get("metadata") or {}
+        action = str(metadata.get("suggested_next_action") or "").strip()
+        if action:
+            return action
+    return None
+
+
 def _display_source_label(item: dict) -> str:
     metadata = item.get("metadata") or {}
     title = str(metadata.get("title") or "").strip()
@@ -208,6 +217,7 @@ class RAGPipeline:
             "answer": answer,
             "sources": _extract_sources(matches),
             "recommended_link": _extract_recommended_link(matches),
+            "suggested_next_action": _extract_suggested_next_action(matches),
             "display_sources": _extract_display_sources(matches, max_sources=3),
             "matches": matches,
         }

@@ -125,21 +125,42 @@ def _validate_chunks_payload(chunks: list[dict[str, Any]]) -> str:
 
 def main() -> None:
     settings = get_settings()
-    input_path = settings.raw_data_dir / "veecasa_rag_qa_optimized.json"
+    json_files = sorted(settings.raw_data_dir.glob("*.json"))
     output_index_path = PROJECT_ROOT / "data" / "mortgage.index.faiss"
     output_chunks_path = PROJECT_ROOT / "data" / "mortgage_chunks.json"
 
-    if not input_path.exists():
-        raise FileNotFoundError(f"Input file not found: {input_path}")
+    if not json_files:
+        raise FileNotFoundError(f"No JSON files found in: {settings.raw_data_dir}")
 
-    entries = _load_payload(input_path)
-    print(f"Total records loaded: {len(entries)}")
+    all_entries: list[dict[str, Any]] = []
+    loaded_file_count = 0
+    failed_file_count = 0
+
+    for file_path in json_files:
+        print(f"Loading file: {file_path}")
+        try:
+            entries = _load_payload(file_path)
+        except Exception as exc:  # continue processing other files on failure
+            failed_file_count += 1
+            print(f"WARNING: Failed to load {file_path}: {exc}")
+            continue
+
+        loaded_file_count += 1
+        all_entries.extend(entries)
+        print(f"  -> records loaded: {len(entries)}")
+
+    print(f"Total files discovered: {len(json_files)}")
+    print(f"Total files loaded: {loaded_file_count}")
+    print(f"Total files failed: {failed_file_count}")
+    print(f"Total records loaded: {len(all_entries)}")
 
     chunks: list[dict[str, Any]] = []
     seen_records: set[tuple[str, str, str, str, str]] = set()
     skipped = 0
+    total_processed = 0
 
-    for i, entry in enumerate(entries, start=1):
+    for i, entry in enumerate(all_entries, start=1):
+        total_processed += 1
         chunk = _build_chunk(entry, fallback_id=f"qa-{i}")
 
         if chunk is None:
@@ -174,12 +195,13 @@ def main() -> None:
 
     print(f"Total chunks created: {len(chunks)}")
     print(f"Skipped records: {skipped}")
+    print(f"Total records processed: {total_processed}")
 
     for i, sample in enumerate(chunks[:3], start=1):
         print(f"Sample embedding {i}: {sample['text']}")
 
     if not chunks:
-        raise ValueError("No valid chunks were produced from veecasa_rag_qa_optimized.json")
+        raise ValueError("No valid chunks were produced from loaded JSON files.")
 
     texts = [chunk["text"] for chunk in chunks]
     embedder, vectors = Embedder.fit(texts)
@@ -209,6 +231,7 @@ def main() -> None:
     print(f"App index mirror: {settings.index_path}")
     print(f"App chunks mirror: {settings.chunks_path}")
     print(f"Vectorizer file: {settings.vectorizer_path}")
+    print(f"Final summary -> files loaded: {loaded_file_count}, records processed: {total_processed}, chunks created: {len(chunks)}")
 
 
 if __name__ == "__main__":

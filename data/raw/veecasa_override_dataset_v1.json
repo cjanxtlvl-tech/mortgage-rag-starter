@@ -1,0 +1,212 @@
+[
+  {
+    "question": "Can the seller pay my closing costs?",
+    "answer": "Yes. In many home purchases, the seller can contribute toward your closing costs through seller concessions. These credits may help cover lender fees, title costs, prepaid taxes, insurance, escrow deposits, and sometimes rate buydowns, depending on the loan program and negotiation.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller pay my closing costs?",
+    "answer": "Yes. A seller can often pay part or all of your closing costs using seller concessions, subject to loan program limits and the terms negotiated in your purchase offer. This can reduce the amount of cash you need at closing.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller concessions lower my cash to close?",
+    "answer": "Yes. Seller concessions can reduce your cash to close by applying seller-paid credits toward eligible closing costs, prepaid items, escrow deposits, or sometimes discount points. This is one of the most useful strategies for buyers who have enough income to qualify but want to preserve cash.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do I reduce cash to close when buying a home?",
+    "answer": "You may be able to reduce cash to close by negotiating seller concessions, using lender credits, applying for down payment assistance, choosing the right loan program, or structuring the offer carefully. The best option depends on your loan type, credit profile, and market conditions.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What are seller concessions?",
+    "answer": "Seller concessions are credits the seller agrees to give the buyer at closing. They do not usually reduce the purchase price directly, but they can help pay eligible closing costs and reduce the buyer\u2019s upfront cash requirement.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do seller concessions work?",
+    "answer": "Seller concessions are negotiated in the purchase contract. At closing, the agreed credit is applied toward eligible buyer costs such as lender fees, title charges, prepaid taxes, insurance, escrow deposits, and sometimes discount points. Loan programs have limits on how much the seller can contribute.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller credits cover prepaid taxes and insurance?",
+    "answer": "Often yes. Seller credits may be used toward prepaid taxes, homeowners insurance, escrow setup, lender fees, title costs, and other eligible closing charges. The exact use depends on the loan program and final closing disclosure.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller concessions help buy down my interest rate?",
+    "answer": "Yes. In some cases, seller concessions can be used to pay discount points or a temporary rate buydown, which may lower the monthly payment. This can be helpful when a buyer qualifies but wants a more comfortable payment.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the difference between seller concessions and a price reduction?",
+    "answer": "A price reduction lowers the purchase price, while seller concessions help pay the buyer\u2019s closing costs. For buyers short on cash, concessions can sometimes be more useful than a small price reduction because they directly reduce cash needed at closing.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Should I ask the seller to pay closing costs?",
+    "answer": "It can be a smart strategy, especially if your main challenge is upfront cash. Whether it works depends on the market, the strength of your offer, the property, and the loan program limits. A strong preapproval can make this request more realistic.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much can a seller contribute on an FHA loan?",
+    "answer": "FHA loans commonly allow seller contributions up to 6% of the purchase price toward eligible closing costs and prepaid items. This can make FHA especially helpful for buyers who qualify but want to reduce their upfront cash requirement.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much can a seller contribute on a conventional loan?",
+    "answer": "Conventional seller contribution limits depend on the down payment, occupancy, and loan structure. A common range is 3% to 9% of the purchase price for primary residences, depending on the scenario. The right limit should be confirmed based on the exact loan program.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I buy a home with less money upfront?",
+    "answer": "Yes. Buyers may reduce upfront cash by using low down payment loans, seller concessions, lender credits, gift funds, and down payment assistance programs. The right combination depends on your credit, income, location, and loan type.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Are there grants to help me buy a home in New Jersey?",
+    "answer": "Yes. New Jersey buyers may have access to state or local housing grants, down payment assistance, and closing cost assistance programs. Eligibility can depend on income, location, first-time buyer status, credit, and property type.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can grants help with closing costs?",
+    "answer": "Yes. Some assistance programs can help with down payment, closing costs, or both. These programs may be structured as grants, forgivable loans, deferred loans, or low-interest second mortgages.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is cash to close?",
+    "answer": "Cash to close is the total amount you need to bring to settlement after accounting for your down payment, closing costs, prepaid items, credits, deposits, and any seller or lender concessions. It is different from just the down payment.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the difference between closing costs and cash to close?",
+    "answer": "Closing costs are the fees and prepaid items connected to the loan and purchase. Cash to close is the final amount you need to bring after subtracting credits, deposits, seller concessions, and other adjustments.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much are closing costs in New Jersey?",
+    "answer": "Closing costs in New Jersey vary based on purchase price, taxes, title fees, insurance, lender charges, and escrow setup. A common estimate is 2% to 5% of the purchase price, but the exact number depends on the property and loan structure.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I roll closing costs into my mortgage?",
+    "answer": "For a purchase loan, closing costs usually cannot simply be added to the loan amount unless the loan program allows it or the appraisal supports the structure. Many buyers instead use seller concessions, lender credits, or assistance programs to reduce upfront cash.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What if I have enough income but not enough cash to close?",
+    "answer": "That is a common situation. Options may include seller concessions, gift funds, lender credits, down payment assistance, or choosing a lower down payment loan program. The best path depends on your full approval profile.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I qualify for a mortgage but still need help with closing costs?",
+    "answer": "Yes. Some buyers have enough income and credit to qualify but need help reducing cash to close. Seller concessions, grants, lender credits, and gift funds may help bridge that gap.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I use gift funds and seller concessions together?",
+    "answer": "Yes, in many cases gift funds and seller concessions can be used together, as long as the funds are properly documented and the loan program allows it. This can be helpful for buyers trying to reduce upfront cash.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can lender credits help with closing costs?",
+    "answer": "Yes. A lender credit can help cover some closing costs, usually in exchange for a slightly higher interest rate. This can reduce upfront cash but may increase the monthly payment, so it should be compared carefully.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Should I use seller concessions or lender credits?",
+    "answer": "Seller concessions and lender credits both reduce cash needed at closing, but they work differently. Seller concessions come from the seller through the purchase contract, while lender credits usually come with pricing tradeoffs such as a higher rate. The better choice depends on the offer, market, and payment goals.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller concessions make my offer weaker?",
+    "answer": "Sometimes. Asking for concessions can affect how a seller views your offer, especially in a competitive market. But a strong preapproval, clean terms, and the right purchase price strategy can make concessions realistic.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do I structure an offer with seller concessions?",
+    "answer": "An offer with seller concessions should clearly state the credit amount or percentage and what it will be used for. The structure should also account for appraisal value, loan program limits, and seller negotiation strategy.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can a seller credit be used for repairs?",
+    "answer": "Sometimes seller credits can help with allowable closing costs, but repair credits are handled differently depending on the loan program, property condition, and underwriting requirements. Some repairs may need to be completed before closing instead of credited.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What costs can seller concessions cover?",
+    "answer": "Seller concessions may cover lender fees, title charges, prepaid taxes, homeowners insurance, escrow deposits, recording fees, and sometimes discount points. They generally cannot be used to give the buyer cash back beyond allowed closing costs.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller concessions cover my down payment?",
+    "answer": "Usually no. Seller concessions generally help with closing costs and prepaid items, not the buyer\u2019s required down payment. Down payment funds usually need to come from the buyer, gift funds, or approved assistance programs.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the best way to lower upfront costs when buying a home?",
+    "answer": "The best way is often a combination of the right loan program, seller concessions, lender credits, gift funds, and assistance programs. A buyer with limited cash may still have options if income, credit, and debt-to-income ratio support approval.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "question": "How much are closing costs on a $400,000 home?",
+    "answer": "Closing costs typically range from 2% to 5% of the purchase price. On a $400,000 home, that\u2019s about $8,000 to $20,000 depending on taxes, lender fees, and insurance. Some buyers reduce this cost by negotiating seller concessions or using lender credits.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can seller concessions cover all of my closing costs?",
+    "answer": "In many cases, yes\u2014seller concessions can cover a large portion or even all of your closing costs depending on your loan type.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/sellers-concessions",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the difference between FHA and conventional loans?",
+    "answer": "FHA loans are designed for lower credit and smaller down payments, while conventional loans require stronger credit but offer more flexibility.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/buyer-education-hub",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Are there first-time homebuyer grants in New Jersey?",
+    "answer": "Yes, New Jersey offers several first-time homebuyer programs that can help with down payment and closing costs.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the minimum down payment for a conventional loan?",
+    "answer": "Conventional loans can require as little as 3% down depending on the borrower profile.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/buyer-education-hub",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do I know if I qualify for a conventional loan?",
+    "answer": "Qualification depends on credit score, income stability, DTI, and down payment.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/buyer-education-hub",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much income do I need to buy a home?",
+    "answer": "Income requirements depend on your debts, credit, and down payment.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/dti-calculator",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I qualify for a mortgage with high debt?",
+    "answer": "Yes, depending on your DTI ratio and loan program.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the fastest way to get pre-approved?",
+    "answer": "Submit a digital application with your financial details to get pre-approved quickly.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much will my monthly mortgage payment be?",
+    "answer": "It depends on loan amount, rate, taxes, and insurance.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I refinance from FHA to conventional later?",
+    "answer": "Yes, many borrowers refinance to remove mortgage insurance.",
+    "category": "refinance",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What credit score do I need for a conventional loan?",
+    "answer": "Typically 620 minimum, but better rates above 680.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Are there programs to help with down payment assistance?",
+    "answer": "Yes, many programs offer grants or assistance for down payments.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/state-and-local-housing-grants",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do I compete with cash buyers?",
+    "answer": "Strong pre-approval and flexible terms help you compete.",
+    "category": "conversion",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "What is the best loan for a first-time homebuyer?",
+    "answer": "It depends on your financial profile, FHA and conventional are common options.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/types-of-mortgage",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How much should I save before buying a home?",
+    "answer": "Typically 3\u20135% down plus closing costs.",
+    "category": "education",
+    "recommended_link": "https://veecasa.com/saving-for-your-home",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Can I use rental income to qualify?",
+    "answer": "Yes, rental income can be used depending on documentation.",
+    "category": "investor",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "Is buying a multi-family home a good strategy?",
+    "answer": "It can offset mortgage costs with rental income.",
+    "category": "investor",
+    "recommended_link": "https://veecasa.com/deal-analyzer",
+    "suggested_next_action": "offer_start_rasa_application"
+  }
+]

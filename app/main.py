@@ -195,7 +195,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
         type=decision.response_type,
         answer=answer,
         recommended_link=recommended_link,
-        suggested_next_action=decision.suggested_next_action,
+        suggested_next_action=result.get("suggested_next_action") or decision.suggested_next_action,
         display_sources=display_sources,
         meta=ResponseMeta(request_id=request_id),
     )
