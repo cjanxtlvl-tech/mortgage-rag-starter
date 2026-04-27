@@ -1,0 +1,688 @@
+<!-- ============================================================
+     VEECASA MORTGAGE ASSISTANT WIDGET v4
+     - Mobile: full screen bottom-sheet style
+     - Mic: direct SpeechRecognition, no getUserMedia dependency
+     - Launcher: "Online · Ready to Help" with pulsing dot
+     - Auto-opens on every page load (once per load)
+     - VeeCasa SVG logo
+     ============================================================ -->
+
+<div id="veecasa-chat-root"></div>
+
+<script>
+(function () {
+  var RASA_URL    = 'https://rasa.nextlevelrnd.info/webhooks/rest/webhook';
+
+  var host   = document.getElementById('veecasa-chat-root');
+  var shadow = host.attachShadow({ mode: 'open' });
+
+  var styleEl = document.createElement('style');
+  styleEl.textContent = `
+    *, *::before, *::after {
+      box-sizing: border-box !important; margin: 0 !important; padding: 0 !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
+      line-height: normal !important; letter-spacing: normal !important;
+    }
+
+    /* ── Launcher pill ──────────────────────────────────────── */
+    #vc-launcher {
+      position: fixed !important; bottom: 0px !important; left: 24px !important;
+      z-index: 2147483647 !important; width: 155px !important; height: 58px !important;
+      border-radius: 28px 28px 0 0 !important;
+      background: linear-gradient(160deg, #2563eb 0%, #1a4fc4 100%) !important;
+      border: none !important; cursor: pointer !important;
+      box-shadow: 0 -4px 20px rgba(37,99,235,0.45), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+      display: flex !important; flex-direction: column !important;
+      align-items: center !important; justify-content: center !important;
+      padding: 8px 10px 0 10px !important; gap: 1px !important;
+      transition: bottom 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s !important;
+      outline: none !important;
+    }
+    #vc-launcher:hover {
+      bottom: 0 !important;
+      box-shadow: 0 -8px 28px rgba(37,99,235,0.6), inset 0 1px 0 rgba(255,255,255,0.16) !important;
+    }
+    #vc-launcher-dot {
+      width: 7px !important; height: 7px !important; background: #4ade80 !important;
+      border-radius: 50% !important; display: block !important; flex-shrink: 0 !important;
+      animation: vc-pulse-dot 2s infinite !important;
+    }
+    @keyframes vc-pulse-dot {
+      0%  { box-shadow: 0 0 0 0 rgba(74,222,128,0.7); }
+      60% { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+    }
+    #vc-launcher-line1 {
+      font-size: 11.5px !important; font-weight: 800 !important; color: #fff !important;
+      text-transform: uppercase !important; letter-spacing: 0.7px !important;
+      display: block !important; white-space: nowrap !important;
+    }
+    #vc-launcher-line2 {
+      font-size: 10px !important; font-weight: 600 !important;
+      color: rgba(255,255,255,0.68) !important; text-transform: uppercase !important;
+      letter-spacing: 0.5px !important; display: block !important; white-space: nowrap !important;
+    }
+    #vc-badge {
+      position: absolute !important; top: -5px !important; right: 6px !important;
+      width: 17px !important; height: 17px !important; background: #ef4444 !important;
+      border-radius: 50% !important; font-size: 9px !important; font-weight: 700 !important;
+      color: white !important; display: flex !important; align-items: center !important;
+      justify-content: center !important; box-shadow: 0 2px 6px rgba(239,68,68,0.5) !important;
+      animation: vc-badge-pop 0.3s ease !important;
+    }
+    @keyframes vc-badge-pop { 0%{transform:scale(0);} 70%{transform:scale(1.3);} 100%{transform:scale(1);} }
+    #vc-badge.vc-hidden { display: none !important; }
+
+    /* ── Backdrop ───────────────────────────────────────────── */
+    #vc-backdrop {
+      display: none !important; position: fixed !important; inset: 0 !important;
+      z-index: 2147483640 !important; background: rgba(0,0,0,0.5) !important;
+      opacity: 0 !important; transition: opacity 0.2s ease !important;
+      isolation: isolate !important; transform: translateZ(0) !important;
+    }
+    #vc-backdrop.vc-open    { display: block !important; }
+    #vc-backdrop.vc-visible { opacity: 1 !important; }
+
+    /* ── Chat window DESKTOP ────────────────────────────────── */
+    #vc-window {
+      position: fixed !important; top: 50% !important; left: 50% !important;
+      transform: translate(-50%, -50%) scale(0.94) !important;
+      -webkit-transform: translate(-50%, -50%) scale(0.94) !important;
+      z-index: 2147483646 !important;
+      width: 540px !important; height: 660px !important;
+      max-width: calc(100vw - 32px) !important; max-height: calc(100vh - 32px) !important;
+      border-radius: 20px !important;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 8px 24px rgba(0,0,0,0.16), 0 0 0 1px rgba(13,31,60,0.07) !important;
+      display: none !important; flex-direction: column !important;
+      overflow: hidden !important; background: #f4f5f8 !important; opacity: 0 !important;
+      transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.34,1.3,0.64,1) !important;
+      isolation: isolate !important; will-change: transform !important;
+      filter: none !important; -webkit-backdrop-filter: none !important;
+      transform-origin: center center !important;
+    }
+    #vc-window.vc-open { display: flex !important; }
+    #vc-window.vc-visible {
+      opacity: 1 !important;
+      transform: translate(-50%, -50%) scale(1) !important;
+      -webkit-transform: translate(-50%, -50%) scale(1) !important;
+    }
+
+    /* ── Chat window MOBILE (bottom sheet) ──────────────────── */
+    @media (max-width: 599px) {
+      #vc-window {
+        top: auto !important; bottom: 0 !important; left: 0 !important; right: 0 !important;
+        transform: translateY(24px) !important;
+        -webkit-transform: translateY(24px) !important;
+        transform-origin: bottom center !important;
+        width: 100% !important; max-width: 100% !important;
+        height: 75% !important; max-height: 75% !important;
+        border-radius: 20px 20px 0 0 !important;
+        box-shadow: 0 -8px 32px rgba(0,0,0,0.22) !important;
+      }
+      #vc-window.vc-visible {
+        transform: translateY(0) !important;
+        -webkit-transform: translateY(0) !important;
+      }
+      #vc-launcher { left: 16px !important; width: 148px !important; }
+      #vc-messages { padding: 14px 12px !important; }
+      #vc-footer {
+        padding: 8px 10px !important;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+        gap: 6px !important;
+      }
+      #vc-input { font-size: 16px !important; }
+      .vc-icon-btn { width: 38px !important; height: 38px !important; font-size: 17px !important; }
+      #vc-send-btn { width: 38px !important; height: 38px !important; }
+      .vc-bubble { font-size: 14.5px !important; }
+      #vc-header { padding: 12px 14px !important; }
+      #vc-header-name { font-size: 15px !important; }
+      .vc-qr-btn { font-size: 13px !important; padding: 8px 13px !important; }
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    #vc-header {
+      background: linear-gradient(135deg, #2563eb 0%, #162848 100%) !important;
+      padding: 14px 16px !important; display: flex !important; align-items: center !important;
+      gap: 12px !important; flex-shrink: 0 !important;
+    }
+    #vc-header-avatar {
+      width: 48px !important; height: 48px !important; border-radius: 50% !important;
+      background: rgba(255,255,255,0.14) !important; border: 2px solid rgba(255,255,255,0.24) !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      flex-shrink: 0 !important; padding: 7px !important;
+    }
+    #vc-header-avatar svg { width: 30px !important; height: 30px !important; display: block !important; }
+    #vc-header-info { flex: 1 !important; min-width: 0 !important; }
+    #vc-header-name  { display: block !important; font-size: 16px !important; font-weight: 700 !important; color: #fff !important; }
+    #vc-header-status {
+      display: flex !important; align-items: center !important; gap: 5px !important;
+      font-size: 11.5px !important; color: #4ade80 !important; margin-top: 3px !important; font-weight: 500 !important;
+    }
+    .vc-status-dot {
+      width: 7px !important; height: 7px !important; background: #4ade80 !important;
+      border-radius: 50% !important; display: inline-block !important; flex-shrink: 0 !important;
+      animation: vc-pulse-dot 2s infinite !important;
+    }
+    #vc-header-brand {
+      display: block !important; font-size: 10px !important; color: rgba(255,255,255,0.32) !important;
+      text-transform: uppercase !important; letter-spacing: 0.8px !important; margin-top: 3px !important;
+    }
+    .vc-hdr-btn {
+      background: rgba(255,255,255,0.1) !important; border: 1px solid rgba(255,255,255,0.18) !important;
+      color: rgba(255,255,255,0.7) !important; width: 32px !important; height: 32px !important;
+      border-radius: 50% !important; cursor: pointer !important; font-size: 16px !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      flex-shrink: 0 !important; transition: all 0.18s !important; outline: none !important; margin-left: 4px !important;
+    }
+    .vc-hdr-btn:hover { background: rgba(255,255,255,0.22) !important; color: white !important; }
+
+    /* ── Messages ───────────────────────────────────────────── */
+    #vc-messages {
+      flex: 1 !important; overflow-y: auto !important; overflow-x: hidden !important;
+      padding: 16px 14px !important; display: flex !important; flex-direction: column !important;
+      gap: 12px !important; scroll-behavior: smooth !important;
+    }
+    #vc-messages::-webkit-scrollbar { width: 4px !important; }
+    #vc-messages::-webkit-scrollbar-track { background: transparent !important; }
+    #vc-messages::-webkit-scrollbar-thumb { background: rgba(13,31,60,0.18) !important; border-radius: 4px !important; }
+
+    .vc-msg-row { display: flex !important; align-items: flex-end !important; gap: 8px !important; }
+    .vc-msg-row.vc-user { flex-direction: row-reverse !important; }
+    .vc-bot-avatar {
+      width: 30px !important; height: 30px !important; border-radius: 50% !important;
+      background: #2563eb !important; display: flex !important; align-items: center !important;
+      justify-content: center !important; flex-shrink: 0 !important; padding: 5px !important;
+    }
+    .vc-bot-avatar svg { width: 18px !important; height: 18px !important; display: block !important; }
+    .vc-bubble {
+      max-width: 78% !important; padding: 11px 15px !important; border-radius: 18px !important;
+      font-size: 14.5px !important; line-height: 1.56 !important; word-break: break-word !important;
+    }
+    .vc-bubble.vc-bot-bubble {
+      background: white !important; color: #1a1a2e !important; border-bottom-left-radius: 4px !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important; white-space: pre-wrap !important;
+    }
+    .vc-bubble.vc-user-bubble {
+      background: #2563eb !important; color: white !important; border-bottom-right-radius: 4px !important;
+    }
+
+    /* ── Quick replies ──────────────────────────────────────── */
+    .vc-btns-wrap { display: flex !important; flex-wrap: wrap !important; gap: 7px !important; padding: 2px 0 2px 38px !important; }
+    .vc-qr-btn {
+      background: white !important; border: 2px solid #2563eb !important; color: #2563eb !important;
+      padding: 7px 14px !important; border-radius: 20px !important; font-size: 13.5px !important;
+      cursor: pointer !important; transition: all 0.16s !important; white-space: nowrap !important;
+      outline: none !important; font-weight: 500 !important;
+    }
+    .vc-qr-btn:hover { background: #2563eb !important; color: white !important; transform: translateY(-1px) !important; }
+
+    /* ── Typing dots ────────────────────────────────────────── */
+    .vc-typing-wrap {
+      display: flex !important; align-items: center !important; gap: 4px !important;
+      padding: 11px 15px !important; background: white !important; border-radius: 18px !important;
+      border-bottom-left-radius: 4px !important; width: fit-content !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    }
+    .vc-dot {
+      width: 7px !important; height: 7px !important; background: #2563eb !important;
+      border-radius: 50% !important; animation: vc-bounce 1.2s infinite !important;
+      display: block !important; opacity: 0.5 !important;
+    }
+    .vc-dot:nth-child(2) { animation-delay: 0.2s !important; }
+    .vc-dot:nth-child(3) { animation-delay: 0.4s !important; }
+    @keyframes vc-bounce { 0%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-6px);} }
+
+    .vc-listening-bubble {
+      font-size: 13px !important; color: #444 !important; font-style: italic !important;
+      padding: 6px 12px !important; background: #eef2ff !important; border-radius: 12px !important;
+      border: 1px dashed #2563eb !important; display: inline-block !important;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    #vc-footer {
+      background: white !important; border-top: 1px solid #e8ecf2 !important;
+      padding: 10px 12px !important; display: flex !important;
+      gap: 7px !important; align-items: center !important; flex-shrink: 0 !important;
+    }
+    #vc-input {
+      flex: 1 !important; border: 1.5px solid #d6dae6 !important; border-radius: 24px !important;
+      padding: 10px 14px !important; font-size: 15px !important; outline: none !important;
+      color: #1a1a2e !important; background: #f9fafb !important;
+      transition: border-color 0.2s !important; min-width: 0 !important;
+    }
+    #vc-input:focus { border-color: #2563eb !important; background: white !important; }
+    #vc-input::placeholder { color: #a8b0be !important; }
+    .vc-icon-btn {
+      width: 40px !important; height: 40px !important; border-radius: 50% !important;
+      background: white !important; border: 1.5px solid #d6dae6 !important;
+      cursor: pointer !important; display: flex !important; align-items: center !important;
+      justify-content: center !important; font-size: 18px !important;
+      transition: all 0.2s !important; flex-shrink: 0 !important; outline: none !important;
+    }
+    .vc-icon-btn:hover { border-color: #2563eb !important; background: #eff2ff !important; }
+    .vc-icon-btn.vc-listening {
+      border-color: #ef4444 !important; background: #fff0f0 !important;
+      animation: vc-mic-pulse 1s infinite !important;
+    }
+    .vc-icon-btn.vc-muted { opacity: 0.45 !important; border-color: #ccc !important; }
+    @keyframes vc-mic-pulse {
+      0%  { box-shadow: 0 0 0 0 rgba(239,68,68,0.45); }
+      70% { box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+    }
+    #vc-send-btn {
+      width: 40px !important; height: 40px !important; border-radius: 50% !important;
+      background: #2563eb !important; border: none !important; cursor: pointer !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      transition: transform 0.18s, background 0.18s, box-shadow 0.18s !important;
+      flex-shrink: 0 !important; outline: none !important;
+    }
+    #vc-send-btn:hover { transform: scale(1.1) !important; background: #162848 !important; box-shadow: 0 4px 14px rgba(13,31,60,0.38) !important; }
+    #vc-send-btn svg { width: 18px !important; height: 18px !important; fill: white !important; display: block !important; }
+
+    /* ── Branding ───────────────────────────────────────────── */
+    #vc-branding {
+      text-align: center !important; font-size: 10px !important; color: #bcc2cc !important;
+      padding: 4px 0 6px !important; background: white !important; flex-shrink: 0 !important;
+    }
+    #vc-branding a { color: #2563eb !important; text-decoration: none !important; font-weight: 600 !important; }
+
+    /* ── Mic banner ─────────────────────────────────────────── */
+    .vc-mic-banner {
+      background: #fffbeb !important; border: 1px solid #f59e0b !important;
+      border-radius: 12px !important; padding: 10px 14px !important;
+      font-size: 13px !important; color: #78350f !important;
+      line-height: 1.5 !important; max-width: 85% !important;
+    }
+
+    /* ── Suck-close animation ───────────────────────────────── */
+    #vc-launcher.vc-absorb { animation: vc-absorb 0.55s cubic-bezier(0.36,0.07,0.19,0.97) !important; }
+    @keyframes vc-absorb {
+      0%{transform:scale(1);} 25%{transform:scale(1.16);} 55%{transform:scale(0.9);} 78%{transform:scale(1.05);} 100%{transform:scale(1);}
+    }
+    .vc-ripple {
+      position: fixed !important; border-radius: 50% !important;
+      border: 2px solid rgba(37,99,235,0.55) !important; pointer-events: none !important;
+      z-index: 2147483648 !important; animation: vc-ripple-out 0.7s ease-out forwards !important;
+    }
+    @keyframes vc-ripple-out {
+      0%   { width:20px;  height:20px;  opacity:0.9; margin-left:-10px;  margin-top:-10px;  }
+      100% { width:130px; height:130px; opacity:0;   margin-left:-65px;  margin-top:-65px;  }
+    }
+  `;
+  shadow.appendChild(styleEl);
+
+  /* ── SVG Logo ────────────────────────────────────────────── */
+  var LOGO_SVG = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="24,3 45,21 41,21 41,45 7,45 7,21 3,21" fill="white" opacity="0.95"/>
+    <text x="24" y="37" text-anchor="middle" font-family="Arial Black,Arial,sans-serif"
+          font-weight="900" font-size="19" fill="#2563eb">V</text>
+    <path d="M5,45 Q24,52 43,45" stroke="white" stroke-width="2.5" fill="none"
+          stroke-linecap="round" opacity="0.65"/>
+  </svg>`;
+
+  /* ── HTML ────────────────────────────────────────────────── */
+  var wrapper = document.createElement('div');
+  wrapper.innerHTML = `
+    <button id="vc-launcher" title="Chat with our Mortgage Assistant">
+      <span id="vc-launcher-line1">Online</span>
+      <span id="vc-launcher-line2">Ready to Help</span>
+      <span id="vc-badge" class="vc-hidden">1</span>
+    </button>
+    <div id="vc-backdrop"></div>
+    <div id="vc-window">
+      <div id="vc-header">
+        <div id="vc-header-avatar">${LOGO_SVG}</div>
+        <div id="vc-header-info">
+          <span id="vc-header-name">Mortgage Assistant</span>
+          <span id="vc-header-status">
+            <span class="vc-status-dot"></span>Online — Ready to help
+          </span>
+          <span id="vc-header-brand">Veecasa · Mortgage Specialists</span>
+        </div>
+        <button class="vc-hdr-btn" id="vc-close-btn" title="Close">✕</button>
+      </div>
+      <div id="vc-messages"></div>
+      <div id="vc-footer">
+        <input id="vc-input" type="text"
+               placeholder="Ask about loans, rates, pre-qualification..."
+               autocomplete="off" autocorrect="off" spellcheck="false" />
+        <button class="vc-icon-btn" id="vc-mic-btn"   title="Click to speak">🎤</button>
+        <button class="vc-icon-btn" id="vc-voice-btn" title="Toggle bot voice">🔊</button>
+        <button id="vc-send-btn" title="Send">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div id="vc-branding">Powered by <a href="#" target="_blank">Veecasa AI</a> · Always available</div>
+    </div>
+  `;
+  shadow.appendChild(wrapper);
+
+  /* ── Refs ────────────────────────────────────────────────── */
+  var $ = function(id){ return shadow.getElementById(id); };
+  var launcher=$('vc-launcher'), chatWin=$('vc-window'), backdrop=$('vc-backdrop'),
+      closeBtn=$('vc-close-btn'), messages=$('vc-messages'), input=$('vc-input'),
+      micBtn=$('vc-mic-btn'), voiceBtn=$('vc-voice-btn'), sendBtn=$('vc-send-btn'), badge=$('vc-badge');
+
+  function makeBotAvatar(){
+    var av = document.createElement('div'); av.className = 'vc-bot-avatar';
+    av.innerHTML = LOGO_SVG; return av;
+  }
+
+  /* ── State ───────────────────────────────────────────────── */
+  var isOpen=false, greeted=false,
+      sessionId='wp_'+Math.random().toString(36).substr(2,9)+'_'+Date.now(),
+      sessionStart=new Date().toISOString(),
+      messageCount=0, clientIP='unknown', typingEl=null, listeningRow=null;
+
+  fetch('https://api.ipify.org?format=json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){ clientIP=d.ip||'unknown'; }).catch(function(){});
+
+  function getMetadata(){
+    return { client_ip:clientIP, user_agent:navigator.userAgent,
+      source_url:window.location.href, page_title:document.title,
+      referrer:document.referrer||'direct',
+      screen_resolution:screen.width+'x'+screen.height,
+      language:navigator.language||'unknown',
+      timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'unknown',
+      session_start:sessionStart, message_count:messageCount,
+      timestamp:new Date().toISOString() };
+  }
+
+  /* ── Open ────────────────────────────────────────────────── */
+  function vcOpen(){
+    if(isOpen) return; isOpen=true;
+    badge.classList.add('vc-hidden');
+    chatWin.getAnimations().forEach(function(a){ a.cancel(); });
+    chatWin.style.cssText='';
+    backdrop.classList.add('vc-open'); chatWin.classList.add('vc-open');
+    setTimeout(function(){ backdrop.classList.add('vc-visible'); chatWin.classList.add('vc-visible'); },10);
+    if(!greeted){ greeted=true; vcGreet(); }
+    setTimeout(function(){ input.focus(); },350);
+  }
+
+  /* ── Vacuum close ────────────────────────────────────────── */
+  function vcClose(){
+    if(!isOpen) return; isOpen=false;
+    var winRect=chatWin.getBoundingClientRect(), btnRect=launcher.getBoundingClientRect();
+    var dx=(btnRect.left+btnRect.width/2)-(winRect.left+winRect.width/2);
+    var dy=(btnRect.top+btnRect.height/2)-(winRect.top+winRect.height/2);
+    var btnCX=btnRect.left+btnRect.width/2, btnCY=btnRect.top+btnRect.height/2;
+    chatWin.style.position='fixed'; chatWin.style.top=winRect.top+'px';
+    chatWin.style.left=winRect.left+'px'; chatWin.style.bottom='auto';
+    chatWin.style.width=winRect.width+'px'; chatWin.style.height=winRect.height+'px';
+    chatWin.style.transform='none'; chatWin.style.transition='none';
+    chatWin.classList.remove('vc-visible'); backdrop.classList.remove('vc-visible');
+    var dur=500;
+    chatWin.animate([
+      {transform:'translate(0,0) scale(1)',opacity:1,borderRadius:'20px',filter:'blur(0px)'},
+      {transform:'translate('+(dx*0.4)+'px,'+(dy*0.4)+'px) scale(0.68,0.55) skewX(5deg)',opacity:0.85,borderRadius:'26px',filter:'blur(1px)',offset:0.42},
+      {transform:'translate('+(dx*0.75)+'px,'+(dy*0.75)+'px) scale(0.25,0.15) skewX(12deg)',opacity:0.5,borderRadius:'44px',filter:'blur(3px)',offset:0.72},
+      {transform:'translate('+dx+'px,'+dy+'px) scale(0)',opacity:0,borderRadius:'80px',filter:'blur(10px)'}
+    ],{duration:dur,easing:'cubic-bezier(0.55,0.0,1.0,0.6)',fill:'forwards'});
+    setTimeout(function(){
+      chatWin.classList.remove('vc-open'); backdrop.classList.remove('vc-open'); chatWin.style.cssText='';
+      launcher.classList.remove('vc-absorb'); void launcher.offsetWidth; launcher.classList.add('vc-absorb');
+      setTimeout(function(){ launcher.classList.remove('vc-absorb'); },600);
+      for(var r=0;r<3;r++){
+        (function(d){ setTimeout(function(){
+          var rip=document.createElement('div'); rip.className='vc-ripple';
+          rip.style.left=btnCX+'px'; rip.style.top=btnCY+'px';
+          document.body.appendChild(rip); setTimeout(function(){ rip.remove(); },800);
+        },d); })(r*110);
+      }
+    },dur-20);
+  }
+
+  launcher.addEventListener('click',function(){ isOpen?vcClose():vcOpen(); });
+  closeBtn.addEventListener('click',vcClose);
+  backdrop.addEventListener('click',vcClose);
+
+  /* ── Auto-open on home page only ────────────────────────── */
+  var path = window.location.pathname;
+  if(path === '/' || path === '/index.html' || path === '/index.php') {
+    vcOpen();
+  }
+
+  /* ── Greet ───────────────────────────────────────────────── */
+  function vcGreet(){
+    vcShowTyping();
+    fetch(RASA_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({sender:sessionId,message:'hello',metadata:getMetadata()})})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      vcHideTyping();
+      if(!res||!res.length){ vcBotMessage("Hi! 😊 I'm your Mortgage Assistant. How can I help?",[]);return; }
+      res.forEach(function(resp,idx){ setTimeout(function(){
+        vcBotMessage(resp.text||'',idx===res.length-1?(resp.buttons||[]):[]);
+        if(idx===res.length-1&&resp.text) vcSpeak(resp.text);
+      },idx*600); });
+    })
+    .catch(function(){
+      vcHideTyping();
+      vcBotMessage("Hi there! 😊 I'm your Mortgage Assistant — here to guide you through your home financing journey. What brings you here today?",[
+        {title:'🏠 Buy a Home',payload:'/select_buy_home'},
+        {title:'💰 Refinance My Mortgage',payload:'/select_refinance'},
+        {title:'📈 Investment / Rental',payload:'/select_investment'},
+        {title:'🏢 Commercial / SBA',payload:'/select_commercial'},
+        {title:'⚡ Hard Money / Fix & Flip',payload:'/select_hard_money'},
+        {title:'❓ Ask a Question',payload:'/ask_how_process_works'},
+        {title:'📞 Talk to a Loan Officer',payload:'/speak_to_loan_officer'}
+      ]);
+    });
+  }
+
+  /* ── Send ────────────────────────────────────────────────── */
+  function vcSend(textOverride,payloadOverride){
+    var text=textOverride!==undefined?textOverride:input.value.trim();
+    var payload=payloadOverride||text;
+    if(!text) return;
+    input.value=''; messageCount++;
+    vcUserMessage(text); vcShowTyping();
+    fetch(RASA_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({sender:sessionId,message:payload,metadata:getMetadata()})})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      vcHideTyping();
+      if(!res||!res.length){
+        vcBotMessage("I didn't quite understand that. Please rephrase or choose an option:",[
+          {title:'🏠 Buy a Home',payload:'/select_buy_home'},
+          {title:'💰 Refinance',payload:'/select_refinance'},
+          {title:'📞 Talk to a Loan Officer',payload:'/speak_to_loan_officer'}
+        ]); return;
+      }
+      res.forEach(function(resp,idx){ setTimeout(function(){
+        vcBotMessage(resp.text||'',idx===res.length-1?(resp.buttons||[]):[]);
+        if(idx===res.length-1&&resp.text) vcSpeak(resp.text);
+      },idx*600); });
+    })
+    .catch(function(){ vcHideTyping(); vcBotMessage('Connection issue. Please try again.',[]); });
+  }
+  sendBtn.addEventListener('click',function(){ vcSend(); });
+  input.addEventListener('keydown',function(e){ if(e.key==='Enter') vcSend(); });
+
+  /* ── DOM helpers ─────────────────────────────────────────── */
+  function vcUserMessage(text){
+    var row=document.createElement('div'); row.className='vc-msg-row vc-user';
+    var bub=document.createElement('div'); bub.className='vc-bubble vc-user-bubble'; bub.textContent=text;
+    row.appendChild(bub); messages.appendChild(row); messages.scrollTop=messages.scrollHeight;
+  }
+  function vcBotMessage(text,buttons){
+    if(text){
+      var row=document.createElement('div'); row.className='vc-msg-row';
+      var bub=document.createElement('div'); bub.className='vc-bubble vc-bot-bubble';
+
+      var urlMatch = text.match(/https?:\/\/[^\s<]+/);
+      var cleanText = text;
+
+      if (urlMatch) {
+        cleanText = cleanText.replace(urlMatch[0], '').trim();
+        cleanText = cleanText.replace(/👉\s*Learn more:\s*$/i, '').trim();
+        cleanText = cleanText.replace(/Learn more:\s*$/i, '').trim();
+        cleanText = cleanText.replace(/Source:\s*$/i, '').trim();
+      }
+
+      bub.innerHTML=cleanText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+
+      if (urlMatch) {
+        var link = document.createElement('a');
+        link.href = urlMatch[0];
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.cssText = 'display:inline-block!important;margin-top:10px!important;padding:8px 14px!important;border-radius:999px!important;border:2px solid #2563eb!important;color:#2563eb!important;font-weight:700!important;text-decoration:none!important;';
+        link.textContent = '👉 Learn More';
+
+        link.addEventListener('mouseenter', function() {
+          link.style.background = '#2563eb';
+          link.style.color = 'white';
+        });
+
+        link.addEventListener('mouseleave', function() {
+          link.style.background = 'transparent';
+          link.style.color = '#2563eb';
+        });
+
+        bub.appendChild(document.createElement('br'));
+        bub.appendChild(link);
+      }
+
+      row.appendChild(makeBotAvatar()); row.appendChild(bub); messages.appendChild(row);
+    }
+    if(buttons&&buttons.length){
+      var wrap=document.createElement('div'); wrap.className='vc-btns-wrap';
+      buttons.forEach(function(btn){
+        var b=document.createElement('button'); b.className='vc-qr-btn'; b.textContent=btn.title;
+        b.addEventListener('click',function(){
+          shadow.querySelectorAll('.vc-btns-wrap').forEach(function(w){ w.remove(); });
+          vcSend(btn.title,btn.payload);
+        }); wrap.appendChild(b);
+      }); messages.appendChild(wrap);
+    }
+    messages.scrollTop=messages.scrollHeight;
+  }
+  function vcShowTyping(){
+    var row=document.createElement('div'); row.className='vc-msg-row';
+    var t=document.createElement('div'); t.className='vc-typing-wrap';
+    [1,2,3].forEach(function(){ var d=document.createElement('div'); d.className='vc-dot'; t.appendChild(d); });
+    row.appendChild(makeBotAvatar()); row.appendChild(t); typingEl=row; messages.appendChild(row);
+    messages.scrollTop=messages.scrollHeight;
+  }
+  function vcHideTyping(){ if(typingEl){ typingEl.remove(); typingEl=null; } }
+
+  /* ══════════════════════════════════════════════════════════
+     MICROPHONE — v4 clean approach
+  ══════════════════════════════════════════════════════════ */
+  var SR          = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var hasSTT      = !!SR;
+  var hasTTS      = ('speechSynthesis' in window);
+  var isListening = false;
+  var voiceOutputOn = true;
+  var recognition   = null;
+
+  function buildRec(){
+    if(!SR) return null;
+    var r = new SR();
+    r.lang='en-US'; r.continuous=false; r.interimResults=true; r.maxAlternatives=1;
+    r.onstart = function(){
+      isListening=true; micBtn.textContent='🔴';
+      micBtn.classList.add('vc-listening'); micBtn.title='Recording… tap to stop';
+      showListeningBubble();
+    };
+    r.onend = function(){
+      isListening=false; micBtn.textContent='🎤';
+      micBtn.classList.remove('vc-listening'); micBtn.title='Click to speak';
+      removeListeningBubble();
+      recognition = buildRec();
+    };
+    r.onerror = function(e){
+      isListening=false; micBtn.textContent='🎤';
+      micBtn.classList.remove('vc-listening'); removeListeningBubble();
+      recognition = buildRec();
+      if(e.error==='not-allowed'||e.error==='service-not-allowed'){ showMicBanner(); }
+      else if(e.error==='no-speech'){ vcBotMessage("Didn't hear anything — tap 🎤 and speak clearly.",[]);}
+      else if(e.error==='network'){   vcBotMessage('🎤 Voice recognition needs an active internet connection.',[]);}
+      else if(e.error==='audio-capture'){ vcBotMessage('🎤 No microphone detected on this device.',[]);}
+    };
+    r.onresult = function(event){
+      var f='',i='';
+      for(var n=event.resultIndex;n<event.results.length;n++){
+        if(event.results[n].isFinal) f+=event.results[n][0].transcript;
+        else i+=event.results[n][0].transcript;
+      }
+      if(f||i) input.value=f||i;
+      if(f.trim()){ r.stop(); input.value=''; vcSend(f.trim()); }
+    };
+    return r;
+  }
+  recognition = buildRec();
+
+  function showMicBanner(){
+    var row=document.createElement('div'); row.className='vc-msg-row';
+    var b=document.createElement('div'); b.className='vc-mic-banner';
+    b.innerHTML='🎤 <strong>Microphone blocked.</strong><br>Click the <strong>🔒 lock icon</strong> in your browser address bar → <em>Site Settings</em> → set Microphone to <strong>Allow</strong>, then <strong>refresh the page</strong>.';
+    row.appendChild(makeBotAvatar()); row.appendChild(b);
+    messages.appendChild(row); messages.scrollTop=messages.scrollHeight;
+  }
+
+  micBtn.addEventListener('click',function(){
+    if(!isOpen) vcOpen();
+    if(!hasSTT){ alert('🎤 Voice input works best in Google Chrome or Microsoft Edge.'); return; }
+    if(isListening){
+      try{ recognition.stop(); } catch(e){}
+    } else {
+      if(!recognition) recognition=buildRec();
+      try{ recognition.start(); }
+      catch(e){
+        recognition=buildRec();
+        setTimeout(function(){ try{ recognition.start(); }catch(e2){} },200);
+      }
+    }
+  });
+
+  voiceBtn.addEventListener('click',function(){
+    voiceOutputOn=!voiceOutputOn;
+    voiceBtn.textContent=voiceOutputOn?'🔊':'🔇';
+    voiceBtn.title=voiceOutputOn?'Bot voice on — click to mute':'Muted — click to unmute';
+    voiceBtn.classList.toggle('vc-muted',!voiceOutputOn);
+    if(!voiceOutputOn&&hasTTS) window.speechSynthesis.cancel();
+  });
+
+  function showListeningBubble(){
+    removeListeningBubble();
+    var row=document.createElement('div'); row.className='vc-msg-row'; row.id='vc-listening-row';
+    var bub=document.createElement('div'); bub.className='vc-listening-bubble'; bub.textContent='🎤 Listening… speak now';
+    row.appendChild(makeBotAvatar()); row.appendChild(bub); messages.appendChild(row); listeningRow=row;
+    messages.scrollTop=messages.scrollHeight;
+  }
+  function removeListeningBubble(){
+    if(listeningRow){ listeningRow.remove(); listeningRow=null; }
+    var el=shadow.getElementById('vc-listening-row'); if(el) el.remove();
+  }
+
+  /* ── TTS ─────────────────────────────────────────────────── */
+  function vcSpeak(text){
+    if(!hasTTS||!voiceOutputOn) return;
+    window.speechSynthesis.cancel();
+    var clean=text.replace(/[\u{1F000}-\u{1FFFF}]/gu,'').replace(/[\u2600-\u27BF]/g,'')
+      .replace(/\*\*(.+?)\*\*/g,'$1').replace(/\*/g,'').replace(/→/g,', ')
+      .replace(/\n/g,'. ').replace(/\s+/g,' ').trim();
+    if(!clean) return;
+    if(clean.length>280) clean=clean.substring(0,280)+'...';
+    var utt=new SpeechSynthesisUtterance(clean);
+    utt.lang='en-US'; utt.rate=0.95; utt.pitch=1.0; utt.volume=1.0;
+    function go(){
+      var vs=window.speechSynthesis.getVoices();
+      var best=vs.find(function(v){ return v.name==='Google US English'; })||
+               vs.find(function(v){ return v.name.indexOf('Microsoft Aria')!==-1; })||
+               vs.find(function(v){ return v.lang==='en-US'&&v.localService; })||
+               vs.find(function(v){ return v.lang==='en-US'; })||null;
+      if(best) utt.voice=best; window.speechSynthesis.speak(utt);
+    }
+    if(window.speechSynthesis.getVoices().length>0) go();
+    else window.speechSynthesis.onvoiceschanged=go;
+  }
+
+})();
+</script>
