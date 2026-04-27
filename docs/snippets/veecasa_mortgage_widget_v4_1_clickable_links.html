@@ -1,4 +1,3 @@
-<!-- VERSION: v4.1 - Date: 2026-04-27 clickable recommended_link patch -->
 <!-- ============================================================
      VEECASA MORTGAGE ASSISTANT WIDGET v4
      - Mobile: full screen bottom-sheet style
@@ -456,7 +455,11 @@
       vcHideTyping();
       if(!res||!res.length){ vcBotMessage("Hi! 😊 I'm your Mortgage Assistant. How can I help?",[]);return; }
       res.forEach(function(resp,idx){ setTimeout(function(){
-        vcBotMessage(resp.text||'',idx===res.length-1?(resp.buttons||[]):[]);
+        vcBotMessage(
+          resp.text || '',
+          idx === res.length - 1 ? (resp.buttons || []) : [],
+          resp.recommended_link || (resp.custom && resp.custom.recommended_link) || null
+        );
         if(idx===res.length-1&&resp.text) vcSpeak(resp.text);
       },idx*600); });
     })
@@ -494,7 +497,11 @@
         ]); return;
       }
       res.forEach(function(resp,idx){ setTimeout(function(){
-        vcBotMessage(resp.text||'',idx===res.length-1?(resp.buttons||[]):[]);
+        vcBotMessage(
+          resp.text || '',
+          idx === res.length - 1 ? (resp.buttons || []) : [],
+          resp.recommended_link || (resp.custom && resp.custom.recommended_link) || null
+        );
         if(idx===res.length-1&&resp.text) vcSpeak(resp.text);
       },idx*600); });
     })
@@ -509,27 +516,54 @@
     var bub=document.createElement('div'); bub.className='vc-bubble vc-user-bubble'; bub.textContent=text;
     row.appendChild(bub); messages.appendChild(row); messages.scrollTop=messages.scrollHeight;
   }
-  function vcBotMessage(text,buttons){
+  function vcBotMessage(text, buttons, recommendedLink){
     if(text){
       var row=document.createElement('div'); row.className='vc-msg-row';
       var bub=document.createElement('div'); bub.className='vc-bubble vc-bot-bubble';
 
+      // Link handling priority:
+      // 1) structured recommendedLink from Rasa/custom payload
+      // 2) URL found inside visible text
+      // 3) known Source slug fallback when formatter prints "Learn more:" without URL
+      var sourceLinkMap = {
+        'sellers-concessions': 'https://veecasa.com/sellers-concessions',
+        'closing-cost-demystified': 'https://veecasa.com/closing-cost-demystified/',
+        'state-and-local-housing-grants': 'https://veecasa.com/state-and-local-housing-grants',
+        'debt-to-income-ratio': 'https://veecasa.com/debt-to-income-ratio',
+        'dti-calculator': 'https://veecasa.com/dti-calculator',
+        'mortgage-calculator-explained': 'https://veecasa.com/mortgage-calculator-explained',
+        'when-to-refinance': 'https://veecasa.com/when-to-refinance',
+        'credit-score': 'https://veecasa.com/credit-score',
+        'home-buying': 'https://veecasa.com/home-buying',
+        'types-of-mortgage': 'https://veecasa.com/types-of-mortgage',
+        'saving-for-your-home': 'https://veecasa.com/saving-for-your-home',
+        'dscr-loans': 'https://veecasa.com/dscr-loans',
+        'deal-analyzer': 'https://veecasa.com/deal-analyzer',
+        'buyer-education-hub': 'https://veecasa.com/buyer-education-hub',
+        'form': 'https://veecasa.com/form'
+      };
+
       var urlMatch = text.match(/https?:\/\/[^\s<]+/);
+      var sourceMatch = text.match(/Source:\s*([^\n\r]+)/i);
+      var sourceSlug = sourceMatch ? sourceMatch[1].trim().split(',')[0].trim() : null;
+      var linkUrl = recommendedLink || (urlMatch ? urlMatch[0] : null) || (sourceSlug && sourceLinkMap[sourceSlug] ? sourceLinkMap[sourceSlug] : null);
+
       var cleanText = text;
 
       if (urlMatch) {
         cleanText = cleanText.replace(urlMatch[0], '').trim();
-        cleanText = cleanText.replace(/👉\s*Learn more:\s*$/i, '').trim();
-        cleanText = cleanText.replace(/Learn more:\s*$/i, '').trim();
-        cleanText = cleanText.replace(/Source:\s*$/i, '').trim();
       }
+
+      // Remove empty Learn more labels even when Source appears after them.
+      cleanText = cleanText.replace(/👉\s*Learn more:\s*/i, '').trim();
+      cleanText = cleanText.replace(/Learn more:\s*/i, '').trim();
 
       bub.innerHTML=cleanText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
 
-      if (urlMatch) {
+      if (linkUrl) {
         var link = document.createElement('a');
-        link.href = urlMatch[0];
+        link.href = linkUrl;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.style.cssText = 'display:inline-block!important;margin-top:10px!important;padding:8px 14px!important;border-radius:999px!important;border:2px solid #2563eb!important;color:#2563eb!important;font-weight:700!important;text-decoration:none!important;';
