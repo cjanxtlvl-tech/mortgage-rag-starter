@@ -1,0 +1,18 @@
+How do I apply for a mortgage?",
+Great. We can begin with a few questions to help match you with the right mortgage path. should get the /form 
+
+Can I check today's rates?",
+I can help with rate guidance. To provide personalized options, we should start a quick rate request flow. ->>should get the /form 
+
+What do I need to get started?",
+Great. We can begin with a few questions to help match you with the right mortgage path. --> should get the /form
+
+Can I refinance now?",
+Our knowledge base is temporarily unavailable right now. I can still help you start pre-qualification or connect you with a loan specialist. should get the /form 
+
+Can an investor get started online?"
+Great. We can begin with a few questions to help match you with the right mortgage path.  should get the form/
+
+Can someone call me about mortgage options?", --should go to "Talk to a loan officer" button
+
+
