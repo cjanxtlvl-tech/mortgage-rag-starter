@@ -31,8 +31,7 @@
       "about",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-apr-vs-rate-1",
@@ -148,8 +147,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-commercial-loans-2",
@@ -173,8 +171,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-commercial-loans-3",
@@ -198,8 +195,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-commercial-loans-4",
@@ -223,8 +219,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-commercial-loans-5",
@@ -248,8 +243,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-commercial-loans-6",
@@ -273,8 +267,7 @@
       "pre",
       "veecasa"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-contact-us-1",
@@ -308,8 +301,7 @@
       "contact",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-document-checklist-1",
@@ -327,8 +319,7 @@
       "document",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-document-checklist-2",
@@ -364,8 +355,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-dscr-loans-2",
@@ -383,8 +373,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-dscr-loans-3",
@@ -402,8 +391,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-dscr-loans-4",
@@ -421,8 +409,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-dscr-loans-5",
@@ -440,8 +427,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-dscr-loans-6",
@@ -459,8 +445,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-asbury-park-nj-1",
@@ -498,8 +483,7 @@
       "fha-city-page",
       "park"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-asbury-park-nj-3",
@@ -518,8 +502,7 @@
       "fha-city-page",
       "park"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-asbury-park-nj-4",
@@ -538,8 +521,7 @@
       "fha-city-page",
       "park"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-asbury-park-nj-5",
@@ -558,8 +540,7 @@
       "fha-city-page",
       "park"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-asbury-park-nj-6",
@@ -614,8 +595,7 @@
       "bayonne",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-bayonne-nj-3",
@@ -633,8 +613,7 @@
       "bayonne",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-bayonne-nj-4",
@@ -652,8 +631,7 @@
       "bayonne",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-bayonne-nj-5",
@@ -671,8 +649,7 @@
       "bayonne",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-bayonne-nj-6",
@@ -726,8 +703,7 @@
       "carteret",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-carteret-nj-3",
@@ -745,8 +721,7 @@
       "carteret",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-carteret-nj-4",
@@ -764,8 +739,7 @@
       "carteret",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-carteret-nj-5",
@@ -783,8 +757,7 @@
       "carteret",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-carteret-nj-6",
@@ -838,8 +811,7 @@
       "clark",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-clark-nj-3",
@@ -857,8 +829,7 @@
       "clark",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-clark-nj-4",
@@ -876,8 +847,7 @@
       "clark",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-clark-nj-5",
@@ -895,8 +865,7 @@
       "clark",
       "fha-city-page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-clark-nj-6",
@@ -952,8 +921,7 @@
       "fha-city-page",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-edison-township-nj-3",
@@ -972,8 +940,7 @@
       "fha-city-page",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-edison-township-nj-4",
@@ -992,8 +959,7 @@
       "fha-city-page",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-edison-township-nj-5",
@@ -1012,8 +978,7 @@
       "fha-city-page",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-edison-township-nj-6",
@@ -1068,8 +1033,7 @@
       "fha-city-page",
       "hazlet"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-hazlet-nj-3",
@@ -1087,8 +1051,7 @@
       "fha-city-page",
       "hazlet"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-hazlet-nj-4",
@@ -1106,8 +1069,7 @@
       "fha-city-page",
       "hazlet"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-hazlet-nj-5",
@@ -1125,8 +1087,7 @@
       "fha-city-page",
       "hazlet"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-hazlet-nj-6",
@@ -1180,8 +1141,7 @@
       "fha-city-page",
       "manalapan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-manalapan-nj-3",
@@ -1199,8 +1159,7 @@
       "fha-city-page",
       "manalapan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-manalapan-nj-4",
@@ -1218,8 +1177,7 @@
       "fha-city-page",
       "manalapan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-manalapan-nj-5",
@@ -1237,8 +1195,7 @@
       "fha-city-page",
       "manalapan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-manalapan-nj-6",
@@ -1292,8 +1249,7 @@
       "fha-city-page",
       "marlboro"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-marlboro-nj-3",
@@ -1311,8 +1267,7 @@
       "fha-city-page",
       "marlboro"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-marlboro-nj-4",
@@ -1330,8 +1285,7 @@
       "fha-city-page",
       "marlboro"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-marlboro-nj-5",
@@ -1349,8 +1303,7 @@
       "fha-city-page",
       "marlboro"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-marlboro-nj-6",
@@ -1404,8 +1357,7 @@
       "fha-city-page",
       "matawan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-matawan-nj-3",
@@ -1423,8 +1375,7 @@
       "fha-city-page",
       "matawan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-matawan-nj-4",
@@ -1442,8 +1393,7 @@
       "fha-city-page",
       "matawan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-matawan-nj-5",
@@ -1461,8 +1411,7 @@
       "fha-city-page",
       "matawan"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-matawan-nj-6",
@@ -1516,8 +1465,7 @@
       "fha-city-page",
       "neptune"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-neptune-nj-3",
@@ -1535,8 +1483,7 @@
       "fha-city-page",
       "neptune"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-neptune-nj-4",
@@ -1554,8 +1501,7 @@
       "fha-city-page",
       "neptune"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-neptune-nj-5",
@@ -1573,8 +1519,7 @@
       "fha-city-page",
       "neptune"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-neptune-nj-6",
@@ -1630,8 +1575,7 @@
       "ocean",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-ocean-township-nj-3",
@@ -1650,8 +1594,7 @@
       "ocean",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-ocean-township-nj-4",
@@ -1670,8 +1613,7 @@
       "ocean",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-ocean-township-nj-5",
@@ -1690,8 +1632,7 @@
       "ocean",
       "township"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-ocean-township-nj-6",
@@ -1746,8 +1687,7 @@
       "fha-city-page",
       "piscataway"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-piscataway-nj-3",
@@ -1765,8 +1705,7 @@
       "fha-city-page",
       "piscataway"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-piscataway-nj-4",
@@ -1784,8 +1723,7 @@
       "fha-city-page",
       "piscataway"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-piscataway-nj-5",
@@ -1803,8 +1741,7 @@
       "fha-city-page",
       "piscataway"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-piscataway-nj-6",
@@ -1860,8 +1797,7 @@
       "river",
       "toms"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-toms-river-nj-3",
@@ -1880,8 +1816,7 @@
       "river",
       "toms"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-toms-river-nj-4",
@@ -1900,8 +1835,7 @@
       "river",
       "toms"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-toms-river-nj-5",
@@ -1920,8 +1854,7 @@
       "river",
       "toms"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-toms-river-nj-6",
@@ -1976,8 +1909,7 @@
       "fha-city-page",
       "westfield"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-westfield-nj-3",
@@ -1995,8 +1927,7 @@
       "fha-city-page",
       "westfield"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-westfield-nj-4",
@@ -2014,8 +1945,7 @@
       "fha-city-page",
       "westfield"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-westfield-nj-5",
@@ -2033,8 +1963,7 @@
       "fha-city-page",
       "westfield"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-fha-loan-requirements-westfield-nj-6",
@@ -2070,8 +1999,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-government-loans-2",
@@ -2107,8 +2035,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-government-loans-4",
@@ -2181,8 +2108,7 @@
       "money",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-hard-money-loans-2",
@@ -2220,8 +2146,7 @@
       "money",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-hard-money-loans-4",
@@ -2310,8 +2235,7 @@
     "tags": [
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-home-buying-1",
@@ -2364,8 +2288,7 @@
       "page",
       "property"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-investment-property-loans-2",
@@ -2403,8 +2326,7 @@
       "page",
       "property"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-investment-property-loans-4",
@@ -2479,8 +2401,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-jumbo-loans-2",
@@ -2516,8 +2437,7 @@
       "loans",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-jumbo-loans-4",
@@ -2607,8 +2527,7 @@
       "legal",
       "page"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-mortgage-insurance-explained-1",
@@ -2680,8 +2599,7 @@
       "policy",
       "privacy"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-purchase-loans-1",
@@ -2699,8 +2617,7 @@
       "page",
       "purchase"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-purchase-loans-2",
@@ -2736,8 +2653,7 @@
       "page",
       "purchase"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-purchase-loans-4",
@@ -2809,8 +2725,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-refinance-loans-2",
@@ -2828,8 +2743,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-refinance-loans-3",
@@ -2847,8 +2761,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-refinance-loans-4",
@@ -2866,8 +2779,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-refinance-loans-5",
@@ -2885,8 +2797,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-refinance-loans-6",
@@ -2904,8 +2815,7 @@
       "page",
       "refinance"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-sba-loans-1",
@@ -2923,8 +2833,7 @@
       "page",
       "sba"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-sba-loans-2",
@@ -2960,8 +2869,7 @@
       "page",
       "sba"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-sba-loans-4",
@@ -3051,8 +2959,7 @@
       "terms",
       "use"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-veecasa-process-1",
@@ -3092,8 +2999,7 @@
       "veecasa",
       "works"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-when-to-refinance-1",
@@ -3111,8 +3017,7 @@
       "refinance",
       "when"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   },
   {
     "id": "qa-when-to-refinance-2",
@@ -3130,7 +3035,6 @@
       "refinance",
       "when"
     ],
-    "last_updated": "2026-04-27 10:53:34",
-    "suggested_next_action": "offer_start_rasa_application"
+    "last_updated": "2026-04-27 10:53:34"
   }
 ]

@@ -3,118 +3,148 @@
     "title": "Can I get pre-approved before finding a home?",
     "topic": "Home Purchase",
     "question": "Should I get pre-approved before looking for a home?",
-    "answer": "Yes, getting pre-approved before house hunting is typically recommended. It helps you understand your budget, shows sellers you are a serious buyer, and can make your offer more competitive."
+    "answer": "Yes, getting pre-approved before house hunting is typically recommended. It helps you understand your budget, shows sellers you are a serious buyer, and can make your offer more competitive.",
+    "recommended_link": "https://veecasa.com/saving-for-your-home"
   },
   {
     "title": "What credit score do I need for a mortgage?",
     "topic": "Credit",
     "question": "What credit score do I need to qualify for a mortgage?",
-    "answer": "Minimum credit score requirements vary by loan type and lender. Some programs allow lower scores, while others require higher scores for better rates. Your full financial profile is also considered."
+    "answer": "Minimum credit score requirements vary by loan type and lender. Some programs allow lower scores, while others require higher scores for better rates. Your full financial profile is also considered.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How much down payment do I need?",
     "topic": "Down Payment",
     "question": "How much down payment is required for a mortgage?",
-    "answer": "Down payment requirements depend on the loan program. Some loans allow low down payments, while others\u2014especially investment properties\u2014require more. The amount can also impact your interest rate and mortgage insurance."
+    "answer": "Down payment requirements depend on the loan program. Some loans allow low down payments, while others—especially investment properties—require more. The amount can also impact your interest rate and mortgage insurance.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "What are closing costs?",
     "topic": "Closing",
     "question": "What are closing costs in a mortgage?",
-    "answer": "Closing costs are fees associated with finalizing your mortgage, including lender fees, appraisal, title services, and prepaid items like taxes and insurance. These costs vary depending on the loan and location."
+    "answer": "Closing costs are fees associated with finalizing your mortgage, including lender fees, appraisal, title services, and prepaid items like taxes and insurance. These costs vary depending on the loan and location.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "title": "How long does it take to close on a house?",
     "topic": "Closing",
     "question": "How long does it take to close on a mortgage?",
-    "answer": "The timeline can vary, but many mortgages close within 3 to 6 weeks. Timing depends on factors like loan type, documentation, appraisal, and underwriting conditions."
+    "answer": "The timeline can vary, but many mortgages close within 3 to 6 weeks. Timing depends on factors like loan type, documentation, appraisal, and underwriting conditions.",
+    "recommended_link": "https://veecasa.com/home-buying"
   },
   {
     "title": "Can I refinance to lower my payment?",
     "topic": "Refinance",
     "question": "Can refinancing lower my monthly payment?",
-    "answer": "In many cases, refinancing can lower your monthly payment by reducing your interest rate or extending the loan term. However, closing costs and long-term interest should also be considered."
+    "answer": "In many cases, refinancing can lower your monthly payment by reducing your interest rate or extending the loan term. However, closing costs and long-term interest should also be considered.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is a fixed-rate mortgage?",
     "topic": "Loan Types",
     "question": "What is a fixed-rate mortgage?",
-    "answer": "A fixed-rate mortgage has an interest rate that stays the same for the life of the loan. This provides predictable monthly payments and long-term stability."
+    "answer": "A fixed-rate mortgage has an interest rate that stays the same for the life of the loan. This provides predictable monthly payments and long-term stability.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "title": "What is an adjustable-rate mortgage?",
     "topic": "Loan Types",
     "question": "What is an adjustable-rate mortgage?",
-    "answer": "An adjustable-rate mortgage (ARM) has an interest rate that can change over time based on market conditions. It may start with a lower initial rate, but payments can increase or decrease later."
+    "answer": "An adjustable-rate mortgage (ARM) has an interest rate that can change over time based on market conditions. It may start with a lower initial rate, but payments can increase or decrease later.",
+    "recommended_link": "https://veecasa.com/types-of-mortgage"
   },
   {
     "title": "Can I use gift funds for a down payment?",
     "topic": "Down Payment",
     "question": "Can I use a gift for my down payment?",
-    "answer": "Yes, many loan programs allow gift funds for down payments. Documentation is typically required to show the source of the funds and confirm they are not a loan."
+    "answer": "Yes, many loan programs allow gift funds for down payments. Documentation is typically required to show the source of the funds and confirm they are not a loan.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "What happens after I apply for a mortgage?",
     "topic": "Process",
     "question": "What happens after I submit a mortgage application?",
-    "answer": "After applying, your loan goes through processing and underwriting. The lender reviews your financial information, may request additional documents, orders an appraisal, and ultimately issues a decision."
+    "answer": "After applying, your loan goes through processing and underwriting. The lender reviews your financial information, may request additional documents, orders an appraisal, and ultimately issues a decision.",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is underwriting?",
     "topic": "Process",
     "question": "What is mortgage underwriting?",
-    "answer": "Underwriting is the process where a lender evaluates your financial profile, credit, income, assets, and the property to determine if the loan meets their guidelines for approval."
+    "answer": "Underwriting is the process where a lender evaluates your financial profile, credit, income, assets, and the property to determine if the loan meets their guidelines for approval.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "title": "Can I buy a home with student loan debt?",
     "topic": "Credit",
     "question": "Can I qualify for a mortgage with student loan debt?",
-    "answer": "Yes, many borrowers qualify with student loan debt. Lenders consider your total debt-to-income ratio and repayment obligations when evaluating your application."
+    "answer": "Yes, many borrowers qualify with student loan debt. Lenders consider your total debt-to-income ratio and repayment obligations when evaluating your application.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is private mortgage insurance (PMI)?",
     "topic": "Mortgage Insurance",
     "question": "What is PMI?",
-    "answer": "Private mortgage insurance (PMI) is typically required on some conventional loans when the down payment is below a certain threshold. It protects the lender and is included in your monthly payment."
+    "answer": "Private mortgage insurance (PMI) is typically required on some conventional loans when the down payment is below a certain threshold. It protects the lender and is included in your monthly payment.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "title": "How do interest rates affect buying power?",
     "topic": "Rates",
     "question": "How do mortgage rates affect how much I can afford?",
-    "answer": "Higher interest rates generally reduce your buying power because they increase your monthly payment. Lower rates can allow you to afford a higher purchase price with the same budget."
+    "answer": "Higher interest rates generally reduce your buying power because they increase your monthly payment. Lower rates can allow you to afford a higher purchase price with the same budget.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "title": "Should I lock my rate?",
     "topic": "Rates",
     "question": "What does it mean to lock a mortgage rate?",
-    "answer": "Locking your rate means securing your interest rate for a specific period while your loan is processed. This protects you from rate increases during that time, though terms vary by lender."
+    "answer": "Locking your rate means securing your interest rate for a specific period while your loan is processed. This protects you from rate increases during that time, though terms vary by lender.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "question": "How much house can I afford?",
-    "answer": "The amount you can afford depends on your income, debts, credit score, and down payment. Lenders typically use a debt-to-income ratio to determine affordability. It's important to consider your budget and future financial goals."
+    "answer": "The amount you can afford depends on your income, debts, credit score, and down payment. Lenders typically use a debt-to-income ratio to determine affordability. It's important to consider your budget and future financial goals.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio"
   },
   {
     "question": "How do mortgage rates affect affordability?",
-    "answer": "Higher mortgage rates increase monthly payments, reducing the amount you can borrow. Lower rates can improve affordability by allowing you to qualify for a larger loan with the same budget."
+    "answer": "Higher mortgage rates increase monthly payments, reducing the amount you can borrow. Lower rates can improve affordability by allowing you to qualify for a larger loan with the same budget.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "What is debt-to-income ratio and what is the maximum allowed?",
-    "answer": "The debt-to-income ratio compares your monthly debt payments to your income. Lenders prefer a ratio below 43%, but some programs allow higher ratios with compensating factors."
+    "answer": "The debt-to-income ratio compares your monthly debt payments to your income. Lenders prefer a ratio below 43%, but some programs allow higher ratios with compensating factors.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio"
   },
   {
     "question": "Can I still qualify with bad credit?",
-    "answer": "Qualifying with bad credit can be challenging, but some loan programs are more flexible. Improving your credit score and providing a larger down payment can enhance your chances. Guidelines vary by lender."
+    "answer": "Qualifying with bad credit can be challenging, but some loan programs are more flexible. Improving your credit score and providing a larger down payment can enhance your chances. Guidelines vary by lender.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "What is the minimum credit score needed?",
-    "answer": "Minimum credit score requirements vary by loan type and lender. Some programs accept scores as low as 580, while others require higher scores for better rates. Your full financial profile is also considered."
+    "answer": "Minimum credit score requirements vary by loan type and lender. Some programs accept scores as low as 580, while others require higher scores for better rates. Your full financial profile is also considered.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "question": "Can I qualify with self-employment income?",
-    "answer": "Yes, self-employed borrowers can qualify for a mortgage, but the income review is often more document-intensive. Lenders may require tax returns, business records, or alternative documentation."
+    "answer": "Yes, self-employed borrowers can qualify for a mortgage, but the income review is often more document-intensive. Lenders may require tax returns, business records, or alternative documentation.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "How does student loan debt affect qualification?",
-    "answer": "Student loan debt impacts your debt-to-income ratio, which lenders use to assess repayment capacity. Managing your debt and maintaining a good credit score can improve your chances of qualifying."
+    "answer": "Student loan debt impacts your debt-to-income ratio, which lenders use to assess repayment capacity. Managing your debt and maintaining a good credit score can improve your chances of qualifying.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio",
+    "suggested_next_action": "offer_start_rasa_application"
   }
 ]

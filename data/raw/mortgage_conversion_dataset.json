@@ -3,148 +3,196 @@
     "title": "I want to see what I qualify for",
     "topic": "Conversion / Prequalification",
     "question": "How do I see what I qualify for?",
-    "answer": "The fastest next step is to complete a short prequalification so a lender can review your basic financial profile and loan goals. That can help estimate your options, budget, and possible loan programs. Final approval always depends on full documentation and underwriting."
+    "answer": "The fastest next step is to complete a short prequalification so a lender can review your basic financial profile and loan goals. That can help estimate your options, budget, and possible loan programs. Final approval always depends on full documentation and underwriting.",
+    "recommended_link": "https://veecasa.com/saving-for-your-home",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I get pre-approved today?",
     "topic": "Conversion / Prequalification",
     "question": "Can I get pre-approved today?",
-    "answer": "In many cases, you can start the pre-approval process right away by submitting basic information about your income, assets, debts, and property goals. The speed depends on how quickly documents are provided and reviewed."
+    "answer": "In many cases, you can start the pre-approval process right away by submitting basic information about your income, assets, debts, and property goals. The speed depends on how quickly documents are provided and reviewed.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How do I apply for a mortgage?",
     "topic": "Conversion / Application",
     "question": "How do I apply for a mortgage?",
-    "answer": "You can begin by completing a mortgage application with your basic financial details, property goals, and contact information. After that, a lender typically reviews your file, requests supporting documents, and discusses available options."
+    "answer": "You can begin by completing a mortgage application with your basic financial details, property goals, and contact information. After that, a lender typically reviews your file, requests supporting documents, and discusses available options.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I talk to a loan officer?",
     "topic": "Conversion / Human Handoff",
     "question": "Can I speak with a loan officer?",
-    "answer": "Yes. Speaking with a loan officer is often the best next step if you want personalized guidance based on your goals, timeline, and financial profile. They can walk you through options and help you understand the next step in the process."
+    "answer": "Yes. Speaking with a loan officer is often the best next step if you want personalized guidance based on your goals, timeline, and financial profile. They can walk you through options and help you understand the next step in the process.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I check today's rates?",
     "topic": "Conversion / Rates",
     "question": "How can I check today’s mortgage rates?",
-    "answer": "Mortgage rates change with market conditions and can vary based on loan type, credit profile, occupancy, property type, and loan-to-value. To get the most meaningful quote, borrowers usually complete a short intake or speak with a loan officer."
+    "answer": "Mortgage rates change with market conditions and can vary based on loan type, credit profile, occupancy, property type, and loan-to-value. To get the most meaningful quote, borrowers usually complete a short intake or speak with a loan officer.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How do I get my rate?",
     "topic": "Conversion / Rates",
     "question": "How do I get my mortgage rate?",
-    "answer": "Your mortgage rate depends on factors like credit, loan type, property type, occupancy, down payment, and market conditions. The best way to get a personalized quote is to provide a few details so a lender can review your scenario."
+    "answer": "Your mortgage rate depends on factors like credit, loan type, property type, occupancy, down payment, and market conditions. The best way to get a personalized quote is to provide a few details so a lender can review your scenario.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "title": "What do I need to get started?",
     "topic": "Conversion / Application",
     "question": "What do I need to get started with a mortgage application?",
-    "answer": "Most borrowers start with basic information about income, assets, debts, employment, estimated credit profile, property goals, and contact details. Supporting documents may be requested afterward depending on the loan type."
+    "answer": "Most borrowers start with basic information about income, assets, debts, employment, estimated credit profile, property goals, and contact details. Supporting documents may be requested afterward depending on the loan type.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I find out my buying power?",
     "topic": "Conversion / Affordability",
     "question": "How can I find out how much house I can afford?",
-    "answer": "The most accurate way is to complete a prequalification or pre-approval review. A lender can look at your income, debts, estimated down payment, and current rates to help estimate your buying power."
+    "answer": "The most accurate way is to complete a prequalification or pre-approval review. A lender can look at your income, debts, estimated down payment, and current rates to help estimate your buying power.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is the first step to buying a home?",
     "topic": "Conversion / Home Purchase",
     "question": "What is the first step in buying a home with financing?",
-    "answer": "A common first step is getting pre-approved or at least prequalified before shopping for a home. That helps define your budget and shows sellers that you are serious when you make an offer."
+    "answer": "A common first step is getting pre-approved or at least prequalified before shopping for a home. That helps define your budget and shows sellers that you are serious when you make an offer.",
+    "recommended_link": "https://veecasa.com/saving-for-your-home"
   },
   {
     "title": "Can I get help choosing a loan type?",
     "topic": "Conversion / Guidance",
     "question": "How do I know which mortgage program is right for me?",
-    "answer": "The right loan depends on your goals, occupancy, credit profile, down payment, property type, and timeline. A lender or loan officer can review your scenario and help compare programs like conventional, FHA, VA, jumbo, or investment options."
+    "answer": "The right loan depends on your goals, occupancy, credit profile, down payment, property type, and timeline. A lender or loan officer can review your scenario and help compare programs like conventional, FHA, VA, jumbo, or investment options.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I refinance now?",
     "topic": "Conversion / Refinance",
     "question": "How do I know if now is a good time to refinance?",
-    "answer": "That depends on your current rate, loan balance, equity, goals, and closing costs. A refinance review can help determine whether lowering your payment, changing your term, or taking cash out makes sense for your situation."
+    "answer": "That depends on your current rate, loan balance, equity, goals, and closing costs. A refinance review can help determine whether lowering your payment, changing your term, or taking cash out makes sense for your situation.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How do I start a refinance application?",
     "topic": "Conversion / Refinance",
     "question": "How do I start refinancing my mortgage?",
-    "answer": "You can start by providing basic information about your current mortgage, property value, goals, income, and credit profile. From there, a lender can review potential refinance options and next steps."
+    "answer": "You can start by providing basic information about your current mortgage, property value, goals, income, and credit profile. From there, a lender can review potential refinance options and next steps.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can an investor get started online?",
     "topic": "Conversion / Investor",
     "question": "How do I get started with an investment property loan?",
-    "answer": "A good first step is to share details about the property, expected rental income, purchase or refinance goals, and your financing needs. That helps determine whether conventional, DSCR, jumbo, or other investor-focused options may fit."
+    "answer": "A good first step is to share details about the property, expected rental income, purchase or refinance goals, and your financing needs. That helps determine whether conventional, DSCR, jumbo, or other investor-focused options may fit.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How do I know if I qualify for DSCR financing?",
     "topic": "Conversion / Investor",
     "question": "How can I check if I qualify for a DSCR loan?",
-    "answer": "A lender typically reviews the property’s projected or actual rental income, debt obligations, property type, reserves, and other factors. The easiest way to assess fit is to submit the property scenario for review."
+    "answer": "A lender typically reviews the property’s projected or actual rental income, debt obligations, property type, reserves, and other factors. The easiest way to assess fit is to submit the property scenario for review.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can someone call me about mortgage options?",
     "topic": "Conversion / Human Handoff",
     "question": "Can someone contact me about my mortgage options?",
-    "answer": "Yes. If you provide your contact information and basic loan goals, a loan officer can follow up to discuss possible options, answer questions, and explain the next step."
+    "answer": "Yes. If you provide your contact information and basic loan goals, a loan officer can follow up to discuss possible options, answer questions, and explain the next step.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "I am ready to move forward",
     "topic": "Conversion / Application",
     "question": "I’m ready to move forward. What should I do next?",
-    "answer": "The next step is usually to complete a short application or prequalification so your scenario can be reviewed. That helps identify possible loan options and what documents may be needed."
+    "answer": "The next step is usually to complete a short application or prequalification so your scenario can be reviewed. That helps identify possible loan options and what documents may be needed.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I get a payment estimate?",
     "topic": "Conversion / Affordability",
     "question": "How can I get an estimate of my monthly mortgage payment?",
-    "answer": "A payment estimate depends on the purchase price or loan amount, down payment, rate, property taxes, homeowners insurance, HOA dues if any, and loan type. A lender or mortgage calculator can help estimate a more accurate monthly payment."
+    "answer": "A payment estimate depends on the purchase price or loan amount, down payment, rate, property taxes, homeowners insurance, HOA dues if any, and loan type. A lender or mortgage calculator can help estimate a more accurate monthly payment.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "title": "Can I compare my mortgage options?",
     "topic": "Conversion / Guidance",
     "question": "Can someone help me compare mortgage options?",
-    "answer": "Yes. Comparing mortgage options often involves reviewing rates, APR, down payment, mortgage insurance, eligibility, and long-term cost. A lender can help match those options to your scenario."
+    "answer": "Yes. Comparing mortgage options often involves reviewing rates, APR, down payment, mortgage insurance, eligibility, and long-term cost. A lender can help match those options to your scenario.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "Can I get approved with my situation?",
     "topic": "Conversion / Qualification",
     "question": "Can I get approved based on my situation?",
-    "answer": "That depends on your full profile, including income, credit, debts, assets, property type, and loan goals. The best next step is to complete a prequalification or speak with a loan officer so your scenario can be reviewed."
+    "answer": "That depends on your full profile, including income, credit, debts, assets, property type, and loan goals. The best next step is to complete a prequalification or speak with a loan officer so your scenario can be reviewed.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How do I start with VeeCasa?",
     "topic": "Conversion / Brand-Specific",
     "question": "How do I get started with VeeCasa?",
-    "answer": "You can get started by completing a short intake or application so your mortgage goals and financial profile can be reviewed. From there, the next step may be prequalification, rate review, or speaking with a loan officer."
+    "answer": "You can get started by completing a short intake or application so your mortgage goals and financial profile can be reviewed. From there, the next step may be prequalification, rate review, or speaking with a loan officer.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "What is refinancing?",
-    "answer": "Refinancing involves replacing an existing mortgage with a new one, often to secure a lower interest rate or change the loan term. It can help reduce monthly payments or access equity."
+    "answer": "Refinancing involves replacing an existing mortgage with a new one, often to secure a lower interest rate or change the loan term. It can help reduce monthly payments or access equity.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "question": "How does refinancing work step by step?",
-    "answer": "Refinancing typically involves evaluating your financial goals, applying for a new loan, undergoing credit and income verification, and closing the new loan. Each step requires careful consideration and documentation."
+    "answer": "Refinancing typically involves evaluating your financial goals, applying for a new loan, undergoing credit and income verification, and closing the new loan. Each step requires careful consideration and documentation.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "When does it make sense to refinance?",
-    "answer": "Refinancing may make sense when it lowers your interest rate, reduces monthly payments, or aligns with financial goals. Consider closing costs and long-term savings before deciding."
+    "answer": "Refinancing may make sense when it lowers your interest rate, reduces monthly payments, or aligns with financial goals. Consider closing costs and long-term savings before deciding.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "What are the costs of refinancing?",
-    "answer": "Refinancing costs can include application fees, appraisal fees, and closing costs. It's important to compare these costs against potential savings to determine if refinancing is beneficial."
+    "answer": "Refinancing costs can include application fees, appraisal fees, and closing costs. It's important to compare these costs against potential savings to determine if refinancing is beneficial.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "How long does refinancing take?",
-    "answer": "The refinancing process typically takes 30 to 45 days, depending on factors like lender efficiency, documentation, and appraisal requirements. Timelines can vary based on individual circumstances."
+    "answer": "The refinancing process typically takes 30 to 45 days, depending on factors like lender efficiency, documentation, and appraisal requirements. Timelines can vary based on individual circumstances.",
+    "recommended_link": "https://veecasa.com/home-buying"
   },
   {
     "question": "Can I pull cash out when I refinance?",
-    "answer": "Yes, a cash-out refinance allows you to access home equity by replacing your existing mortgage with a larger loan. The difference is received as cash, subject to lender guidelines and equity limits."
+    "answer": "Yes, a cash-out refinance allows you to access home equity by replacing your existing mortgage with a larger loan. The difference is received as cash, subject to lender guidelines and equity limits.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "question": "What is a cash-out refinance vs rate-and-term refinance?",
-    "answer": "A cash-out refinance involves taking out a new loan for more than you owe to access equity, while a rate-and-term refinance changes the interest rate or loan term without accessing equity. Each serves different financial goals."
+    "answer": "A cash-out refinance involves taking out a new loan for more than you owe to access equity, while a rate-and-term refinance changes the interest rate or loan term without accessing equity. Each serves different financial goals.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   }
 ]

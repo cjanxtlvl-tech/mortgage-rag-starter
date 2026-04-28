@@ -1,0 +1,1833 @@
+[
+  {
+    "url": "https://veecasa.com/",
+    "slug_keywords": [
+      ""
+    ],
+    "manual_keywords": [
+      ""
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/about/",
+    "slug_keywords": [
+      "about"
+    ],
+    "manual_keywords": [
+      "about"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/accessibility/",
+    "slug_keywords": [
+      "accessibility"
+    ],
+    "manual_keywords": [
+      "accessibility"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/apr-vs-rate/",
+    "slug_keywords": [
+      "apr",
+      "apr vs rate",
+      "rate",
+      "vs"
+    ],
+    "manual_keywords": [
+      "apr",
+      "rate",
+      "vs",
+      "apr vs rate"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/blogs/",
+    "slug_keywords": [
+      "blogs"
+    ],
+    "manual_keywords": [
+      "blogs"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/bridge-loan-same-day-fha-closing/",
+    "slug_keywords": [
+      "bridge",
+      "bridge loan same day fha closing",
+      "closing",
+      "day",
+      "fha",
+      "loan",
+      "same"
+    ],
+    "manual_keywords": [
+      "closing",
+      "home loan",
+      "financing options",
+      "loan",
+      "bridge loan same day fha closing",
+      "fha",
+      "bridge",
+      "same",
+      "mortgage loan",
+      "day"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/buydowns/",
+    "slug_keywords": [
+      "buydowns"
+    ],
+    "manual_keywords": [
+      "buydowns"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/buyer-education-hub/",
+    "slug_keywords": [
+      "buyer",
+      "buyer education hub",
+      "education",
+      "hub"
+    ],
+    "manual_keywords": [
+      "hub",
+      "buyer",
+      "buyer education hub",
+      "education"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/calculator/",
+    "slug_keywords": [
+      "calculator"
+    ],
+    "manual_keywords": [
+      "monthly payment",
+      "calculator",
+      "calculate",
+      "payment",
+      "estimate"
+    ],
+    "intent": "tool",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/career/",
+    "slug_keywords": [
+      "career"
+    ],
+    "manual_keywords": [
+      "career"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/ccpa-notice/",
+    "slug_keywords": [
+      "ccpa",
+      "ccpa notice",
+      "notice"
+    ],
+    "manual_keywords": [
+      "ccpa",
+      "ccpa notice",
+      "notice"
+    ],
+    "intent": "education",
+    "priority": 0
+  },
+  {
+    "url": "https://veecasa.com/choosing-the-right-lender/",
+    "slug_keywords": [
+      "choosing",
+      "choosing the right lender",
+      "lender",
+      "right",
+      "the"
+    ],
+    "manual_keywords": [
+      "lender",
+      "choosing the right lender",
+      "choosing",
+      "right",
+      "the"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/closing-cost-demystified/",
+    "slug_keywords": [
+      "closing",
+      "closing cost demystified",
+      "cost",
+      "demystified"
+    ],
+    "manual_keywords": [
+      "closing costs",
+      "cash to close",
+      "buyer closing costs",
+      "seller closing costs",
+      "escrow fees",
+      "title insurance",
+      "prepaid taxes",
+      "prepaid insurance",
+      "settlement fees",
+      "closing disclosure"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/commercial-loans/",
+    "slug_keywords": [
+      "commercial",
+      "commercial loans",
+      "loans"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "commercial loans",
+      "loans",
+      "financing options",
+      "mortgage loan",
+      "commercial"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/contact-us/",
+    "slug_keywords": [
+      "contact",
+      "contact us",
+      "us"
+    ],
+    "manual_keywords": [
+      "contact",
+      "us",
+      "contact us"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/credit-score/",
+    "slug_keywords": [
+      "credit",
+      "credit score",
+      "score"
+    ],
+    "manual_keywords": [
+      "credit score",
+      "fico score",
+      "minimum credit score mortgage",
+      "credit needed for fha",
+      "credit needed for conventional",
+      "improve credit",
+      "fix credit",
+      "credit repair",
+      "low credit mortgage"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/deal-analyzer/",
+    "slug_keywords": [
+      "analyzer",
+      "deal",
+      "deal analyzer"
+    ],
+    "manual_keywords": [
+      "deal analysis",
+      "cap rate",
+      "cash on cash return",
+      "roi real estate",
+      "investment analysis"
+    ],
+    "intent": "tool",
+    "priority": 4
+  },
+  {
+    "url": "https://veecasa.com/debt-to-income-ratio/",
+    "slug_keywords": [
+      "debt",
+      "debt to income ratio",
+      "income",
+      "ratio",
+      "to"
+    ],
+    "manual_keywords": [
+      "dti",
+      "debt to income ratio",
+      "max dti mortgage",
+      "calculate dti",
+      "front end ratio",
+      "back end ratio",
+      "qualify with high dti"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/document-checklist/",
+    "slug_keywords": [
+      "checklist",
+      "document",
+      "document checklist"
+    ],
+    "manual_keywords": [
+      "checklist",
+      "document",
+      "document checklist"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/dscr-calculator/",
+    "slug_keywords": [
+      "calculator",
+      "dscr",
+      "dscr calculator"
+    ],
+    "manual_keywords": [
+      "dscr calculator",
+      "monthly payment",
+      "calculator",
+      "calculate",
+      "dscr",
+      "payment",
+      "estimate"
+    ],
+    "intent": "tool",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/dscr-loans/",
+    "slug_keywords": [
+      "dscr",
+      "dscr loans",
+      "loans"
+    ],
+    "manual_keywords": [
+      "dscr loan",
+      "investment property loan",
+      "rental income mortgage",
+      "airbnb loan",
+      "investor financing",
+      "cash flow property loan"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/dti-calculator/",
+    "slug_keywords": [
+      "calculator",
+      "dti",
+      "dti calculator"
+    ],
+    "manual_keywords": [
+      "monthly payment",
+      "calculator",
+      "calculate",
+      "dti",
+      "dti calculator",
+      "payment",
+      "estimate"
+    ],
+    "intent": "tool",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-approval-nj/",
+    "slug_keywords": [
+      "approval",
+      "fha",
+      "fha loan approval new jersey",
+      "jersey",
+      "loan",
+      "new"
+    ],
+    "manual_keywords": [
+      "approval",
+      "home loan",
+      "new",
+      "fha loan approval new jersey",
+      "jersey",
+      "fha",
+      "financing options",
+      "mortgage loan",
+      "loan"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-asbury-park-nj/",
+    "slug_keywords": [
+      "asbury",
+      "fha",
+      "fha loan requirements asbury park new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "park",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements asbury park nj",
+      "fha requirements fha loan requirements asbury park nj",
+      "buy a house fha loan requirements asbury park nj",
+      "first time homebuyer fha loan requirements asbury park nj",
+      "low down payment fha loan requirements asbury park nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-bayonne-nj/",
+    "slug_keywords": [
+      "bayonne",
+      "fha",
+      "fha loan requirements bayonne new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements bayonne nj",
+      "fha requirements fha loan requirements bayonne nj",
+      "buy a house fha loan requirements bayonne nj",
+      "first time homebuyer fha loan requirements bayonne nj",
+      "low down payment fha loan requirements bayonne nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-carteret-nj/",
+    "slug_keywords": [
+      "carteret",
+      "fha",
+      "fha loan requirements carteret new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements carteret nj",
+      "fha requirements fha loan requirements carteret nj",
+      "buy a house fha loan requirements carteret nj",
+      "first time homebuyer fha loan requirements carteret nj",
+      "low down payment fha loan requirements carteret nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-clark-nj/",
+    "slug_keywords": [
+      "clark",
+      "fha",
+      "fha loan requirements clark new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements clark nj",
+      "fha requirements fha loan requirements clark nj",
+      "buy a house fha loan requirements clark nj",
+      "first time homebuyer fha loan requirements clark nj",
+      "low down payment fha loan requirements clark nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-east-brunswick-nj/",
+    "slug_keywords": [
+      "brunswick",
+      "east",
+      "fha",
+      "fha loan requirements east brunswick new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements east brunswick nj",
+      "fha requirements fha loan requirements east brunswick nj",
+      "buy a house fha loan requirements east brunswick nj",
+      "first time homebuyer fha loan requirements east brunswick nj",
+      "low down payment fha loan requirements east brunswick nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-edison-township-nj/",
+    "slug_keywords": [
+      "edison",
+      "fha",
+      "fha loan requirements edison township new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "township"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements edison township nj",
+      "fha requirements fha loan requirements edison township nj",
+      "buy a house fha loan requirements edison township nj",
+      "first time homebuyer fha loan requirements edison township nj",
+      "low down payment fha loan requirements edison township nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-elizabeth-nj/",
+    "slug_keywords": [
+      "elizabeth",
+      "fha",
+      "fha loan requirements elizabeth new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements elizabeth nj",
+      "fha requirements fha loan requirements elizabeth nj",
+      "buy a house fha loan requirements elizabeth nj",
+      "first time homebuyer fha loan requirements elizabeth nj",
+      "low down payment fha loan requirements elizabeth nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-freehold-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements freehold new jersey",
+      "freehold",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements freehold nj",
+      "fha requirements fha loan requirements freehold nj",
+      "buy a house fha loan requirements freehold nj",
+      "first time homebuyer fha loan requirements freehold nj",
+      "low down payment fha loan requirements freehold nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-hazlet-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements hazlet new jersey",
+      "hazlet",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements hazlet nj",
+      "fha requirements fha loan requirements hazlet nj",
+      "buy a house fha loan requirements hazlet nj",
+      "first time homebuyer fha loan requirements hazlet nj",
+      "low down payment fha loan requirements hazlet nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-highland-park-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements highland park new jersey",
+      "highland",
+      "jersey",
+      "loan",
+      "new",
+      "park",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements highland park nj",
+      "fha requirements fha loan requirements highland park nj",
+      "buy a house fha loan requirements highland park nj",
+      "first time homebuyer fha loan requirements highland park nj",
+      "low down payment fha loan requirements highland park nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-jersey-city-nj/",
+    "slug_keywords": [
+      "city",
+      "fha",
+      "fha loan requirements jersey city new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements jersey city nj",
+      "fha requirements fha loan requirements jersey city nj",
+      "buy a house fha loan requirements jersey city nj",
+      "first time homebuyer fha loan requirements jersey city nj",
+      "low down payment fha loan requirements jersey city nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-keyport-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements keyport new jersey",
+      "jersey",
+      "keyport",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements keyport nj",
+      "fha requirements fha loan requirements keyport nj",
+      "buy a house fha loan requirements keyport nj",
+      "first time homebuyer fha loan requirements keyport nj",
+      "low down payment fha loan requirements keyport nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-linden-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements linden new jersey",
+      "jersey",
+      "linden",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements linden nj",
+      "fha requirements fha loan requirements linden nj",
+      "buy a house fha loan requirements linden nj",
+      "first time homebuyer fha loan requirements linden nj",
+      "low down payment fha loan requirements linden nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-long-branch-nj/",
+    "slug_keywords": [
+      "branch",
+      "fha",
+      "fha loan requirements long branch new jersey",
+      "jersey",
+      "loan",
+      "long",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements long branch nj",
+      "fha requirements fha loan requirements long branch nj",
+      "buy a house fha loan requirements long branch nj",
+      "first time homebuyer fha loan requirements long branch nj",
+      "low down payment fha loan requirements long branch nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-manalapan-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements manalapan new jersey",
+      "jersey",
+      "loan",
+      "manalapan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements manalapan nj",
+      "fha requirements fha loan requirements manalapan nj",
+      "buy a house fha loan requirements manalapan nj",
+      "first time homebuyer fha loan requirements manalapan nj",
+      "low down payment fha loan requirements manalapan nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-marlboro-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements marlboro new jersey",
+      "jersey",
+      "loan",
+      "marlboro",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements marlboro nj",
+      "fha requirements fha loan requirements marlboro nj",
+      "buy a house fha loan requirements marlboro nj",
+      "first time homebuyer fha loan requirements marlboro nj",
+      "low down payment fha loan requirements marlboro nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-matawan-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements matawan new jersey",
+      "jersey",
+      "loan",
+      "matawan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements matawan nj",
+      "fha requirements fha loan requirements matawan nj",
+      "buy a house fha loan requirements matawan nj",
+      "first time homebuyer fha loan requirements matawan nj",
+      "low down payment fha loan requirements matawan nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-metuchen-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements metuchen new jersey",
+      "jersey",
+      "loan",
+      "metuchen",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements metuchen nj",
+      "fha requirements fha loan requirements metuchen nj",
+      "buy a house fha loan requirements metuchen nj",
+      "first time homebuyer fha loan requirements metuchen nj",
+      "low down payment fha loan requirements metuchen nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-middletown-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements middletown new jersey",
+      "jersey",
+      "loan",
+      "middletown",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements middletown nj",
+      "fha requirements fha loan requirements middletown nj",
+      "buy a house fha loan requirements middletown nj",
+      "first time homebuyer fha loan requirements middletown nj",
+      "low down payment fha loan requirements middletown nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-neptune-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements neptune new jersey",
+      "jersey",
+      "loan",
+      "neptune",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements neptune nj",
+      "fha requirements fha loan requirements neptune nj",
+      "buy a house fha loan requirements neptune nj",
+      "first time homebuyer fha loan requirements neptune nj",
+      "low down payment fha loan requirements neptune nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-new-brunswick-nj/",
+    "slug_keywords": [
+      "brunswick",
+      "fha",
+      "fha loan requirements new brunswick new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements new brunswick nj",
+      "fha requirements fha loan requirements new brunswick nj",
+      "buy a house fha loan requirements new brunswick nj",
+      "first time homebuyer fha loan requirements new brunswick nj",
+      "low down payment fha loan requirements new brunswick nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-newark-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements newark new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "newark",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements newark nj",
+      "fha requirements fha loan requirements newark nj",
+      "buy a house fha loan requirements newark nj",
+      "first time homebuyer fha loan requirements newark nj",
+      "low down payment fha loan requirements newark nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-north-brunswick-nj/",
+    "slug_keywords": [
+      "brunswick",
+      "fha",
+      "fha loan requirements north brunswick new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "north",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements north brunswick nj",
+      "fha requirements fha loan requirements north brunswick nj",
+      "buy a house fha loan requirements north brunswick nj",
+      "first time homebuyer fha loan requirements north brunswick nj",
+      "low down payment fha loan requirements north brunswick nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-ocean-township-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements ocean township new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "ocean",
+      "requirements",
+      "township"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements ocean township nj",
+      "fha requirements fha loan requirements ocean township nj",
+      "buy a house fha loan requirements ocean township nj",
+      "first time homebuyer fha loan requirements ocean township nj",
+      "low down payment fha loan requirements ocean township nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-old-bridge-nj/",
+    "slug_keywords": [
+      "bridge",
+      "fha",
+      "fha loan requirements old bridge new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "old",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements old bridge nj",
+      "fha requirements fha loan requirements old bridge nj",
+      "buy a house fha loan requirements old bridge nj",
+      "first time homebuyer fha loan requirements old bridge nj",
+      "low down payment fha loan requirements old bridge nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-paterson-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements paterson new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "paterson",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements paterson nj",
+      "fha requirements fha loan requirements paterson nj",
+      "buy a house fha loan requirements paterson nj",
+      "first time homebuyer fha loan requirements paterson nj",
+      "low down payment fha loan requirements paterson nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-perth-amboy-nj/",
+    "slug_keywords": [
+      "amboy",
+      "fha",
+      "fha loan requirements perth amboy new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "perth",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements perth amboy nj",
+      "fha requirements fha loan requirements perth amboy nj",
+      "buy a house fha loan requirements perth amboy nj",
+      "first time homebuyer fha loan requirements perth amboy nj",
+      "low down payment fha loan requirements perth amboy nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-piscataway-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements piscataway new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "piscataway",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements piscataway nj",
+      "fha requirements fha loan requirements piscataway nj",
+      "buy a house fha loan requirements piscataway nj",
+      "first time homebuyer fha loan requirements piscataway nj",
+      "low down payment fha loan requirements piscataway nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-plainfield-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements plainfield new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "plainfield",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements plainfield nj",
+      "fha requirements fha loan requirements plainfield nj",
+      "buy a house fha loan requirements plainfield nj",
+      "first time homebuyer fha loan requirements plainfield nj",
+      "low down payment fha loan requirements plainfield nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-rahway-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements rahway new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "rahway",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements rahway nj",
+      "fha requirements fha loan requirements rahway nj",
+      "buy a house fha loan requirements rahway nj",
+      "first time homebuyer fha loan requirements rahway nj",
+      "low down payment fha loan requirements rahway nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-red-bank-nj/",
+    "slug_keywords": [
+      "bank",
+      "fha",
+      "fha loan requirements red bank new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "red",
+      "requirements"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements red bank nj",
+      "fha requirements fha loan requirements red bank nj",
+      "buy a house fha loan requirements red bank nj",
+      "first time homebuyer fha loan requirements red bank nj",
+      "low down payment fha loan requirements red bank nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-sayreville-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements sayreville new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "sayreville"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements sayreville nj",
+      "fha requirements fha loan requirements sayreville nj",
+      "buy a house fha loan requirements sayreville nj",
+      "first time homebuyer fha loan requirements sayreville nj",
+      "low down payment fha loan requirements sayreville nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-south-amboy-nj/",
+    "slug_keywords": [
+      "amboy",
+      "fha",
+      "fha loan requirements south amboy new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "south"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements south amboy nj",
+      "fha requirements fha loan requirements south amboy nj",
+      "buy a house fha loan requirements south amboy nj",
+      "first time homebuyer fha loan requirements south amboy nj",
+      "low down payment fha loan requirements south amboy nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-south-plainfield-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements south plainfield new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "plainfield",
+      "requirements",
+      "south"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements south plainfield nj",
+      "fha requirements fha loan requirements south plainfield nj",
+      "buy a house fha loan requirements south plainfield nj",
+      "first time homebuyer fha loan requirements south plainfield nj",
+      "low down payment fha loan requirements south plainfield nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-toms-river-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements toms river new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "river",
+      "toms"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements toms river nj",
+      "fha requirements fha loan requirements toms river nj",
+      "buy a house fha loan requirements toms river nj",
+      "first time homebuyer fha loan requirements toms river nj",
+      "low down payment fha loan requirements toms river nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-union-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements union new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "union"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements union nj",
+      "fha requirements fha loan requirements union nj",
+      "buy a house fha loan requirements union nj",
+      "first time homebuyer fha loan requirements union nj",
+      "low down payment fha loan requirements union nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-westfield-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements westfield new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "westfield"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements westfield nj",
+      "fha requirements fha loan requirements westfield nj",
+      "buy a house fha loan requirements westfield nj",
+      "first time homebuyer fha loan requirements westfield nj",
+      "low down payment fha loan requirements westfield nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/fha-loan-requirements-woodbridge-nj/",
+    "slug_keywords": [
+      "fha",
+      "fha loan requirements woodbridge new jersey",
+      "jersey",
+      "loan",
+      "new",
+      "requirements",
+      "woodbridge"
+    ],
+    "manual_keywords": [
+      "fha loan fha loan requirements woodbridge nj",
+      "fha requirements fha loan requirements woodbridge nj",
+      "buy a house fha loan requirements woodbridge nj",
+      "first time homebuyer fha loan requirements woodbridge nj",
+      "low down payment fha loan requirements woodbridge nj"
+    ],
+    "intent": "education",
+    "priority": 6
+  },
+  {
+    "url": "https://veecasa.com/first-time-homebuyers-complete-mortgage-checklist/",
+    "slug_keywords": [
+      "checklist",
+      "complete",
+      "first",
+      "first time homebuyers complete mortgage checklist",
+      "homebuyers",
+      "mortgage",
+      "time"
+    ],
+    "manual_keywords": [
+      "time",
+      "homebuyers",
+      "mortgage",
+      "first time homebuyers complete mortgage checklist",
+      "first",
+      "checklist",
+      "complete"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/form/",
+    "slug_keywords": [
+      "form"
+    ],
+    "manual_keywords": [
+      "preapproval",
+      "apply for mortgage",
+      "start loan process",
+      "get preapproved",
+      "loan application",
+      "talk to loan officer"
+    ],
+    "intent": "conversion",
+    "priority": 10
+  },
+  {
+    "url": "https://veecasa.com/government-loans/",
+    "slug_keywords": [
+      "government",
+      "government loans",
+      "loans"
+    ],
+    "manual_keywords": [
+      "government loans",
+      "home loan",
+      "government",
+      "loans",
+      "financing options",
+      "mortgage loan"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/government-vs-conventional-loans-a-side-by-side-breakdown/",
+    "slug_keywords": [
+      "a",
+      "breakdown",
+      "by",
+      "conventional",
+      "government",
+      "government vs conventional loans a side by side breakdown",
+      "loans",
+      "side",
+      "vs"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "government",
+      "by",
+      "conventional",
+      "breakdown",
+      "financing options",
+      "government vs conventional loans a side by side breakdown",
+      "loans",
+      "vs",
+      "a",
+      "mortgage loan",
+      "side"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/hard-money-loans/",
+    "slug_keywords": [
+      "hard",
+      "hard money loans",
+      "loans",
+      "money"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "hard",
+      "fix and flip loan",
+      "loans",
+      "hard money loan",
+      "short term loan",
+      "hard money loans",
+      "financing options",
+      "mortgage loan",
+      "money"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/home-buying/",
+    "slug_keywords": [
+      "buying",
+      "home",
+      "home buying"
+    ],
+    "manual_keywords": [
+      "how to buy a house",
+      "home buying process",
+      "steps to buy a home",
+      "first time homebuyer process",
+      "offer process",
+      "closing process"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/home-inspection/",
+    "slug_keywords": [
+      "home",
+      "home inspection",
+      "inspection"
+    ],
+    "manual_keywords": [
+      "inspection process",
+      "home",
+      "home inspection",
+      "inspection",
+      "inspection checklist"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/how-much-house-can-i-afford/",
+    "slug_keywords": [
+      "afford",
+      "can",
+      "house",
+      "how",
+      "how much house can i afford",
+      "i",
+      "much"
+    ],
+    "manual_keywords": [
+      "house",
+      "i",
+      "how much house can i afford",
+      "much",
+      "affordability",
+      "can",
+      "afford",
+      "how"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/investment-property-financing-a-beginners-guide/",
+    "slug_keywords": [
+      "a",
+      "beginners",
+      "financing",
+      "guide",
+      "investment",
+      "investment property financing a beginners guide",
+      "property"
+    ],
+    "manual_keywords": [
+      "rental property",
+      "financing",
+      "investment",
+      "investment property financing a beginners guide",
+      "guide",
+      "property",
+      "real estate investing",
+      "beginners",
+      "a",
+      "investment property"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/investment-property-loans/",
+    "slug_keywords": [
+      "investment",
+      "investment property loans",
+      "loans",
+      "property"
+    ],
+    "manual_keywords": [
+      "investment property loans",
+      "rental property",
+      "home loan",
+      "investment",
+      "property",
+      "loans",
+      "real estate investing",
+      "financing options",
+      "mortgage loan",
+      "investment property"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/jumbo-loans/",
+    "slug_keywords": [
+      "jumbo",
+      "jumbo loans",
+      "loans"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "jumbo loans",
+      "loans",
+      "high loan amount",
+      "large mortgage",
+      "jumbo loan",
+      "jumbo",
+      "financing options",
+      "mortgage loan"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/legal-disclaimer/",
+    "slug_keywords": [
+      "disclaimer",
+      "legal",
+      "legal disclaimer"
+    ],
+    "manual_keywords": [
+      "legal",
+      "legal disclaimer",
+      "disclaimer"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/mortgage-calculator-explained/",
+    "slug_keywords": [
+      "calculator",
+      "explained",
+      "mortgage",
+      "mortgage calculator explained"
+    ],
+    "manual_keywords": [
+      "mortgage calculator",
+      "monthly payment",
+      "estimate mortgage payment",
+      "loan payment estimate",
+      "piti",
+      "principal interest taxes insurance"
+    ],
+    "intent": "tool",
+    "priority": 4
+  },
+  {
+    "url": "https://veecasa.com/mortgage-calculator-nj/",
+    "slug_keywords": [
+      "calculator",
+      "jersey",
+      "mortgage",
+      "mortgage calculator new jersey",
+      "new"
+    ],
+    "manual_keywords": [
+      "monthly payment",
+      "calculator",
+      "mortgage calculator new jersey",
+      "new",
+      "calculate",
+      "jersey",
+      "mortgage",
+      "payment",
+      "estimate"
+    ],
+    "intent": "tool",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/mortgage-calculator/",
+    "slug_keywords": [
+      "calculator",
+      "mortgage",
+      "mortgage calculator"
+    ],
+    "manual_keywords": [
+      "monthly payment",
+      "calculator",
+      "calculate",
+      "mortgage calculator",
+      "mortgage",
+      "payment",
+      "estimate"
+    ],
+    "intent": "tool",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/mortgage-guides/",
+    "slug_keywords": [
+      "guides",
+      "mortgage",
+      "mortgage guides"
+    ],
+    "manual_keywords": [
+      "mortgage",
+      "mortgage guides",
+      "guides"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/mortgage-insurance-explained/",
+    "slug_keywords": [
+      "explained",
+      "insurance",
+      "mortgage",
+      "mortgage insurance explained"
+    ],
+    "manual_keywords": [
+      "mortgage insurance",
+      "insurance",
+      "explained",
+      "mortgage",
+      "pmi",
+      "insurance cost",
+      "mortgage insurance explained"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/preapproval/",
+    "slug_keywords": [
+      "preapproval"
+    ],
+    "manual_keywords": [
+      "preapproval",
+      "get preapproved",
+      "mortgage approval",
+      "qualify for mortgage",
+      "start application"
+    ],
+    "intent": "conversion",
+    "priority": 10
+  },
+  {
+    "url": "https://veecasa.com/press/",
+    "slug_keywords": [
+      "press"
+    ],
+    "manual_keywords": [
+      "press"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/privacy-policy/",
+    "slug_keywords": [
+      "policy",
+      "privacy",
+      "privacy policy"
+    ],
+    "manual_keywords": [
+      "policy",
+      "privacy policy",
+      "privacy"
+    ],
+    "intent": "education",
+    "priority": 0
+  },
+  {
+    "url": "https://veecasa.com/purchase-loans/",
+    "slug_keywords": [
+      "loans",
+      "purchase",
+      "purchase loans"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "purchase loans",
+      "loans",
+      "purchase",
+      "financing options",
+      "mortgage loan"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/realtor-realtionship-advice/",
+    "slug_keywords": [
+      "advice",
+      "realtionship",
+      "realtor",
+      "realtor realtionship advice"
+    ],
+    "manual_keywords": [
+      "advice",
+      "choosing a realtor",
+      "real estate agent",
+      "realtor realtionship advice",
+      "buyer agent",
+      "realtionship",
+      "realtor"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/refinance-loans/",
+    "slug_keywords": [
+      "loans",
+      "refinance",
+      "refinance loans"
+    ],
+    "manual_keywords": [
+      "lower rate",
+      "home loan",
+      "cash out refinance",
+      "loans",
+      "refinance",
+      "financing options",
+      "mortgage loan",
+      "refinance loans"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/saving-for-your-home/",
+    "slug_keywords": [
+      "for",
+      "home",
+      "saving",
+      "saving for your home",
+      "your"
+    ],
+    "manual_keywords": [
+      "saving for a house",
+      "down payment savings",
+      "budget for home purchase",
+      "how much to save for house"
+    ],
+    "intent": "education",
+    "priority": 4
+  },
+  {
+    "url": "https://veecasa.com/sba-loans/",
+    "slug_keywords": [
+      "loans",
+      "sba",
+      "sba loans"
+    ],
+    "manual_keywords": [
+      "home loan",
+      "loans",
+      "sba",
+      "financing options",
+      "mortgage loan",
+      "sba loans"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/sellers-concessions/",
+    "slug_keywords": [
+      "concessions",
+      "sellers",
+      "sellers concessions"
+    ],
+    "manual_keywords": [
+      "seller concessions",
+      "seller credit",
+      "seller pays closing costs",
+      "closing cost assistance",
+      "negotiating closing costs",
+      "concessions fha",
+      "concessions conventional"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/state-and-local-housing-grants/",
+    "slug_keywords": [
+      "and",
+      "grants",
+      "housing",
+      "local",
+      "state",
+      "state and local housing grants"
+    ],
+    "manual_keywords": [
+      "down payment assistance",
+      "first time homebuyer grants",
+      "housing grants",
+      "0% down programs",
+      "state housing programs",
+      "local homebuyer programs"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/terms-of-use/",
+    "slug_keywords": [
+      "of",
+      "terms",
+      "terms of use",
+      "use"
+    ],
+    "manual_keywords": [
+      "terms of use",
+      "terms",
+      "of",
+      "use"
+    ],
+    "intent": "education",
+    "priority": 0
+  },
+  {
+    "url": "https://veecasa.com/thank-you/",
+    "slug_keywords": [
+      "thank",
+      "thank you",
+      "you"
+    ],
+    "manual_keywords": [
+      "thank",
+      "you",
+      "thank you"
+    ],
+    "intent": "education",
+    "priority": 0
+  },
+  {
+    "url": "https://veecasa.com/types-of-mortgage/",
+    "slug_keywords": [
+      "mortgage",
+      "of",
+      "types",
+      "types of mortgage"
+    ],
+    "manual_keywords": [
+      "mortgage types",
+      "fha vs conventional",
+      "loan options",
+      "fixed vs arm",
+      "compare mortgages"
+    ],
+    "intent": "education",
+    "priority": 5
+  },
+  {
+    "url": "https://veecasa.com/understanding-mortgage-points-and-how-to-use-them/",
+    "slug_keywords": [
+      "and",
+      "how",
+      "mortgage",
+      "points",
+      "them",
+      "to",
+      "understanding",
+      "understanding mortgage points and how to use them",
+      "use"
+    ],
+    "manual_keywords": [
+      "understanding mortgage points and how to use them",
+      "and",
+      "them",
+      "use",
+      "mortgage",
+      "understanding",
+      "to",
+      "how",
+      "points"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/veecasa-process/",
+    "slug_keywords": [
+      "process",
+      "veecasa",
+      "veecasa process"
+    ],
+    "manual_keywords": [
+      "process",
+      "veecasa process",
+      "veecasa"
+    ],
+    "intent": "education",
+    "priority": 1
+  },
+  {
+    "url": "https://veecasa.com/when-to-refinance/",
+    "slug_keywords": [
+      "refinance",
+      "to",
+      "when",
+      "when to refinance"
+    ],
+    "manual_keywords": [
+      "refinance",
+      "cash out refinance",
+      "rate and term refinance",
+      "should i refinance",
+      "refinance savings"
+    ],
+    "intent": "education",
+    "priority": 5
+  }
+]

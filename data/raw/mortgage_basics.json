@@ -2,66 +2,81 @@
   {
     "topic": "fixed_vs_adjustable",
     "question": "What is the difference between a fixed-rate mortgage and an adjustable-rate mortgage?",
-    "answer": "A fixed-rate mortgage keeps the same interest rate for the full loan term. An adjustable-rate mortgage (ARM) starts with a fixed rate for an initial period, then can increase or decrease based on market indexes and caps."
+    "answer": "A fixed-rate mortgage keeps the same interest rate for the full loan term. An adjustable-rate mortgage (ARM) starts with a fixed rate for an initial period, then can increase or decrease based on market indexes and caps.",
+    "recommended_link": "https://veecasa.com/types-of-mortgage"
   },
   {
     "topic": "down_payment",
     "question": "How much down payment do I need for a home loan?",
-    "answer": "Down payment requirements vary by loan program, credit profile, and occupancy. Some programs allow lower down payments, while others may require more to reduce lender risk."
+    "answer": "Down payment requirements vary by loan program, credit profile, and occupancy. Some programs allow lower down payments, while others may require more to reduce lender risk.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "topic": "preapproval",
     "question": "What is mortgage pre-approval?",
-    "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow. It is stronger than pre-qualification and often helps when making offers."
+    "answer": "Pre-approval is a lender's conditional review of your income, assets, debts, and credit to estimate how much you may be able to borrow. It is stronger than pre-qualification and often helps when making offers.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "topic": "closing_costs",
     "question": "What are closing costs in a mortgage?",
-    "answer": "Closing costs are fees paid at settlement and may include lender fees, title charges, escrow items, recording fees, and prepaid taxes or insurance."
+    "answer": "Closing costs are fees paid at settlement and may include lender fees, title charges, escrow items, recording fees, and prepaid taxes or insurance.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "topic": "home_buying_process",
     "question": "What are the first steps to buying a home?",
-    "answer": "The first steps to buying a home typically include assessing your financial situation, getting pre-approved for a mortgage, and determining your budget. It's also important to research neighborhoods and consider your needs and preferences."
+    "answer": "The first steps to buying a home typically include assessing your financial situation, getting pre-approved for a mortgage, and determining your budget. It's also important to research neighborhoods and consider your needs and preferences.",
+    "recommended_link": "https://veecasa.com/saving-for-your-home"
   },
   {
     "topic": "escrow",
     "question": "What is escrow and how does it work?",
-    "answer": "Escrow is a neutral third-party account where funds are held until certain conditions are met, such as the completion of a home sale. It ensures that both the buyer and seller fulfill their obligations before the transaction is finalized."
+    "answer": "Escrow is a neutral third-party account where funds are held until certain conditions are met, such as the completion of a home sale. It ensures that both the buyer and seller fulfill their obligations before the transaction is finalized.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "topic": "title_insurance",
     "question": "What is title insurance?",
-    "answer": "Title insurance protects against potential disputes or claims over the ownership of a property. It ensures that the buyer has clear ownership and covers legal fees if any issues arise. Guidelines vary by lender and location."
+    "answer": "Title insurance protects against potential disputes or claims over the ownership of a property. It ensures that the buyer has clear ownership and covers legal fees if any issues arise. Guidelines vary by lender and location.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "topic": "amortization",
     "question": "What is amortization in a mortgage?",
-    "answer": "Amortization is the process of gradually paying off a loan through regular payments over time. Each payment covers both interest and principal, reducing the loan balance until it is fully paid off."
+    "answer": "Amortization is the process of gradually paying off a loan through regular payments over time. Each payment covers both interest and principal, reducing the loan balance until it is fully paid off.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "topic": "pmi",
     "question": "What is private mortgage insurance (PMI)?",
-    "answer": "Private mortgage insurance (PMI) is required on some loans when the down payment is less than 20%. It protects the lender in case of default. PMI can be canceled once sufficient equity is built up."
+    "answer": "Private mortgage insurance (PMI) is required on some loans when the down payment is less than 20%. It protects the lender in case of default. PMI can be canceled once sufficient equity is built up.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "topic": "loan_terms",
     "question": "How long does a mortgage last?",
-    "answer": "Mortgage terms typically range from 15 to 30 years, with 30-year fixed-rate mortgages being the most common. Shorter terms often have higher monthly payments but lower total interest costs."
+    "answer": "Mortgage terms typically range from 15 to 30 years, with 30-year fixed-rate mortgages being the most common. Shorter terms often have higher monthly payments but lower total interest costs.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   },
   {
     "topic": "rate_lock",
     "question": "What is a mortgage rate lock?",
-    "answer": "A mortgage rate lock secures your interest rate for a specified period, protecting you from rate increases while your loan is processed. Terms and conditions vary by lender."
+    "answer": "A mortgage rate lock secures your interest rate for a specified period, protecting you from rate increases while your loan is processed. Terms and conditions vary by lender.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "topic": "closing",
     "question": "What happens at closing?",
-    "answer": "Closing is the final step in the home buying process where ownership is transferred from the seller to the buyer. It involves signing documents, paying closing costs, and receiving the keys to your new home."
+    "answer": "Closing is the final step in the home buying process where ownership is transferred from the seller to the buyer. It involves signing documents, paying closing costs, and receiving the keys to your new home.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "topic": "application_documents",
     "question": "What documents do I need to apply for a mortgage?",
-    "answer": "Common documents needed for a mortgage application include proof of income, tax returns, bank statements, and identification. Additional documents may be required depending on your financial situation and the loan program."
+    "answer": "Common documents needed for a mortgage application include proof of income, tax returns, bank statements, and identification. Additional documents may be required depending on your financial situation and the loan program.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   }
 ]

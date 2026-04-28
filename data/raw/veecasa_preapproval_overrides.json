@@ -1,0 +1,16 @@
+[
+  {
+    "question": "How do I get preapproved?",
+    "answer": "To get preapproved, you typically submit a mortgage application and provide basic financial documents such as income, assets, debts, credit information, and identification. A loan professional can review your situation and help estimate what loan options may fit. If you are ready to start, VeeCasa can help you begin the preapproval process.",
+    "category": "preapproval",
+    "recommended_link": "https://veecasa.com/preapproval/",
+    "suggested_next_action": "offer_start_rasa_application"
+  },
+  {
+    "question": "How do I start a mortgage application?",
+    "answer": "You can start by completing a mortgage application and sharing information about your income, credit, assets, debts, and homebuying goals. From there, a loan professional can help review your options and explain the next steps.",
+    "category": "application",
+    "recommended_link": "https://veecasa.com/form/",
+    "suggested_next_action": "offer_start_rasa_application"
+  }
+]

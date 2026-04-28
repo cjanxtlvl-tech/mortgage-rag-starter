@@ -5,9 +5,7 @@
     "intent": "rag_response",
     "question": "What is a DSCR loan?",
     "answer": "A DSCR loan is an investment property mortgage that focuses mainly on the property's cash flow rather than the borrower's personal income. Guidelines vary by lender.",
-    "routing_note": "Answer with RAG. Do not start application automatically.",
-    "recommended_link": "https://veecasa.com/dscr-loans",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG. Do not start application automatically."
   },
   {
     "title": "General education about FHA",
@@ -15,8 +13,7 @@
     "intent": "rag_response",
     "question": "How does an FHA loan work?",
     "answer": "An FHA loan is a government-backed mortgage insured by the Federal Housing Administration. It is often used by borrowers seeking more flexible qualification options.",
-    "routing_note": "Answer with RAG. Optionally offer prequalification after answering.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub"
+    "routing_note": "Answer with RAG. Optionally offer prequalification after answering."
   },
   {
     "title": "Rate education question",
@@ -24,8 +21,7 @@
     "intent": "rag_response",
     "question": "What is the difference between APR and interest rate?",
     "answer": "The interest rate is the cost of borrowing the loan principal, while APR includes the rate plus certain fees and costs to show a broader annualized loan cost.",
-    "routing_note": "Answer with RAG. No handoff required unless user asks for live rates.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub"
+    "routing_note": "Answer with RAG. No handoff required unless user asks for live rates."
   },
   {
     "title": "Affordability education question",
@@ -33,8 +29,7 @@
     "intent": "rag_response",
     "question": "How much house can I afford?",
     "answer": "Affordability depends on income, debts, down payment, taxes, insurance, and current rates. A prequalification can provide a more personalized estimate.",
-    "routing_note": "Answer with RAG, then offer prequalification.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub"
+    "routing_note": "Answer with RAG, then offer prequalification."
   },
   {
     "title": "Ready to apply",
@@ -42,9 +37,7 @@
     "intent": "start_application",
     "question": "I want to apply for a mortgage.",
     "answer": "Great. The next step is to start your mortgage application so your loan goals and financial profile can be reviewed.",
-    "routing_note": "Hand off to Rasa application flow immediately.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Hand off to Rasa application flow immediately."
   },
   {
     "title": "Ready to get pre-approved",
@@ -52,9 +45,7 @@
     "intent": "start_application",
     "question": "Can I get pre-approved?",
     "answer": "Yes. We can start with a short prequalification or pre-approval intake to review your basic financial profile and loan goals.",
-    "routing_note": "Hand off to Rasa application flow.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Hand off to Rasa application flow."
   },
   {
     "title": "Wants to get started now",
@@ -62,9 +53,7 @@
     "intent": "start_application",
     "question": "I am ready to get started.",
     "answer": "Perfect. We can begin with a few questions to help match you with the right mortgage path.",
-    "routing_note": "Hand off to Rasa application flow.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Hand off to Rasa application flow."
   },
   {
     "title": "Purchase lead intent",
@@ -72,9 +61,7 @@
     "intent": "start_application",
     "question": "I want to buy a home.",
     "answer": "Great. We can start with a few quick questions about your home purchase goals and financing needs.",
-    "routing_note": "Start Rasa purchase flow.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Start Rasa purchase flow."
   },
   {
     "title": "Refinance lead intent",
@@ -82,9 +69,7 @@
     "intent": "start_application",
     "question": "I want to refinance my mortgage.",
     "answer": "Sure. We can start by reviewing your current mortgage, property value, and refinance goals.",
-    "routing_note": "Start Rasa refinance flow.",
-    "recommended_link": "https://veecasa.com/when-to-refinance",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Start Rasa refinance flow."
   },
   {
     "title": "Investor lead intent",
@@ -92,9 +77,7 @@
     "intent": "start_application",
     "question": "I want a DSCR loan for an investment property.",
     "answer": "We can help with that. The next step is to review the property scenario, expected rent, and your financing goals.",
-    "routing_note": "Start Rasa investor flow.",
-    "recommended_link": "https://veecasa.com/dscr-loans",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Start Rasa investor flow."
   },
   {
     "title": "Talk to a loan officer",
@@ -102,9 +85,7 @@
     "intent": "talk_to_loan_officer",
     "question": "Can I talk to a loan officer?",
     "answer": "Yes. We can connect you with a loan officer for personalized guidance.",
-    "routing_note": "Hand off to live-person/contact-capture flow.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Hand off to live-person/contact-capture flow."
   },
   {
     "title": "Wants a callback",
@@ -112,9 +93,7 @@
     "intent": "talk_to_loan_officer",
     "question": "Can someone call me about my options?",
     "answer": "Absolutely. If you share your contact information, a loan officer can follow up with you.",
-    "routing_note": "Route to contact capture for callback.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Route to contact capture for callback."
   },
   {
     "title": "Prefers human help",
@@ -122,9 +101,7 @@
     "intent": "talk_to_loan_officer",
     "question": "I would rather speak with a person.",
     "answer": "No problem. We can connect you with a loan officer who can walk through your situation.",
-    "routing_note": "Route to live-person/contact-capture flow.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Route to live-person/contact-capture flow."
   },
   {
     "title": "Needs personalized rate quote",
@@ -132,8 +109,7 @@
     "intent": "rate_request",
     "question": "Can I get a mortgage rate quote?",
     "answer": "Yes. To get a meaningful rate quote, we would need a few details about your loan scenario, property, and credit profile.",
-    "routing_note": "Route into rate/prequalification flow in Rasa.",
-    "recommended_link": "https://veecasa.com/credit-score"
+    "routing_note": "Route into rate/prequalification flow in Rasa."
   },
   {
     "title": "Asks for todays rates",
@@ -141,8 +117,7 @@
     "intent": "rate_request",
     "question": "What are mortgage rates today?",
     "answer": "Mortgage rates can change frequently and depend on the loan type, credit profile, property type, and other factors. A short intake can help narrow down a more personalized quote.",
-    "routing_note": "Answer briefly, then hand off to rate flow.",
-    "recommended_link": "https://veecasa.com/credit-score"
+    "routing_note": "Answer briefly, then hand off to rate flow."
   },
   {
     "title": "Wants best rate",
@@ -150,8 +125,7 @@
     "intent": "rate_request",
     "question": "How do I get my best mortgage rate?",
     "answer": "Your rate depends on factors like credit, loan type, property type, occupancy, and down payment. The next step is to review your scenario in more detail.",
-    "routing_note": "Route into rate/prequalification flow.",
-    "recommended_link": "https://veecasa.com/credit-score"
+    "routing_note": "Route into rate/prequalification flow."
   },
   {
     "title": "Mixed education plus application",
@@ -159,9 +133,7 @@
     "intent": "rag_then_offer_application",
     "question": "What is an FHA loan and can I apply for one?",
     "answer": "An FHA loan is a government-backed mortgage option often used by borrowers seeking more flexible qualification terms. If you want, we can also start a quick application review.",
-    "routing_note": "Answer with RAG first, then offer to start Rasa application flow.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG first, then offer to start Rasa application flow."
   },
   {
     "title": "Mixed education plus human request",
@@ -169,9 +141,7 @@
     "intent": "rag_then_offer_loan_officer",
     "question": "How does refinancing work and can I talk to someone?",
     "answer": "Refinancing replaces your current mortgage with a new loan, often to change your rate, term, or access equity. We can also connect you with a loan officer to review your goals.",
-    "routing_note": "Answer with RAG, then hand off to human flow if user confirms.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG, then hand off to human flow if user confirms."
   },
   {
     "title": "Education then affordability action",
@@ -179,9 +149,7 @@
     "intent": "rag_then_offer_application",
     "question": "How much house can I afford and how do I get pre-approved?",
     "answer": "Affordability depends on income, debts, down payment, taxes, insurance, and rates. The best next step is usually a prequalification or pre-approval review.",
-    "routing_note": "Answer with RAG and immediately offer/start application flow.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG and immediately offer/start application flow."
   },
   {
     "title": "Investor education then action",
@@ -189,9 +157,7 @@
     "intent": "rag_then_offer_application",
     "question": "Can I qualify for a DSCR loan without W-2 income and how do I apply?",
     "answer": "In many cases, DSCR loans focus more on the property's cash flow than on your personal employment income, although lender requirements vary. If you want, we can start reviewing your property scenario now.",
-    "routing_note": "Answer with RAG then start investor application flow.",
-    "recommended_link": "https://veecasa.com/dscr-loans",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG then start investor application flow."
   },
   {
     "title": "Out of scope non-mortgage",
@@ -199,9 +165,7 @@
     "intent": "fallback",
     "question": "Can you help me fix my iPhone?",
     "answer": "I can help with mortgage and financing questions, or help you get started with a loan application. If you have a mortgage question, feel free to ask.",
-    "routing_note": "Use fallback. Do not start application.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Use fallback. Do not start application."
   },
   {
     "title": "Ambiguous request",
@@ -209,9 +173,7 @@
     "intent": "clarify_goal",
     "question": "I need help.",
     "answer": "I can help answer mortgage questions, help you check loan options, or connect you with a loan officer. What would you like to do?",
-    "routing_note": "Ask clarifying question.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Ask clarifying question."
   },
   {
     "title": "Soft conversion opportunity",
@@ -219,9 +181,7 @@
     "intent": "rag_then_offer_application",
     "question": "What documents do I need for a mortgage?",
     "answer": "Borrowers are often asked for items like identification, pay stubs, tax documents, bank statements, and information about debts and assets. If you want, we can also help you get started with the next step.",
-    "routing_note": "Answer with RAG, then offer application.",
-    "recommended_link": "https://veecasa.com/buyer-education-hub",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Answer with RAG, then offer application."
   },
   {
     "title": "Borrower asks for loan options",
@@ -229,8 +189,7 @@
     "intent": "start_application",
     "question": "What loan options do I have?",
     "answer": "That depends on your goals, property type, occupancy, credit profile, and down payment. We can start with a few questions to narrow down the best options for you.",
-    "routing_note": "Start guided application or intake.",
-    "recommended_link": "https://veecasa.com/credit-score"
+    "routing_note": "Start guided application or intake."
   },
   {
     "title": "Borrower asks to compare options with a person",
@@ -238,8 +197,6 @@
     "intent": "talk_to_loan_officer",
     "question": "Can someone help me compare loan options?",
     "answer": "Yes. A loan officer can review your scenario and help compare the options that may fit your goals.",
-    "routing_note": "Route to loan officer/contact capture.",
-    "recommended_link": "https://veecasa.com/form",
-    "suggested_next_action": "offer_start_rasa_application"
+    "routing_note": "Route to loan officer/contact capture."
   }
 ]

@@ -3,216 +3,266 @@
     "title": "What is a DSCR loan?",
     "topic": "DSCR / Investment Property Loans",
     "question": "What is a DSCR loan?",
-    "answer": "A DSCR loan is an investment property mortgage that focuses primarily on the property's cash flow instead of the borrower's personal income. Lenders review whether the rental income can reasonably cover the property's debt obligations. Program rules vary by lender, so borrowers should treat this as general education rather than a credit decision."
+    "answer": "A DSCR loan is an investment property mortgage that focuses primarily on the property's cash flow instead of the borrower's personal income. Lenders review whether the rental income can reasonably cover the property's debt obligations. Program rules vary by lender, so borrowers should treat this as general education rather than a credit decision.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How does a DSCR ratio work?",
     "topic": "DSCR / Investment Property Loans",
     "question": "How does the DSCR ratio work?",
-    "answer": "DSCR stands for Debt Service Coverage Ratio. In general terms, it compares a property's qualifying income to its debt payment. A ratio above 1.00 usually means the property income is greater than the debt obligation. Minimum requirements vary by lender, loan product, and market conditions."
+    "answer": "DSCR stands for Debt Service Coverage Ratio. In general terms, it compares a property's qualifying income to its debt payment. A ratio above 1.00 usually means the property income is greater than the debt obligation. Minimum requirements vary by lender, loan product, and market conditions.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is an FHA loan?",
     "topic": "Government Loans",
     "question": "What is an FHA loan?",
-    "answer": "An FHA loan is a government-backed mortgage insured by the Federal Housing Administration. It is commonly used by homebuyers who want a lower down payment option or need more flexible qualification guidelines than some conventional programs may offer."
+    "answer": "An FHA loan is a government-backed mortgage insured by the Federal Housing Administration. It is commonly used by homebuyers who want a lower down payment option or need more flexible qualification guidelines than some conventional programs may offer.",
+    "recommended_link": "https://veecasa.com/types-of-mortgage"
   },
   {
     "title": "How do I know if I qualify for an FHA loan?",
     "topic": "Government Loans",
     "question": "How do I know if I qualify for an FHA loan?",
-    "answer": "Qualification depends on factors such as credit profile, income, debt levels, occupancy intent, and the property meeting program standards. FHA loans are often considered more flexible than some conventional options, but approval still depends on lender review and full underwriting."
+    "answer": "Qualification depends on factors such as credit profile, income, debt levels, occupancy intent, and the property meeting program standards. FHA loans are often considered more flexible than some conventional options, but approval still depends on lender review and full underwriting.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is a VA loan?",
     "topic": "Government Loans",
     "question": "What is a VA loan?",
-    "answer": "A VA loan is a mortgage option backed by the U.S. Department of Veterans Affairs for eligible veterans, active-duty service members, and certain surviving spouses. Many VA loans offer competitive terms, and some borrowers may qualify for little or no down payment depending on the scenario."
+    "answer": "A VA loan is a mortgage option backed by the U.S. Department of Veterans Affairs for eligible veterans, active-duty service members, and certain surviving spouses. Many VA loans offer competitive terms, and some borrowers may qualify for little or no down payment depending on the scenario.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is the difference between rate and APR?",
     "topic": "Mortgage Basics",
     "question": "What is the difference between interest rate and APR?",
-    "answer": "The interest rate reflects the cost of borrowing the loan principal. APR, or annual percentage rate, is a broader measure that includes the interest rate plus certain finance charges and costs, giving borrowers a more complete picture of the loan's annualized cost."
+    "answer": "The interest rate reflects the cost of borrowing the loan principal. APR, or annual percentage rate, is a broader measure that includes the interest rate plus certain finance charges and costs, giving borrowers a more complete picture of the loan's annualized cost.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "What is mortgage insurance?",
     "topic": "Mortgage Basics",
     "question": "What is mortgage insurance?",
-    "answer": "Mortgage insurance is a cost that may apply on some loan types or when certain down payment thresholds are not met. It generally protects the lender rather than the borrower. The exact structure, duration, and cancellation rules depend on the loan program."
+    "answer": "Mortgage insurance is a cost that may apply on some loan types or when certain down payment thresholds are not met. It generally protects the lender rather than the borrower. The exact structure, duration, and cancellation rules depend on the loan program.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What does pre-approval mean?",
     "topic": "Home Purchase",
     "question": "What is a mortgage pre-approval?",
-    "answer": "A mortgage pre-approval is an early review of a borrower's financial profile to estimate how much they may qualify to borrow, subject to verification and underwriting. It can help buyers shop more confidently, but it is not the same as a final loan approval."
+    "answer": "A mortgage pre-approval is an early review of a borrower's financial profile to estimate how much they may qualify to borrow, subject to verification and underwriting. It can help buyers shop more confidently, but it is not the same as a final loan approval.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How much house can I afford?",
     "topic": "Home Purchase",
     "question": "How much house can I afford?",
-    "answer": "Affordability depends on income, debts, credit profile, down payment, taxes, insurance, HOA dues if any, and current mortgage rates. A lender typically reviews the full monthly payment and debt-to-income profile rather than focusing only on the purchase price."
+    "answer": "Affordability depends on income, debts, credit profile, down payment, taxes, insurance, HOA dues if any, and current mortgage rates. A lender typically reviews the full monthly payment and debt-to-income profile rather than focusing only on the purchase price.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio"
   },
   {
     "title": "What documents do I usually need for a mortgage?",
     "topic": "Mortgage Process",
     "question": "What documents do I usually need for a mortgage application?",
-    "answer": "Borrowers are often asked for items such as identification, pay stubs, W-2s or tax returns, bank statements, and information about debts and assets. Investment and self-employed scenarios may require additional documentation. Exact requirements depend on the loan type and lender."
+    "answer": "Borrowers are often asked for items such as identification, pay stubs, W-2s or tax returns, bank statements, and information about debts and assets. Investment and self-employed scenarios may require additional documentation. Exact requirements depend on the loan type and lender.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is a conventional loan?",
     "topic": "Conventional Loans",
     "question": "What is a conventional loan?",
-    "answer": "A conventional loan is a mortgage that is not insured or guaranteed by a government agency like FHA or VA. Conventional financing can be used for many primary residences, second homes, and investment properties, subject to lender and investor guidelines."
+    "answer": "A conventional loan is a mortgage that is not insured or guaranteed by a government agency like FHA or VA. Conventional financing can be used for many primary residences, second homes, and investment properties, subject to lender and investor guidelines.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is a jumbo loan?",
     "topic": "Jumbo Loans",
     "question": "What is a jumbo loan?",
-    "answer": "A jumbo loan is a mortgage that exceeds applicable conforming loan limits for the area. Jumbo loans often have stricter qualification standards related to credit, reserves, income, and property type, although guidelines vary by lender."
+    "answer": "A jumbo loan is a mortgage that exceeds applicable conforming loan limits for the area. Jumbo loans often have stricter qualification standards related to credit, reserves, income, and property type, although guidelines vary by lender.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "title": "What is refinancing?",
     "topic": "Refinance",
     "question": "What does it mean to refinance a mortgage?",
-    "answer": "Refinancing means replacing an existing mortgage with a new loan. Borrowers may refinance to change the interest rate, loan term, monthly payment structure, or to access equity through a cash-out refinance, subject to qualification."
+    "answer": "Refinancing means replacing an existing mortgage with a new loan. Borrowers may refinance to change the interest rate, loan term, monthly payment structure, or to access equity through a cash-out refinance, subject to qualification.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "When does refinancing make sense?",
     "topic": "Refinance",
     "question": "When does refinancing make sense?",
-    "answer": "Refinancing may make sense when it lowers the monthly payment, improves the loan structure, shortens or extends the term strategically, consolidates other goals, or provides access to equity. Borrowers should compare closing costs, long-term savings, and break-even timing."
+    "answer": "Refinancing may make sense when it lowers the monthly payment, improves the loan structure, shortens or extends the term strategically, consolidates other goals, or provides access to equity. Borrowers should compare closing costs, long-term savings, and break-even timing.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "title": "What is a cash-out refinance?",
     "topic": "Refinance",
     "question": "What is a cash-out refinance?",
-    "answer": "A cash-out refinance replaces the current mortgage with a new, larger loan and returns the difference to the borrower in cash, subject to equity, credit, income, and program requirements. It is commonly used for renovations, debt consolidation, or other major expenses."
+    "answer": "A cash-out refinance replaces the current mortgage with a new, larger loan and returns the difference to the borrower in cash, subject to equity, credit, income, and program requirements. It is commonly used for renovations, debt consolidation, or other major expenses.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is loan-to-value?",
     "topic": "Mortgage Basics",
     "question": "What is loan-to-value or LTV?",
-    "answer": "Loan-to-value, or LTV, compares the loan amount to the property's value. It is one of the key ways lenders measure risk. Lower LTV often means more borrower equity and may improve available loan options, though guidelines vary by program."
+    "answer": "Loan-to-value, or LTV, compares the loan amount to the property's value. It is one of the key ways lenders measure risk. Lower LTV often means more borrower equity and may improve available loan options, though guidelines vary by program.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "What is debt-to-income ratio?",
     "topic": "Mortgage Basics",
     "question": "What is debt-to-income ratio?",
-    "answer": "Debt-to-income ratio, or DTI, compares a borrower's monthly debt obligations to monthly income. Lenders use it to evaluate repayment capacity. Acceptable DTI levels depend on the program, lender overlays, compensating factors, and the full loan file."
+    "answer": "Debt-to-income ratio, or DTI, compares a borrower's monthly debt obligations to monthly income. Lenders use it to evaluate repayment capacity. Acceptable DTI levels depend on the program, lender overlays, compensating factors, and the full loan file.",
+    "recommended_link": "https://veecasa.com/debt-to-income-ratio"
   },
   {
     "title": "Can I buy an investment property with mortgage financing?",
     "topic": "Investment Property Loans",
     "question": "Can I buy an investment property with mortgage financing?",
-    "answer": "Yes, many borrowers finance investment properties through conventional, DSCR, jumbo, portfolio, or other specialized loan programs. Requirements usually differ from primary residence loans and may involve different down payment, reserve, and documentation expectations."
+    "answer": "Yes, many borrowers finance investment properties through conventional, DSCR, jumbo, portfolio, or other specialized loan programs. Requirements usually differ from primary residence loans and may involve different down payment, reserve, and documentation expectations.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is a hard money loan?",
     "topic": "Alternative Lending",
     "question": "What is a hard money loan?",
-    "answer": "A hard money loan is typically a short-term asset-based loan often used by investors for acquisitions, renovations, or bridge scenarios. These loans may close more quickly than traditional financing but can carry higher rates, fees, and shorter repayment periods."
+    "answer": "A hard money loan is typically a short-term asset-based loan often used by investors for acquisitions, renovations, or bridge scenarios. These loans may close more quickly than traditional financing but can carry higher rates, fees, and shorter repayment periods.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is the mortgage process from application to closing?",
     "topic": "Mortgage Process",
     "question": "What is the mortgage process from application to closing?",
-    "answer": "The mortgage process generally includes application, document collection, disclosures, processing, underwriting review, possible conditions, appraisal if needed, final approval, and closing. The exact sequence and timing depend on the loan type, property, and borrower profile."
+    "answer": "The mortgage process generally includes application, document collection, disclosures, processing, underwriting review, possible conditions, appraisal if needed, final approval, and closing. The exact sequence and timing depend on the loan type, property, and borrower profile.",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What affects my mortgage rate?",
     "topic": "Mortgage Rates",
     "question": "What affects my mortgage rate?",
-    "answer": "Mortgage rates are influenced by market conditions, loan type, occupancy, property type, credit profile, loan-to-value, loan amount, lock period, and sometimes discount points. Borrowers should compare both rate and APR when evaluating options."
+    "answer": "Mortgage rates are influenced by market conditions, loan type, occupancy, property type, credit profile, loan-to-value, loan amount, lock period, and sometimes discount points. Borrowers should compare both rate and APR when evaluating options.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "title": "What are mortgage points?",
     "topic": "Mortgage Rates",
     "question": "What are mortgage points?",
-    "answer": "Mortgage points, often called discount points, are optional upfront fees that may lower the interest rate on a loan. Whether paying points makes sense depends on the cost, the rate reduction, and how long the borrower expects to keep the loan."
+    "answer": "Mortgage points, often called discount points, are optional upfront fees that may lower the interest rate on a loan. Whether paying points makes sense depends on the cost, the rate reduction, and how long the borrower expects to keep the loan.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "Can self-employed borrowers get a mortgage?",
     "topic": "Borrower Profiles",
     "question": "Can self-employed borrowers qualify for a mortgage?",
-    "answer": "Yes, self-employed borrowers can qualify for mortgages, but the income review is often more document-intensive than for salaried borrowers. Lenders may review tax returns, business records, or alternative documentation depending on the loan program."
+    "answer": "Yes, self-employed borrowers can qualify for mortgages, but the income review is often more document-intensive than for salaried borrowers. Lenders may review tax returns, business records, or alternative documentation depending on the loan program.",
+    "recommended_link": "https://veecasa.com/form",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is an escrow account?",
     "topic": "Mortgage Basics",
     "question": "What is an escrow account in a mortgage?",
-    "answer": "An escrow account is a separate account used by a servicer to collect and pay property taxes, homeowners insurance, and sometimes other required housing-related charges. Whether escrow is required depends on the loan structure and lender guidelines."
+    "answer": "An escrow account is a separate account used by a servicer to collect and pay property taxes, homeowners insurance, and sometimes other required housing-related charges. Whether escrow is required depends on the loan structure and lender guidelines.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/"
   },
   {
     "title": "Are chatbot answers final approvals?",
     "topic": "Compliance / Education",
     "question": "Are chatbot answers final loan approvals or underwriting decisions?",
-    "answer": "No. Chatbot responses should be treated as general educational information only. Final eligibility, pricing, and approval always depend on a full application, lender review, documentation, appraisal where applicable, and underwriting."
+    "answer": "No. Chatbot responses should be treated as general educational information only. Final eligibility, pricing, and approval always depend on a full application, lender review, documentation, appraisal where applicable, and underwriting.",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Step-by-step home buying process",
     "topic": "Home Purchase",
     "question": "What are the steps in the home buying process?",
-    "answer": "The home buying process typically includes getting pre-approved, finding a home, making an offer, conducting inspections, securing financing, and closing the deal. Each step involves specific tasks and timelines."
+    "answer": "The home buying process typically includes getting pre-approved, finding a home, making an offer, conducting inspections, securing financing, and closing the deal. Each step involves specific tasks and timelines.",
+    "recommended_link": "https://veecasa.com/home-buying"
   },
   {
     "title": "How long does it take to buy a home?",
     "topic": "Home Purchase",
     "question": "How long does it take to buy a home?",
-    "answer": "The time to buy a home can vary, but it often takes 30 to 60 days from offer acceptance to closing. Factors like financing, inspections, and negotiations can affect the timeline."
+    "answer": "The time to buy a home can vary, but it often takes 30 to 60 days from offer acceptance to closing. Factors like financing, inspections, and negotiations can affect the timeline.",
+    "recommended_link": "https://veecasa.com/home-buying",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is earnest money?",
     "topic": "Home Purchase",
     "question": "What is earnest money in a home purchase?",
-    "answer": "Earnest money is a deposit made to show a buyer's serious intent to purchase a home. It is typically held in escrow and applied to the purchase price at closing. Terms vary by contract."
+    "answer": "Earnest money is a deposit made to show a buyer's serious intent to purchase a home. It is typically held in escrow and applied to the purchase price at closing. Terms vary by contract.",
+    "recommended_link": "https://veecasa.com/closing-cost-demystified/",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is an appraisal and why is it required?",
     "topic": "Home Purchase",
     "question": "Why do I need an appraisal when buying a home?",
-    "answer": "An appraisal is required to assess the property's market value and ensure the loan amount is appropriate. It protects both the lender and buyer from overpaying. Guidelines vary by lender."
+    "answer": "An appraisal is required to assess the property's market value and ensure the loan amount is appropriate. It protects both the lender and buyer from overpaying. Guidelines vary by lender.",
+    "recommended_link": "https://veecasa.com/home-buying"
   },
   {
     "title": "What is underwriting?",
     "topic": "Home Purchase",
     "question": "What is underwriting in the mortgage process?",
-    "answer": "Underwriting is the lender's process of evaluating a borrower's financial profile to determine loan eligibility. It involves reviewing credit, income, assets, and the property itself."
+    "answer": "Underwriting is the lender's process of evaluating a borrower's financial profile to determine loan eligibility. It involves reviewing credit, income, assets, and the property itself.",
+    "recommended_link": "https://veecasa.com/credit-score"
   },
   {
     "title": "Home inspection vs appraisal",
     "topic": "Home Purchase",
     "question": "What is the difference between a home inspection and an appraisal?",
-    "answer": "A home inspection assesses the property's condition, while an appraisal evaluates its market value. Both are important but serve different purposes in the home buying process."
+    "answer": "A home inspection assesses the property's condition, while an appraisal evaluates its market value. Both are important but serve different purposes in the home buying process.",
+    "recommended_link": "https://veecasa.com/home-buying"
   },
   {
     "title": "Should I get pre-approved before shopping?",
     "topic": "Home Purchase",
     "question": "Is it important to get pre-approved before looking for a home?",
-    "answer": "Yes, getting pre-approved helps you understand your budget and shows sellers you are a serious buyer. It can make your offer more competitive in a competitive market."
+    "answer": "Yes, getting pre-approved helps you understand your budget and shows sellers you are a serious buyer. It can make your offer more competitive in a competitive market.",
+    "recommended_link": "https://veecasa.com/saving-for-your-home"
   },
   {
     "title": "What is a USDA loan?",
     "topic": "Loan Types",
     "question": "What is a USDA loan?",
-    "answer": "A USDA loan is a government-backed mortgage for eligible rural and suburban homebuyers. It offers low interest rates and no down payment options. Eligibility depends on location and income."
+    "answer": "A USDA loan is a government-backed mortgage for eligible rural and suburban homebuyers. It offers low interest rates and no down payment options. Eligibility depends on location and income.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "What is a bridge loan?",
     "topic": "Loan Types",
     "question": "What is a bridge loan?",
-    "answer": "A bridge loan is a short-term loan used to bridge the gap between buying a new home and selling an existing one. It provides temporary financing until permanent funding is secured."
+    "answer": "A bridge loan is a short-term loan used to bridge the gap between buying a new home and selling an existing one. It provides temporary financing until permanent funding is secured.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "Fixed vs adjustable rate — which is better?",
     "topic": "Loan Types",
     "question": "Is a fixed-rate or adjustable-rate mortgage better?",
-    "answer": "The choice depends on your financial situation and risk tolerance. Fixed-rate mortgages offer stability, while adjustable-rate mortgages may start with lower payments but can fluctuate over time."
+    "answer": "The choice depends on your financial situation and risk tolerance. Fixed-rate mortgages offer stability, while adjustable-rate mortgages may start with lower payments but can fluctuate over time.",
+    "recommended_link": "https://veecasa.com/types-of-mortgage"
   },
   {
     "title": "15-year vs 30-year mortgage",
     "topic": "Loan Types",
     "question": "What are the differences between a 15-year and a 30-year mortgage?",
-    "answer": "A 15-year mortgage typically has higher monthly payments but lower total interest costs, while a 30-year mortgage offers lower payments with more interest over time. The best choice depends on your financial goals."
+    "answer": "A 15-year mortgage typically has higher monthly payments but lower total interest costs, while a 30-year mortgage offers lower payments with more interest over time. The best choice depends on your financial goals.",
+    "recommended_link": "https://veecasa.com/mortgage-calculator-explained"
   }
 ]

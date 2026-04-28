@@ -3,210 +3,265 @@
     "title": "What is a DSCR loan for investors?",
     "topic": "Investor / DSCR",
     "question": "What is a DSCR loan for real estate investors?",
-    "answer": "A DSCR loan is an investment property mortgage that focuses primarily on the property's income rather than the borrower's personal income. These loans are commonly used by investors buying or refinancing rental properties, although program rules vary by lender."
+    "answer": "A DSCR loan is an investment property mortgage that focuses primarily on the property's income rather than the borrower's personal income. These loans are commonly used by investors buying or refinancing rental properties, although program rules vary by lender.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I qualify for DSCR without W-2 income?",
     "topic": "Investor / DSCR",
     "question": "Can I qualify for a DSCR loan without W-2 income?",
-    "answer": "In many cases, DSCR programs focus more on the property's rental income than on personal employment income. Even so, lenders may still review reserves, credit, property type, and other factors, so requirements can vary."
+    "answer": "In many cases, DSCR programs focus more on the property's rental income than on personal employment income. Even so, lenders may still review reserves, credit, property type, and other factors, so requirements can vary.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Do DSCR loans require tax returns?",
     "topic": "Investor / DSCR",
     "question": "Do DSCR loans require tax returns?",
-    "answer": "Some DSCR programs reduce the emphasis on traditional income documentation like tax returns, but documentation requirements vary by lender and scenario. Borrowers should expect some level of financial and property documentation even when personal income is not the main qualifying factor."
+    "answer": "Some DSCR programs reduce the emphasis on traditional income documentation like tax returns, but documentation requirements vary by lender and scenario. Borrowers should expect some level of financial and property documentation even when personal income is not the main qualifying factor.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What types of properties work for DSCR?",
     "topic": "Investor / DSCR",
     "question": "What property types can work for DSCR financing?",
-    "answer": "Many DSCR programs are used for non-owner-occupied residential investment properties such as single-family rentals, condos, and 2- to 4-unit properties. Eligibility depends on lender guidelines, property condition, occupancy, and marketability."
+    "answer": "Many DSCR programs are used for non-owner-occupied residential investment properties such as single-family rentals, condos, and 2- to 4-unit properties. Eligibility depends on lender guidelines, property condition, occupancy, and marketability.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "Can short-term rentals qualify for DSCR?",
     "topic": "Investor / DSCR",
     "question": "Can a short-term rental qualify for a DSCR loan?",
-    "answer": "Some lenders allow short-term rental income in DSCR scenarios, while others focus on long-term lease income or use different documentation standards. This is highly lender-specific, so borrowers should confirm how rental income will be evaluated."
+    "answer": "Some lenders allow short-term rental income in DSCR scenarios, while others focus on long-term lease income or use different documentation standards. This is highly lender-specific, so borrowers should confirm how rental income will be evaluated.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I use projected rent for DSCR?",
     "topic": "Investor / DSCR",
     "question": "Can I qualify for DSCR using projected rental income?",
-    "answer": "Some DSCR programs consider projected market rent based on an appraisal or rent schedule, while others may prefer existing lease income. The exact method depends on the lender, the property, and whether the loan is for purchase or refinance."
+    "answer": "Some DSCR programs consider projected market rent based on an appraisal or rent schedule, while others may prefer existing lease income. The exact method depends on the lender, the property, and whether the loan is for purchase or refinance.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What does DSCR measure?",
     "topic": "Investor / DSCR",
     "question": "What does the DSCR ratio actually measure?",
-    "answer": "DSCR compares a property's qualifying income to its debt obligation. In general, a ratio above 1.00 suggests the property income is greater than the debt payment, but minimum thresholds and calculation methods vary by lender."
+    "answer": "DSCR compares a property's qualifying income to its debt obligation. In general, a ratio above 1.00 suggests the property income is greater than the debt payment, but minimum thresholds and calculation methods vary by lender.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I get DSCR with a ratio below one?",
     "topic": "Investor / DSCR",
     "question": "Can I still get a DSCR loan if the ratio is below 1.00?",
-    "answer": "Some lenders may allow lower DSCR ratios depending on the overall scenario, while others require the property income to exceed the debt payment by a set margin. This depends heavily on lender guidelines, reserves, credit, and the rest of the file."
+    "answer": "Some lenders may allow lower DSCR ratios depending on the overall scenario, while others require the property income to exceed the debt payment by a set margin. This depends heavily on lender guidelines, reserves, credit, and the rest of the file.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What credit matters for DSCR?",
     "topic": "Investor / DSCR",
     "question": "Does credit score still matter for a DSCR loan?",
-    "answer": "Yes, credit still matters in most DSCR programs even though the primary focus is on property cash flow. Better credit may help with pricing or eligibility, but exact requirements vary by lender."
+    "answer": "Yes, credit still matters in most DSCR programs even though the primary focus is on property cash flow. Better credit may help with pricing or eligibility, but exact requirements vary by lender.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Do DSCR loans require reserves?",
     "topic": "Investor / DSCR",
     "question": "Do DSCR loans usually require cash reserves?",
-    "answer": "Many investor loan programs, including DSCR loans, may require reserves after closing. The amount can vary based on the property, number of financed properties, borrower profile, and lender guidelines."
+    "answer": "Many investor loan programs, including DSCR loans, may require reserves after closing. The amount can vary based on the property, number of financed properties, borrower profile, and lender guidelines.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can an LLC buy with DSCR financing?",
     "topic": "Investor / DSCR",
     "question": "Can I buy an investment property in an LLC with a DSCR loan?",
-    "answer": "Some DSCR lenders allow financing in an LLC or other business entity structure, while others require an individual borrower with or without a vesting change later. Entity rules vary by lender, title requirements, and closing structure."
+    "answer": "Some DSCR lenders allow financing in an LLC or other business entity structure, while others require an individual borrower with or without a vesting change later. Entity rules vary by lender, title requirements, and closing structure.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I refinance into DSCR?",
     "topic": "Investor / DSCR",
     "question": "Can I refinance an existing rental property into a DSCR loan?",
-    "answer": "Yes, many investors use DSCR loans to refinance existing rental properties. The lender may review rental income, value, current occupancy, credit, equity, and reserves to determine eligibility."
+    "answer": "Yes, many investors use DSCR loans to refinance existing rental properties. The lender may review rental income, value, current occupancy, credit, equity, and reserves to determine eligibility.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is a DSCR cash-out refinance?",
     "topic": "Investor / DSCR",
     "question": "What is a DSCR cash-out refinance?",
-    "answer": "A DSCR cash-out refinance replaces the current loan on an investment property with a larger new loan and returns available equity as cash, subject to lender limits, property value, income coverage, and other qualification factors."
+    "answer": "A DSCR cash-out refinance replaces the current loan on an investment property with a larger new loan and returns available equity as cash, subject to lender limits, property value, income coverage, and other qualification factors.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can first-time investors use DSCR?",
     "topic": "Investor / DSCR",
     "question": "Can a first-time real estate investor qualify for a DSCR loan?",
-    "answer": "Some lenders work with first-time investors, while others prefer prior landlord or investor experience. The answer depends on the lender, the property's cash flow, the borrower's credit profile, and the overall strength of the scenario."
+    "answer": "Some lenders work with first-time investors, while others prefer prior landlord or investor experience. The answer depends on the lender, the property's cash flow, the borrower's credit profile, and the overall strength of the scenario.",
+    "recommended_link": "https://veecasa.com/credit-score",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "How much down payment for an investment property?",
     "topic": "Investor / Purchase",
     "question": "How much down payment do I usually need for an investment property loan?",
-    "answer": "Investment property loans often require a larger down payment than primary residence loans. The exact amount depends on the program, property type, occupancy, and borrower profile."
+    "answer": "Investment property loans often require a larger down payment than primary residence loans. The exact amount depends on the program, property type, occupancy, and borrower profile.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is a rent schedule?",
     "topic": "Investor / DSCR",
     "question": "What is a rent schedule in an appraisal?",
-    "answer": "A rent schedule is an appraisal-related document that estimates market rent for a property or its units. Some investor and DSCR lenders may use it to help evaluate income potential, depending on the loan program."
+    "answer": "A rent schedule is an appraisal-related document that estimates market rent for a property or its units. Some investor and DSCR lenders may use it to help evaluate income potential, depending on the loan program.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "Can I finance a 2-4 unit property as an investment?",
     "topic": "Investor / Property Types",
     "question": "Can I finance a 2- to 4-unit property as an investment property?",
-    "answer": "Yes, many lenders finance 2- to 4-unit residential properties as investment properties, subject to loan program guidelines, property condition, rental income analysis, and borrower qualifications."
+    "answer": "Yes, many lenders finance 2- to 4-unit residential properties as investment properties, subject to loan program guidelines, property condition, rental income analysis, and borrower qualifications.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is a portfolio loan for investors?",
     "topic": "Investor / Alternative Financing",
     "question": "What is a portfolio loan for a real estate investor?",
-    "answer": "A portfolio loan is a mortgage that a lender may keep on its own books instead of selling into the secondary market. These loans can sometimes offer more flexible guidelines for investors, but terms and pricing vary by lender."
+    "answer": "A portfolio loan is a mortgage that a lender may keep on its own books instead of selling into the secondary market. These loans can sometimes offer more flexible guidelines for investors, but terms and pricing vary by lender.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is bridge financing for investors?",
     "topic": "Investor / Alternative Financing",
     "question": "What is a bridge loan for investment property?",
-    "answer": "A bridge loan is a short-term financing option often used to purchase or stabilize a property before permanent financing is put in place. Investors may use bridge financing for acquisitions, value-add projects, or timing gaps."
+    "answer": "A bridge loan is a short-term financing option often used to purchase or stabilize a property before permanent financing is put in place. Investors may use bridge financing for acquisitions, value-add projects, or timing gaps.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is hard money for investors?",
     "topic": "Investor / Alternative Financing",
     "question": "How is a hard money loan different from DSCR financing?",
-    "answer": "Hard money loans are typically short-term, asset-based loans often used for speed or distressed properties, while DSCR loans are commonly used for longer-term rental financing based on property cash flow. Terms, pricing, and exit strategies are usually very different."
+    "answer": "Hard money loans are typically short-term, asset-based loans often used for speed or distressed properties, while DSCR loans are commonly used for longer-term rental financing based on property cash flow. Terms, pricing, and exit strategies are usually very different.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I use rental income from another property?",
     "topic": "Investor / Qualification",
     "question": "Can income from one rental property help me qualify for another investment property loan?",
-    "answer": "In some loan programs, existing rental income may be considered as part of the broader borrower profile. In DSCR programs, the main focus is often the subject property's income, though lender requirements vary."
+    "answer": "In some loan programs, existing rental income may be considered as part of the broader borrower profile. In DSCR programs, the main focus is often the subject property's income, though lender requirements vary.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What if the property is vacant?",
     "topic": "Investor / DSCR",
     "question": "Can I get a DSCR loan on a vacant rental property?",
-    "answer": "Some lenders may still consider the property using projected market rent or appraisal-based rent estimates, while others may have stricter requirements for vacancy. The answer depends on the lender and the loan structure."
+    "answer": "Some lenders may still consider the property using projected market rent or appraisal-based rent estimates, while others may have stricter requirements for vacancy. The answer depends on the lender and the loan structure.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I finance multiple properties?",
     "topic": "Investor / Scale",
     "question": "Can I get financing if I already own multiple investment properties?",
-    "answer": "Yes, many lenders finance borrowers who already own multiple investment properties, though reserve requirements, exposure limits, and underwriting standards may become more important as the portfolio grows."
+    "answer": "Yes, many lenders finance borrowers who already own multiple investment properties, though reserve requirements, exposure limits, and underwriting standards may become more important as the portfolio grows.",
+    "recommended_link": "https://veecasa.com/buyer-education-hub"
   },
   {
     "title": "Do investor loans cost more?",
     "topic": "Investor / Pricing",
     "question": "Are investment property mortgage rates usually higher than primary residence rates?",
-    "answer": "Investment property loans often have higher rates or fees than primary residence loans because they are generally viewed as higher risk. Pricing depends on the program, property type, leverage, and borrower profile."
+    "answer": "Investment property loans often have higher rates or fees than primary residence loans because they are generally viewed as higher risk. Pricing depends on the program, property type, leverage, and borrower profile.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "Can I buy and renovate with one loan?",
     "topic": "Investor / Strategy",
     "question": "Can I finance a rental property purchase and renovation together?",
-    "answer": "Some investors use specialized renovation, bridge, or hard money products to fund both the purchase and improvements. Long-term financing options may be available later once the property is stabilized, depending on the strategy and lender."
+    "answer": "Some investors use specialized renovation, bridge, or hard money products to fund both the purchase and improvements. Long-term financing options may be available later once the property is stabilized, depending on the strategy and lender.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What does stabilized property mean?",
     "topic": "Investor / Strategy",
     "question": "What does it mean for an investment property to be stabilized?",
-    "answer": "A stabilized property is generally one that is in rentable condition, producing or ready to produce reliable income, and no longer in a heavy renovation or lease-up phase. This concept matters because some long-term investor loan programs prefer stabilized properties."
+    "answer": "A stabilized property is generally one that is in rentable condition, producing or ready to produce reliable income, and no longer in a heavy renovation or lease-up phase. This concept matters because some long-term investor loan programs prefer stabilized properties.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "Can I do delayed financing?",
     "topic": "Investor / Strategy",
     "question": "Can an investor use delayed financing after buying a property with cash?",
-    "answer": "Some lenders offer delayed financing options that allow a borrower who purchased with cash to refinance shortly after closing, subject to documentation, timing rules, valuation, and program guidelines."
+    "answer": "Some lenders offer delayed financing options that allow a borrower who purchased with cash to refinance shortly after closing, subject to documentation, timing rules, valuation, and program guidelines.",
+    "recommended_link": "https://veecasa.com/when-to-refinance",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Can I use Airbnb income for qualification?",
     "topic": "Investor / Short-Term Rental",
     "question": "Can Airbnb income be used to qualify for an investment property loan?",
-    "answer": "Some lenders consider short-term rental income, including Airbnb-style income, while others use market rent or apply stricter standards. This varies significantly by lender and loan type."
+    "answer": "Some lenders consider short-term rental income, including Airbnb-style income, while others use market rent or apply stricter standards. This varies significantly by lender and loan type.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is the best loan for a rental property?",
     "topic": "Investor / Guidance",
     "question": "What kind of loan is best for a rental property?",
-    "answer": "The best loan depends on your goals, property type, timeline, cash flow, leverage needs, and documentation profile. Options may include conventional investor loans, DSCR loans, jumbo loans, portfolio loans, bridge loans, or hard money depending on the scenario."
+    "answer": "The best loan depends on your goals, property type, timeline, cash flow, leverage needs, and documentation profile. Options may include conventional investor loans, DSCR loans, jumbo loans, portfolio loans, bridge loans, or hard money depending on the scenario.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "Are these investor answers final approvals?",
     "topic": "Compliance / Education",
     "question": "Are these investor loan answers final approval decisions?",
-    "answer": "No. These responses are for general educational purposes only. Final approval, pricing, and program eligibility always depend on lender review, documentation, appraisal or valuation where applicable, and underwriting."
+    "answer": "No. These responses are for general educational purposes only. Final approval, pricing, and program eligibility always depend on lender review, documentation, appraisal or valuation where applicable, and underwriting.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "First step to buying a rental property",
     "topic": "Investor / Strategy",
     "question": "What is the first step to buying a rental property?",
-    "answer": "The first step is to assess your financial situation and investment goals. Researching the market and getting pre-approved for financing can help you understand your budget and options."
+    "answer": "The first step is to assess your financial situation and investment goals. Researching the market and getting pre-approved for financing can help you understand your budget and options.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "How do I finance my first investment property?",
     "topic": "Investor / Financing",
     "question": "How can I finance my first investment property?",
-    "answer": "Financing options include conventional loans, DSCR loans, and portfolio loans. Each has different requirements and benefits. Consulting with a lender can help you choose the best option for your situation."
+    "answer": "Financing options include conventional loans, DSCR loans, and portfolio loans. Each has different requirements and benefits. Consulting with a lender can help you choose the best option for your situation.",
+    "recommended_link": "https://veecasa.com/dscr-loans",
+    "suggested_next_action": "offer_start_rasa_application"
   },
   {
     "title": "What is cash-on-cash return?",
     "topic": "Investor / Metrics",
     "question": "What does cash-on-cash return mean in real estate investing?",
-    "answer": "Cash-on-cash return measures the annual return on an investment compared to the cash invested. It helps investors evaluate the profitability of a property. Calculations vary based on expenses and income."
+    "answer": "Cash-on-cash return measures the annual return on an investment compared to the cash invested. It helps investors evaluate the profitability of a property. Calculations vary based on expenses and income.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "What is cap rate?",
     "topic": "Investor / Metrics",
     "question": "What is cap rate in real estate investing?",
-    "answer": "Cap rate, or capitalization rate, is a metric used to assess the potential return on an investment property. It is calculated by dividing the net operating income by the property's value. Higher cap rates indicate higher potential returns."
+    "answer": "Cap rate, or capitalization rate, is a metric used to assess the potential return on an investment property. It is calculated by dividing the net operating income by the property's value. Higher cap rates indicate higher potential returns.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   },
   {
     "title": "How do I know if a rental property is a good investment?",
     "topic": "Investor / Strategy",
     "question": "How can I determine if a rental property is a good investment?",
-    "answer": "Evaluating a rental property involves analyzing cash flow, cap rate, location, and market trends. Consulting with real estate professionals and conducting thorough research can help you make informed decisions."
+    "answer": "Evaluating a rental property involves analyzing cash flow, cap rate, location, and market trends. Consulting with real estate professionals and conducting thorough research can help you make informed decisions.",
+    "recommended_link": "https://veecasa.com/dscr-loans"
   }
 ]
