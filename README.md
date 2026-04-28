@@ -91,6 +91,11 @@ UI features:
 curl -X POST http://127.0.0.1:8000/ask \
   -H "Content-Type: application/json" \
   -d '{"question":"What is mortgage pre-approval?"}'
+
+# Quick debug-log check example:
+curl -X POST http://127.0.0.1:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question":"What happens at closing?"}'
 ```
 
 Alternative without `curl`:
