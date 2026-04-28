@@ -2,6 +2,8 @@ import logging
 import time
 import json
 import uuid
+from pathlib import Path
+from logging.handlers import RotatingFileHandler
 from urllib import request as urllib_request
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit, urlunsplit
@@ -15,8 +17,25 @@ from app.schemas import AskRequest, AskResponse, ChatRequest, ChatResponse, Resp
 from app.services.router import classify_user_intent
 from app.services import logging_service
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+_log_dir = Path("/app/logs")
+_log_dir.mkdir(parents=True, exist_ok=True)
+_log_file = str(_log_dir / "rag_api_debug.log")
+_file_handler = RotatingFileHandler(
+    _log_file,
+    maxBytes=5 * 1024 * 1024,
+    backupCount=5,
+)
+_file_handler.setLevel(logging.INFO)
+_file_handler.setFormatter(logging.Formatter("%(levelname)s:%(name)s:%(message)s"))
+
+logging.basicConfig(
+    level=logging.INFO,
+    handlers=[
+        _file_handler,
+        logging.StreamHandler(),
+    ],
+)
+logger = logging.getLogger("rag-api")
 
 app = FastAPI(
     title="Mortgage RAG Starter",
@@ -108,11 +127,39 @@ def _match_summary(matches: list[dict], limit: int = 3) -> list[dict]:
     return summary
 
 
+def _preview_chunk(chunk: object) -> dict:
+    if not isinstance(chunk, dict):
+        return {"raw_type": type(chunk).__name__}
+
+    metadata = chunk.get("metadata") if isinstance(chunk.get("metadata"), dict) else {}
+    text = chunk.get("text") or chunk.get("answer") or chunk.get("content") or ""
+
+    return {
+        "score": chunk.get("score") or chunk.get("distance") or chunk.get("similarity"),
+        "source": (
+            chunk.get("source")
+            or chunk.get("title")
+            or chunk.get("slug")
+            or chunk.get("id")
+            or metadata.get("title")
+            or metadata.get("source")
+        ),
+        "preview": str(text)[:180],
+    }
+
+
 def _route_question(payload: AskRequest) -> AskResponse:
     request_id = str(uuid.uuid4())
     normalized_question = _normalize_question(payload.question)
     mortgage_topic_detected = _is_mortgage_query(normalized_question)
     decision = classify_user_intent(payload.question)
+
+    logger.info("RAG request question=%r", payload.question)
+    logger.info(
+        "RAG mortgage_related=%s normalized_question=%r",
+        mortgage_topic_detected,
+        normalized_question,
+    )
 
     logger.info(
         "ask_debug request_id=%s normalized_question=%s mortgage_topic=%s route_type=%s needs_rag=%s",
@@ -139,6 +186,10 @@ def _route_question(payload: AskRequest) -> AskResponse:
                     request_id,
                     _match_summary(fallback_matches),
                     fallback_score,
+                )
+                logger.info(
+                    "RAG retrieval top_matches=%s",
+                    [_preview_chunk(c) for c in fallback_matches[:3]],
                 )
 
                 if fallback_matches and not _is_generic_fallback_text(fallback_answer):
@@ -185,6 +236,11 @@ def _route_question(payload: AskRequest) -> AskResponse:
                         "ask_debug request_id=%s final_decision=rag_response override=true",
                         request_id,
                     )
+                    logger.info(
+                        "RAG decision type=%s display_sources=%s",
+                        response.type,
+                        response.display_sources,
+                    )
                     return response
 
                 # Safety rule: if mortgage topic and any retrieval match, never fallback.
@@ -212,6 +268,11 @@ def _route_question(payload: AskRequest) -> AskResponse:
                         request_id,
                         _match_summary(fallback_matches),
                     )
+                    logger.info(
+                        "RAG decision type=%s display_sources=%s",
+                        response.type,
+                        response.display_sources,
+                    )
                     return response
             except Exception as exc:
                 logger.warning(
@@ -238,6 +299,11 @@ def _route_question(payload: AskRequest) -> AskResponse:
                     route_type="fallback",
                     reason="Fallback override failed; returned static fallback message.",
                 )
+                logger.info(
+                    "RAG decision type=%s display_sources=%s",
+                    response.type,
+                    response.display_sources,
+                )
                 return response
 
         response = AskResponse(
@@ -255,6 +321,11 @@ def _route_question(payload: AskRequest) -> AskResponse:
             reason="Routing decision made before RAG retrieval",
         )
         logger.info("ask_debug request_id=%s final_decision=%s", request_id, decision.response_type)
+        logger.info(
+            "RAG decision type=%s display_sources=%s",
+            response.type,
+            response.display_sources,
+        )
         return response
 
     try:
@@ -327,6 +398,15 @@ def _route_question(payload: AskRequest) -> AskResponse:
         request_id,
         _match_summary(matches),
         decision.response_type,
+    )
+    logger.info(
+        "RAG retrieval top_matches=%s",
+        [_preview_chunk(c) for c in matches[:3]],
+    )
+    logger.info(
+        "RAG decision type=%s display_sources=%s",
+        response.type,
+        response.display_sources,
     )
 
     return response
