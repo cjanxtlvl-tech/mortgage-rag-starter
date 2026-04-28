@@ -43,3 +43,4 @@ tests/
 docs/
 !docs/
 !docs/rag-api-production.md
+*.bak

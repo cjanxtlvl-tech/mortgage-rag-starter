@@ -10,3 +10,4 @@ openai
 python-dotenv
 pydantic
 pydantic-settings
+faiss-cpu==1.13.2
