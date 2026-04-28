@@ -201,10 +201,10 @@ class RAGPipeline:
             embedder=self.embedder,
             chunks=self.chunks,
             question=question,
-            top_k=max(2, top_k),
+            top_k=max(8, top_k),
         )
 
-        context = _build_context(matches, max_chunks=2)
+        context = _build_context(matches, max_chunks=3)
         answer = generate_grounded_answer(question, context)
 
         cta = "If you'd like, we can start a short application flow to match you with the right mortgage path."

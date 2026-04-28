@@ -29,6 +29,7 @@ pipeline = RAGPipeline(settings)
 ui_path = settings.project_root / "ui" / "index.html"
 
 FALLBACK_OVERRIDE_MIN_SCORE = 0.35
+LOW_CONFIDENCE_SCORE = 0.22
 FALLBACK_MARKERS = (
     "[fallback]",
     "i can currently help with mortgage and home-loan questions",
@@ -74,9 +75,53 @@ def _top_match_score(matches: list[dict]) -> float:
         return 0.0
 
 
+def _normalize_question(text: str) -> str:
+    return " ".join((text or "").lower().split()).strip()
+
+
+def _is_mortgage_query(text: str) -> bool:
+    mortgage_terms = [
+        "mortgage", "loan", "closing", "closing costs", "closing day", "settlement",
+        "escrow", "title", "appraisal", "underwriting", "fha", "conventional", "va", "usda",
+        "dti", "debt-to-income", "ltv", "credit score", "refinance", "rate", "interest rate",
+        "mortgage rate", "preapproval", "pre-approval", "prequalification", "down payment",
+        "pmi", "mip", "dscr", "investor loan", "rental income", "hard money", "bridge loan",
+        "cash-out", "loan estimate", "clear to close",
+    ]
+    lowered = (text or "").lower()
+    return any(term in lowered for term in mortgage_terms)
+
+
+def _match_summary(matches: list[dict], limit: int = 3) -> list[dict]:
+    summary: list[dict] = []
+    for rank, match in enumerate(matches[:limit], start=1):
+        metadata = match.get("metadata") or {}
+        summary.append(
+            {
+                "rank": rank,
+                "score": round(float(match.get("score") or 0.0), 4),
+                "source": str(match.get("source") or "")[:120],
+                "title": str(metadata.get("title") or "")[:120],
+                "question": str(metadata.get("question") or "")[:160],
+            }
+        )
+    return summary
+
+
 def _route_question(payload: AskRequest) -> AskResponse:
     request_id = str(uuid.uuid4())
+    normalized_question = _normalize_question(payload.question)
+    mortgage_topic_detected = _is_mortgage_query(normalized_question)
     decision = classify_user_intent(payload.question)
+
+    logger.info(
+        "ask_debug request_id=%s normalized_question=%s mortgage_topic=%s route_type=%s needs_rag=%s",
+        request_id,
+        normalized_question,
+        mortgage_topic_detected,
+        decision.response_type,
+        decision.needs_rag,
+    )
 
     if not decision.needs_rag:
         # If router picked fallback, attempt a retrieval-based override.
@@ -88,17 +133,27 @@ def _route_question(payload: AskRequest) -> AskResponse:
                 fallback_answer = fallback_result.get("answer", "")
                 fallback_matches = fallback_result.get("matches", [])
                 fallback_score = _top_match_score(fallback_matches)
-                if (
-                    fallback_matches
-                    and fallback_score >= FALLBACK_OVERRIDE_MIN_SCORE
-                    and not _is_generic_fallback_text(fallback_answer)
-                ):
+
+                logger.info(
+                    "ask_debug request_id=%s fallback_override_check top_matches=%s top_score=%.4f",
+                    request_id,
+                    _match_summary(fallback_matches),
+                    fallback_score,
+                )
+
+                if fallback_matches and not _is_generic_fallback_text(fallback_answer):
                     raw_sources = fallback_result.get("sources", [])
                     display_sources = fallback_result.get("display_sources", [])
                     recommended_link = fallback_result.get("recommended_link")
+                    answer_text = fallback_answer
+                    if fallback_score < LOW_CONFIDENCE_SCORE:
+                        answer_text = (
+                            f"{fallback_answer}\n\n"
+                            "This appears to be the closest match from our mortgage guide."
+                        )
                     response = AskResponse(
                         type="rag_response",
-                        answer=fallback_answer,
+                        answer=answer_text,
                         recommended_link=recommended_link,
                         suggested_next_action=None,
                         display_sources=display_sources,
@@ -108,7 +163,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
                         request_id=request_id,
                         question=payload.question,
                         response_type="rag_response",
-                        answer=fallback_answer,
+                        answer=answer_text,
                         suggested_next_action=None,
                         retrieval_info={
                             **logging_service.log_retrieval_debug(
@@ -125,6 +180,37 @@ def _route_question(payload: AskRequest) -> AskResponse:
                             "fallback_override_score": fallback_score,
                             "fallback_override_threshold": FALLBACK_OVERRIDE_MIN_SCORE,
                         },
+                    )
+                    logger.info(
+                        "ask_debug request_id=%s final_decision=rag_response override=true",
+                        request_id,
+                    )
+                    return response
+
+                # Safety rule: if mortgage topic and any retrieval match, never fallback.
+                if fallback_matches and mortgage_topic_detected:
+                    best_match = fallback_matches[0]
+                    best_text = str(best_match.get("text") or "").strip()
+                    metadata = best_match.get("metadata") or {}
+                    best_title = str(metadata.get("title") or "").strip()
+                    answer_text = best_text or fallback_answer
+                    if fallback_score < LOW_CONFIDENCE_SCORE:
+                        answer_text = (
+                            f"{answer_text}\n\n"
+                            "This appears to be the closest match from our mortgage guide."
+                        )
+                    response = AskResponse(
+                        type="rag_response",
+                        answer=answer_text,
+                        recommended_link=fallback_result.get("recommended_link"),
+                        suggested_next_action=None,
+                        display_sources=fallback_result.get("display_sources", []) or ([best_title] if best_title else []),
+                        meta=ResponseMeta(request_id=request_id),
+                    )
+                    logger.info(
+                        "ask_debug request_id=%s final_decision=rag_response forced_non_fallback top_matches=%s",
+                        request_id,
+                        _match_summary(fallback_matches),
                     )
                     return response
             except Exception as exc:
@@ -168,6 +254,7 @@ def _route_question(payload: AskRequest) -> AskResponse:
             route_type=decision.response_type,
             reason="Routing decision made before RAG retrieval",
         )
+        logger.info("ask_debug request_id=%s final_decision=%s", request_id, decision.response_type)
         return response
 
     try:
@@ -233,6 +320,13 @@ def _route_question(payload: AskRequest) -> AskResponse:
             "sources_filtered": display_sources,
             "recommended_link": recommended_link,
         },
+    )
+
+    logger.info(
+        "ask_debug request_id=%s rag_matches=%s final_decision=%s",
+        request_id,
+        _match_summary(matches),
+        decision.response_type,
     )
 
     return response
