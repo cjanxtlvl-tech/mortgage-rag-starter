@@ -2,11 +2,13 @@ import logging
 import time
 import json
 import uuid
+import os
 from urllib import request as urllib_request
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit, urlunsplit
 
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, RedirectResponse
 
 from app.config import get_settings
@@ -14,6 +16,7 @@ from app.rag.pipeline import RAGPipeline
 from app.schemas import AskRequest, AskResponse, ChatRequest, ChatResponse, ResponseMeta
 from app.services.router import classify_user_intent
 from app.services import logging_service
+from app.tts.polly import PollyTTS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -28,12 +31,56 @@ settings = get_settings()
 pipeline = RAGPipeline(settings)
 ui_path = settings.project_root / "ui" / "index.html"
 
+AUDIO_CACHE_DIR = os.getenv("AUDIO_CACHE_DIR", "/app/audio_cache")
+PUBLIC_AUDIO_BASE_URL = os.getenv("PUBLIC_AUDIO_BASE_URL", "/audio")
+os.makedirs(AUDIO_CACHE_DIR, exist_ok=True)
+
+polly_tts = PollyTTS(
+    cache_dir=AUDIO_CACHE_DIR,
+    public_audio_base_url=PUBLIC_AUDIO_BASE_URL,
+    voice_id=os.getenv("POLLY_VOICE_ID", "Joanna"),
+    engine=os.getenv("POLLY_ENGINE", "neural"),
+    region_name=os.getenv("AWS_REGION", "us-east-1"),
+)
+
 FALLBACK_OVERRIDE_MIN_SCORE = 0.35
 LOW_CONFIDENCE_SCORE = 0.22
 FALLBACK_MARKERS = (
     "[fallback]",
     "i can currently help with mortgage and home-loan questions",
 )
+
+app.mount(PUBLIC_AUDIO_BASE_URL, StaticFiles(directory=AUDIO_CACHE_DIR), name="audio")
+
+
+def _build_audio_payload(answer_text: str) -> dict:
+    if not answer_text or not answer_text.strip():
+        return {
+            "enabled": False,
+            "cached": False,
+            "audio_url": None,
+            "voice": polly_tts.voice_id,
+            "engine": polly_tts.engine,
+        }
+
+    try:
+        tts_result = polly_tts.synthesize(answer_text)
+        return {
+            "enabled": bool(tts_result.get("enabled", False)),
+            "cached": bool(tts_result.get("cached", False)),
+            "audio_url": tts_result.get("audio_url"),
+            "voice": tts_result.get("voice", polly_tts.voice_id),
+            "engine": tts_result.get("engine", polly_tts.engine),
+        }
+    except Exception as exc:
+        logger.warning("Polly TTS failed: %s", exc)
+        return {
+            "enabled": False,
+            "cached": False,
+            "audio_url": None,
+            "voice": polly_tts.voice_id,
+            "engine": polly_tts.engine,
+        }
 
 
 @app.on_event("startup")
@@ -388,9 +435,15 @@ def _is_rasa_available(timeout_seconds: int = 2) -> bool:
         return False
 
 
-@app.post("/ask", response_model=AskResponse)
-def ask_question(payload: AskRequest) -> AskResponse:
-    return _route_question(payload)
+@app.post("/ask", response_model=dict)
+def ask_question(payload: AskRequest) -> dict:
+    routed = _route_question(payload)
+    response_dict = routed.dict()
+
+    audio_text = response_dict.get("answer", "")
+    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text)
+
+    return response_dict
 
 
 @app.get("/health/rasa")
@@ -401,8 +454,8 @@ def health_rasa() -> dict:
     }
 
 
-@app.post("/chat", response_model=ChatResponse)
-def chat(payload: ChatRequest) -> ChatResponse:
+@app.post("/chat", response_model=dict)
+def chat(payload: ChatRequest) -> dict:
     routed = _route_question(AskRequest(question=payload.question, top_k=payload.top_k))
 
     rasa_target_types = {
@@ -413,8 +466,13 @@ def chat(payload: ChatRequest) -> ChatResponse:
     should_route_to_rasa = routed.type in rasa_target_types
     rasa_messages = _call_rasa(payload.sender_id, payload.question) if should_route_to_rasa else []
 
-    return ChatResponse(
+    response_dict = {
         **routed.dict(),
-        routed_to_rasa=bool(rasa_messages),
-        rasa_messages=rasa_messages,
-    )
+        "routed_to_rasa": bool(rasa_messages),
+        "rasa_messages": rasa_messages,
+    }
+
+    audio_text = " ".join(rasa_messages).strip() if rasa_messages else routed.answer
+    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text)
+
+    return response_dict
