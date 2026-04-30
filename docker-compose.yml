@@ -9,6 +9,7 @@ services:
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
+      - ./audio_cache:/app/audio_cache
     env_file:
       - .env
     environment:
