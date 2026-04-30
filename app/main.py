@@ -53,7 +53,7 @@ FALLBACK_MARKERS = (
 app.mount(PUBLIC_AUDIO_BASE_URL, StaticFiles(directory=AUDIO_CACHE_DIR), name="audio")
 
 
-def _build_audio_payload(answer_text: str) -> dict:
+def _build_audio_payload(answer_text: str, original_question: str = None) -> dict:
     if not answer_text or not answer_text.strip():
         return {
             "enabled": False,
@@ -64,7 +64,7 @@ def _build_audio_payload(answer_text: str) -> dict:
         }
 
     try:
-        tts_result = polly_tts.synthesize(answer_text)
+        tts_result = polly_tts.synthesize(answer_text, original_question=original_question)
         return {
             "enabled": bool(tts_result.get("enabled", False)),
             "cached": bool(tts_result.get("cached", False)),
@@ -441,7 +441,7 @@ def ask_question(payload: AskRequest) -> dict:
     response_dict = routed.dict()
 
     audio_text = response_dict.get("answer", "")
-    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text)
+    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text, original_question=payload.question)
 
     return response_dict
 
@@ -473,6 +473,6 @@ def chat(payload: ChatRequest) -> dict:
     }
 
     audio_text = " ".join(rasa_messages).strip() if rasa_messages else routed.answer
-    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text)
+    response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text, original_question=payload.question)
 
     return response_dict

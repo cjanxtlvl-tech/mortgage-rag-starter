@@ -43,40 +43,29 @@ class PollyTTS:
 
         text = html.unescape(text)
         text = text.lower().strip()
-
-        # Remove markdown links but keep readable label
         text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
-
-        # Remove common markdown formatting tokens
-        text = re.sub(r"[*_`>#~-]+", " ", text)
-
-        # Remove URLs
         text = re.sub(r"https?://\S+|www\.\S+", "", text)
+        text = re.sub(r"[^\w\s]", "", text)
+        text = re.sub(r"\b(\w+)(\s+\1\b)+", r"\1", text)
+        text = re.sub(r"\bclosing\s+costs\s+are\b", "closing costs", text)
+        text = re.sub(r"\bfees\s+you\s+pay\b", "fees", text)
+        text = re.sub(r"\s+", " ", text).strip()
+        return text[:250]
 
-        # Normalize whitespace
-        text = re.sub(r"\s+", " ", text)
-
-        # Normalize common punctuation spacing
-        text = re.sub(r"\s+([,.!?;:])", r"\1", text)
-
-        # Remove excessive repeated punctuation
-        text = re.sub(r"([.!?]){2,}", r"\1", text)
-
-        return text.strip()
-
-    def hash_text(self, text: str) -> str:
-        normalized = self.normalize_text(text)
+    def hash_text(self, text: str, original_question: Optional[str] = None) -> str:
+        primary_input = original_question if original_question and original_question.strip() else text
+        normalized = self.normalize_text(primary_input)
         hash_input = f"{self.engine}|{self.voice_id}|{self.output_format}|{normalized}"
         return hashlib.sha256(hash_input.encode("utf-8")).hexdigest()
 
-    def get_cache_path(self, text: str) -> Path:
-        file_hash = self.hash_text(text)
+    def get_cache_path(self, text: str, original_question: Optional[str] = None) -> Path:
+        file_hash = self.hash_text(text, original_question=original_question)
         return self.cache_dir / f"{file_hash}.{self.output_format}"
 
     def get_audio_url(self, file_path: Path) -> str:
         return f"{self.public_audio_base_url}/{file_path.name}"
 
-    def synthesize(self, text: str) -> Dict[str, Any]:
+    def synthesize(self, text: str, original_question: Optional[str] = None) -> Dict[str, Any]:
         """
         Returns cached audio if available.
         Otherwise calls Amazon Polly, stores MP3 locally, and returns metadata.
@@ -89,7 +78,7 @@ class PollyTTS:
                 "error": "Empty text",
             }
 
-        audio_path = self.get_cache_path(text)
+        audio_path = self.get_cache_path(text, original_question=original_question)
 
         if audio_path.exists() and audio_path.stat().st_size > 0:
             return {
