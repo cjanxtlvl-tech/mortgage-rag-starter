@@ -46,6 +46,12 @@ class ChatRequest(BaseModel):
     sender_id: str = Field(default="ui-user", min_length=1, description="Rasa sender ID")
 
 
+class TTSRequest(BaseModel):
+    text: str
+    voice: str = "Joanna"
+    engine: str = "neural"
+
+
 class ChatResponse(AskResponse):
     """
     Chat endpoint response, extends AskResponse with Rasa bridge info.

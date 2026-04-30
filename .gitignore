@@ -44,3 +44,4 @@ docs/
 !docs/
 !docs/rag-api-production.md
 *.bak
+audio_cache/

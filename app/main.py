@@ -13,7 +13,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 
 from app.config import get_settings
 from app.rag.pipeline import RAGPipeline
-from app.schemas import AskRequest, AskResponse, ChatRequest, ChatResponse, ResponseMeta
+from app.schemas import AskRequest, AskResponse, ChatRequest, ChatResponse, ResponseMeta, TTSRequest
 from app.services.router import classify_user_intent
 from app.services import logging_service
 from app.tts.polly import PollyTTS
@@ -476,3 +476,37 @@ def chat(payload: ChatRequest) -> dict:
     response_dict["audio"] = {"enabled": False} if len(audio_text.strip()) < 20 else _build_audio_payload(audio_text, original_question=payload.question)
 
     return response_dict
+
+
+@app.post("/tts", response_model=dict)
+def tts(payload: TTSRequest) -> dict:
+    if not payload.text.strip():
+        return {
+            "audio": {
+                "enabled": False,
+                "cached": False,
+                "audio_url": None,
+                "voice": payload.voice,
+                "engine": payload.engine,
+            }
+        }
+
+    tts_engine = PollyTTS(
+        cache_dir=AUDIO_CACHE_DIR,
+        public_audio_base_url=PUBLIC_AUDIO_BASE_URL,
+        voice_id=payload.voice,
+        engine=payload.engine,
+        region_name=os.getenv("AWS_REGION", "us-east-1"),
+    )
+
+    result = tts_engine.synthesize(payload.text)
+
+    return {
+        "audio": {
+            "enabled": bool(result.get("enabled", False)),
+            "cached": bool(result.get("cached", False)),
+            "audio_url": result.get("audio_url"),
+            "voice": payload.voice,
+            "engine": payload.engine,
+        }
+    }
