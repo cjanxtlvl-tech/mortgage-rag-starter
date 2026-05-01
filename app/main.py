@@ -491,15 +491,7 @@ def tts(payload: TTSRequest) -> dict:
             }
         }
 
-    tts_engine = PollyTTS(
-        cache_dir=AUDIO_CACHE_DIR,
-        public_audio_base_url=PUBLIC_AUDIO_BASE_URL,
-        voice_id=payload.voice,
-        engine=payload.engine,
-        region_name=os.getenv("AWS_REGION", "us-east-1"),
-    )
-
-    result = tts_engine.synthesize(payload.text)
+    result = polly_tts.synthesize(payload.text)
 
     return {
         "audio": {

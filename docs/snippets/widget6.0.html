@@ -358,7 +358,6 @@
         </button>
       </div>
       <div id="vc-branding">Powered by <a href="#" target="_blank">Veecasa AI</a> · Always available</div>
-      <audio id="vc-greeting-audio" src="/audio_cache/joanna_greeting.mp3" preload="auto"></audio>
     </div>
   `;
   shadow.appendChild(wrapper);
@@ -368,9 +367,9 @@
   var launcher=$('vc-launcher'), chatWin=$('vc-window'), backdrop=$('vc-backdrop'),
       closeBtn=$('vc-close-btn'), messages=$('vc-messages'), input=$('vc-input'),
       micBtn=$('vc-mic-btn'), voiceBtn=$('vc-voice-btn'), sendBtn=$('vc-send-btn'),
-      badge=$('vc-badge'), greetingAudio=$('vc-greeting-audio');
+      badge=$('vc-badge');
 
-    var VC_EXACT_GREETING_MESSAGE = "Hi there! 😊 I'm your Mortgage Assistant — here to guide you through your home financing journey. What brings you here today?";
+  var VC_EXACT_GREETING_MESSAGE = "Hi there! 👋 Welcome to our Mortgage Center! I'm your 24/7 Mortgage Assistant — I can help you explore loan options, answer questions, start a pre-qualification, or connect you with a specialist. What would you like to do today?";
 
   function makeBotAvatar(){
     var av = document.createElement('div'); av.className = 'vc-bot-avatar';
@@ -605,12 +604,27 @@
   }
   function vcBotMessage(text, buttons, recommendedLink){
     if(text){
-      if (text === VC_EXACT_GREETING_MESSAGE && voiceOutputOn && greetingAudio) {
-        // Keep this greeting MP3 independent of other TTS/Polly flows.
+      if (text === VC_EXACT_GREETING_MESSAGE && voiceOutputOn) {
+        // Dynamically generate/retrieve greeting audio via the /tts endpoint.
         vcResetAudioPreviewState(true);
-        greetingAudio.currentTime = 0;
-        greetingAudio.play().catch(function(err){
-          console.warn('[VC AUDIO] greeting autoplay blocked:', err);
+        fetch(RAG_AUDIO_BASE_URL.replace(/\/$/, '') + '/tts', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({text: VC_EXACT_GREETING_MESSAGE, voice: 'Joanna', engine: 'neural'})
+        })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          var audioUrl = data && data.audio && data.audio.audio_url;
+          if (audioUrl) {
+            console.log('[VC TTS] greeting audio_url:', audioUrl);
+            vcSpeakPolly(audioUrl, VC_EXACT_GREETING_MESSAGE);
+          } else {
+            vcSpeak(VC_EXACT_GREETING_MESSAGE);
+          }
+        })
+        .catch(function(err){
+          console.warn('[VC TTS] greeting fetch failed:', err);
+          vcSpeak(VC_EXACT_GREETING_MESSAGE);
         });
       }
 
