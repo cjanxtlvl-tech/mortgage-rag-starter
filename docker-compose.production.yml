@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   rag-api:
     build:
@@ -18,11 +16,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/app/data:ro
+      - ./data:/app/data
       - rag-logs:/app/logs
-    depends_on:
-      rasa:
-        condition: service_healthy
     networks:
       - mortgage_network
     deploy:
@@ -49,6 +44,8 @@ services:
   rasa-actions:
     image: rasa/rasa-sdk:3.6.2
     container_name: mortgage-rasa-actions-prod
+    profiles:
+      - fullstack
     restart: always
     working_dir: /app
     command: >-
@@ -84,6 +81,8 @@ services:
   rasa:
     image: rasa/rasa:3.6.20-full
     container_name: mortgage-rasa-server-prod
+    profiles:
+      - fullstack
     restart: always
     working_dir: /app
     command: >-
@@ -159,10 +158,8 @@ services:
 
 networks:
   mortgage_network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.25.0.0/16
+    external: true
+    name: mortgage-network
 
 volumes:
   rag-logs:
