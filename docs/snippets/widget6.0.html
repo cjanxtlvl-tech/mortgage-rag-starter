@@ -358,6 +358,7 @@
         </button>
       </div>
       <div id="vc-branding">Powered by <a href="#" target="_blank">Veecasa AI</a> · Always available</div>
+      <audio id="vc-greeting-audio" src="/audio_cache/joanna_greeting.mp3" preload="auto"></audio>
     </div>
   `;
   shadow.appendChild(wrapper);
@@ -366,7 +367,10 @@
   var $ = function(id){ return shadow.getElementById(id); };
   var launcher=$('vc-launcher'), chatWin=$('vc-window'), backdrop=$('vc-backdrop'),
       closeBtn=$('vc-close-btn'), messages=$('vc-messages'), input=$('vc-input'),
-      micBtn=$('vc-mic-btn'), voiceBtn=$('vc-voice-btn'), sendBtn=$('vc-send-btn'), badge=$('vc-badge');
+      micBtn=$('vc-mic-btn'), voiceBtn=$('vc-voice-btn'), sendBtn=$('vc-send-btn'),
+      badge=$('vc-badge'), greetingAudio=$('vc-greeting-audio');
+
+    var VC_EXACT_GREETING_MESSAGE = "Hi there! 😊 I'm your Mortgage Assistant — here to guide you through your home financing journey. What brings you here today?";
 
   function makeBotAvatar(){
     var av = document.createElement('div'); av.className = 'vc-bot-avatar';
@@ -409,7 +413,12 @@
     chatWin.style.cssText='';
     backdrop.classList.add('vc-open'); chatWin.classList.add('vc-open');
     setTimeout(function(){ backdrop.classList.add('vc-visible'); chatWin.classList.add('vc-visible'); },10);
-    if(!greeted){ greeted=true; vcGreet(); }
+    if(!greeted){
+      greeted = true;
+      setTimeout(function(){
+        vcGreet();
+      }, 1200);
+    }
     setTimeout(function(){ input.focus(); },350);
   }
 
@@ -473,19 +482,44 @@
     .then(function(res){
       vcHideTyping();
       if(!res||!res.length){ vcBotMessage("Hi! 😊 I'm your Mortgage Assistant. How can I help?",[]);return; }
-      res.forEach(function(resp,idx){ setTimeout(function(){
-        var audioUrl = vcGetAudioUrl(resp);
-        vcBotMessage(
-          resp.text || '',
-          idx === res.length - 1 ? (resp.buttons || []) : [],
-          resp.recommended_link || (resp.custom && resp.custom.recommended_link) || null
-        );
-        if(idx===res.length-1&&resp.text) vcSpeakPolly(audioUrl, resp.text);
-      },idx*600); });
+      console.log("[VC CHAT RAW RESPONSE]", res);
+      var fallbackSpeechText = '';
+      var audioUrlFound = null;
+      var renderDelayIndex = 0;
+      res.forEach(function(item){
+        if (!item) return;
+
+        if (!audioUrlFound) {
+          var found = vcGetAudioUrl(item);
+          if (found) audioUrlFound = found;
+        }
+
+        if (item.text) {
+          if (!fallbackSpeechText) fallbackSpeechText = item.text;
+          console.log("[VC CHAT RENDER TEXT]", item.text);
+          console.log("[VC CHAT RENDER BUTTONS]", item.buttons);
+          (function(msgItem, delayIndex){
+            setTimeout(function(){
+              vcBotMessage(
+                msgItem.text,
+                msgItem.buttons || [],
+                msgItem.recommended_link || (msgItem.custom && msgItem.custom.recommended_link) || null
+              );
+            }, delayIndex * 600);
+          })(item, renderDelayIndex);
+          renderDelayIndex++;
+        }
+      });
+      console.log('[VC AUDIO] found audioUrl:', audioUrlFound);
+      if (audioUrlFound) {
+        setTimeout(function(){
+          vcSpeakPolly(audioUrlFound, fallbackSpeechText);
+        }, renderDelayIndex * 600 + 50);
+      }
     })
     .catch(function(){
       vcHideTyping();
-      vcBotMessage("Hi there! 😊 I'm your Mortgage Assistant — here to guide you through your home financing journey. What brings you here today?",[
+      vcBotMessage(VC_EXACT_GREETING_MESSAGE,[
         {title:'🏠 Buy a Home',payload:'/select_buy_home'},
         {title:'💰 Refinance My Mortgage',payload:'/select_refinance'},
         {title:'📈 Investment / Rental',payload:'/select_investment'},
@@ -501,32 +535,64 @@
   function vcSend(textOverride,payloadOverride){
     var text=textOverride!==undefined?textOverride:input.value.trim();
     var payload=payloadOverride||text;
+    var isAskQuestionIntro = payload === '/enter_rag_mode';
     if(!text) return;
     input.value=''; messageCount++;
     vcUserMessage(text); vcShowTyping();
-    fetch(RASA_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({sender:sessionId,message:payload,metadata:getMetadata()})})
-    .then(function(r){ return r.json(); })
-    .then(function(res){
-      vcHideTyping();
-      if(!res||!res.length){
-        vcBotMessage("I didn't quite understand that. Please rephrase or choose an option:",[
-          {title:'🏠 Buy a Home',payload:'/select_buy_home'},
-          {title:'💰 Refinance',payload:'/select_refinance'},
-          {title:'📞 Talk to a Loan Officer',payload:'/speak_to_loan_officer'}
-        ]); return;
-      }
-      res.forEach(function(resp,idx){ setTimeout(function(){
-        var audioUrl = vcGetAudioUrl(resp);
-        vcBotMessage(
-          resp.text || '',
-          idx === res.length - 1 ? (resp.buttons || []) : [],
-          resp.recommended_link || (resp.custom && resp.custom.recommended_link) || null
-        );
-        if(idx===res.length-1&&resp.text) vcSpeakPolly(audioUrl, resp.text);
-      },idx*600); });
-    })
-    .catch(function(){ vcHideTyping(); vcBotMessage('Connection issue. Please try again.',[]); });
+    if (isAskQuestionIntro) {
+      vcSpeakPolly('/audio/joanna_welcome.mp3', null);
+    }
+    var sendDelay = isAskQuestionIntro ? 900 : 0;
+    setTimeout(function() {
+      fetch(RASA_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({sender:sessionId,message:payload,metadata:getMetadata()})})
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        vcHideTyping();
+        if(!res||!res.length){
+          vcBotMessage("I didn't quite understand that. Please rephrase or choose an option:",[
+            {title:'🏠 Buy a Home',payload:'/select_buy_home'},
+            {title:'💰 Refinance',payload:'/select_refinance'},
+            {title:'📞 Talk to a Loan Officer',payload:'/speak_to_loan_officer'}
+          ]); return;
+        }
+        console.log("[VC CHAT RAW RESPONSE]", res);
+        var fallbackSpeechText = '';
+        var audioUrlFound = null;
+        var renderDelayIndex = 0;
+        res.forEach(function(item){
+          if (!item) return;
+
+          if (!audioUrlFound) {
+            var found = vcGetAudioUrl(item);
+            if (found) audioUrlFound = found;
+          }
+
+          if (item.text) {
+            if (!fallbackSpeechText) fallbackSpeechText = item.text;
+            console.log("[VC CHAT RENDER TEXT]", item.text);
+            console.log("[VC CHAT RENDER BUTTONS]", item.buttons);
+            (function(msgItem, delayIndex){
+              setTimeout(function(){
+                vcBotMessage(
+                  msgItem.text,
+                  msgItem.buttons || [],
+                  msgItem.recommended_link || (msgItem.custom && msgItem.custom.recommended_link) || null
+                );
+              }, delayIndex * 600);
+            })(item, renderDelayIndex);
+            renderDelayIndex++;
+          }
+        });
+        console.log('[VC AUDIO] found audioUrl:', audioUrlFound);
+        if (audioUrlFound) {
+          setTimeout(function(){
+            vcSpeakPolly(audioUrlFound, fallbackSpeechText);
+          }, renderDelayIndex * 600 + 50);
+        }
+      })
+      .catch(function(){ vcHideTyping(); vcBotMessage('Connection issue. Please try again.',[]); });
+    }, sendDelay);
   }
   sendBtn.addEventListener('click',function(){ vcSend(); });
   input.addEventListener('keydown',function(e){ if(e.key==='Enter') vcSend(); });
@@ -539,6 +605,15 @@
   }
   function vcBotMessage(text, buttons, recommendedLink){
     if(text){
+      if (text === VC_EXACT_GREETING_MESSAGE && voiceOutputOn && greetingAudio) {
+        // Keep this greeting MP3 independent of other TTS/Polly flows.
+        vcResetAudioPreviewState(true);
+        greetingAudio.currentTime = 0;
+        greetingAudio.play().catch(function(err){
+          console.warn('[VC AUDIO] greeting autoplay blocked:', err);
+        });
+      }
+
       var row=document.createElement('div'); row.className='vc-msg-row';
       var bub=document.createElement('div'); bub.className='vc-bubble vc-bot-bubble';
 
@@ -724,6 +799,7 @@
   var vcPreviewLimitSeconds = 10;
   var vcContinueBtn = null;
   var vcPreviewTimer = null;
+  var vcPlayAudioBtn = null;
 
   function vcRemoveContinueButton() {
     if (vcContinueBtn) {
@@ -732,8 +808,16 @@
     }
   }
 
+  function vcRemovePlayAudioButton() {
+    if (vcPlayAudioBtn) {
+      vcPlayAudioBtn.remove();
+      vcPlayAudioBtn = null;
+    }
+  }
+
   function vcResetAudioPreviewState(resetCurrentTime) {
     vcRemoveContinueButton();
+    vcRemovePlayAudioButton();
     if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
     vcPreviewTimer = null;
     if (vcCurrentAudio) {
@@ -744,6 +828,42 @@
       vcCurrentAudio = null;
     }
     if (window.speechSynthesis) window.speechSynthesis.cancel();
+  }
+
+  function vcStartPreviewTimer() {
+    if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
+    vcPreviewTimer = setTimeout(function() {
+      if (vcCurrentAudio && !vcCurrentAudio.paused && !vcCurrentAudio.ended) {
+        vcCurrentAudio.pause();
+        vcShowContinueButton();
+      }
+    }, vcPreviewLimitSeconds * 1000);
+  }
+
+  function vcShowPlayAudioButton() {
+    vcRemovePlayAudioButton();
+
+    var wrap = document.createElement('div');
+    wrap.className = 'vc-btns-wrap';
+
+    var btn = document.createElement('button');
+    btn.className = 'vc-qr-btn';
+    btn.textContent = '▶ Play audio';
+
+    btn.addEventListener('click', function() {
+      if (!vcCurrentAudio || !voiceOutputOn) return;
+      vcCurrentAudio.play().then(function() {
+        vcRemovePlayAudioButton();
+        vcStartPreviewTimer();
+      }).catch(function(err) {
+        console.warn('[VC AUDIO] autoplay blocked:', err);
+      });
+    });
+
+    wrap.appendChild(btn);
+    messages.appendChild(wrap);
+    vcPlayAudioBtn = wrap;
+    messages.scrollTop = messages.scrollHeight;
   }
 
   function vcShowContinueButton() {
@@ -771,9 +891,38 @@
   }
 
   function vcGetAudioUrl(resp) {
-    return (resp && resp.audio && resp.audio.audio_url) ||
-           (resp && resp.custom && resp.custom.audio && resp.custom.audio.audio_url) ||
-           null;
+    if (!resp) return null;
+
+    // Preferred known shapes first
+    if (resp.custom && resp.custom.audio && typeof resp.custom.audio.audio_url === 'string') {
+      return resp.custom.audio.audio_url;
+    }
+    if (resp.audio && typeof resp.audio.audio_url === 'string') {
+      return resp.audio.audio_url;
+    }
+
+    // Fallback: recursively search for first nested audio_url
+    function findNestedAudioUrl(node) {
+      if (!node) return null;
+      if (typeof node === 'object') {
+        if (typeof node.audio_url === 'string') return node.audio_url;
+        if (Array.isArray(node)) {
+          for (var i = 0; i < node.length; i++) {
+            var arrFound = findNestedAudioUrl(node[i]);
+            if (arrFound) return arrFound;
+          }
+          return null;
+        }
+        var keys = Object.keys(node);
+        for (var k = 0; k < keys.length; k++) {
+          var found = findNestedAudioUrl(node[keys[k]]);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+
+    return findNestedAudioUrl(resp);
   }
 
   function vcSpeakPolly(audioUrl, fallbackText) {
@@ -785,16 +934,20 @@
       audioUrl = RAG_AUDIO_BASE_URL.replace(/\/$/, '') + audioUrl;
     }
 
+    console.log('[VC AUDIO] playing:', audioUrl);
+
     if (audioUrl) {
       vcCurrentAudio = new Audio(audioUrl);
       vcCurrentAudio.onended = function() {
         vcRemoveContinueButton();
+        vcRemovePlayAudioButton();
         if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
         vcPreviewTimer = null;
         vcCurrentAudio = null;
       };
       vcCurrentAudio.onerror = function() {
         vcRemoveContinueButton();
+        vcRemovePlayAudioButton();
         if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
         vcPreviewTimer = null;
         vcCurrentAudio = null;
@@ -802,19 +955,12 @@
       };
       setTimeout(function(){
         if (!vcCurrentAudio) return;
-        vcCurrentAudio.play().catch(function() {
-          vcRemoveContinueButton();
-          if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
-          vcPreviewTimer = null;
-          vcCurrentAudio = null;
-          vcSpeak(fallbackText || '');
+        vcCurrentAudio.play().then(function() {
+          vcStartPreviewTimer();
+        }).catch(function(err) {
+          console.warn('[VC AUDIO] autoplay blocked:', err);
+          vcShowPlayAudioButton();
         });
-        vcPreviewTimer = setTimeout(function() {
-          if (vcCurrentAudio && !vcCurrentAudio.paused && !vcCurrentAudio.ended) {
-            vcCurrentAudio.pause();
-            vcShowContinueButton();
-          }
-        }, vcPreviewLimitSeconds * 1000);
       }, 50);
       return;
     }
