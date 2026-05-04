@@ -16,6 +16,19 @@
 
   var host   = document.getElementById('veecasa-chat-root');
   var shadow = host.attachShadow({ mode: 'open' });
+  var vcAudioUnlocked = false;
+
+  function vcUnlockAudio() {
+    if (vcAudioUnlocked) return;
+    vcAudioUnlocked = true;
+
+    try {
+      var a = new Audio();
+      a.muted = true;
+      var p = a.play();
+      if (p && p.catch) p.catch(function(){});
+    } catch(e) {}
+  }
 
   var styleEl = document.createElement('style');
   styleEl.textContent = `
@@ -519,7 +532,11 @@
     },dur-20);
   }
 
-  launcher.addEventListener('click',function(){ isOpen?vcClose():vcOpen(); });
+  launcher.addEventListener('click',function(){
+    vcUnlockAudio();
+    if (!isOpen) vcPlayGreetingFromUserTap();
+    isOpen?vcClose():vcOpen();
+  });
   closeBtn.addEventListener('click',vcClose);
   backdrop.addEventListener('click',vcClose);
 
@@ -667,27 +684,29 @@
 
       if (isGreetingMessage && voiceOutputOn) {
         text = VC_EXACT_GREETING_MESSAGE;
-        // Dynamically generate/retrieve greeting audio via the /tts endpoint.
-        vcResetAudioPreviewState(true);
-        fetch(RAG_AUDIO_BASE_URL.replace(/\/$/, '') + '/tts', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({text: VC_EXACT_GREETING_MESSAGE, voice: 'Joanna', engine: 'neural'})
-        })
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-          var audioUrl = data && data.audio && data.audio.audio_url;
-          if (audioUrl) {
-            console.log('[VC TTS] greeting audio_url:', audioUrl);
-            vcSpeakPolly(audioUrl, VC_EXACT_GREETING_MESSAGE);
-          } else {
+        if (!vcGreetingAudioStarted) {
+          // Dynamically generate/retrieve greeting audio via the /tts endpoint.
+          vcResetAudioPreviewState(true);
+          fetch(RAG_AUDIO_BASE_URL.replace(/\/$/, '') + '/tts', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({text: VC_EXACT_GREETING_MESSAGE, voice: 'Joanna', engine: 'neural'})
+          })
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            var audioUrl = data && data.audio && data.audio.audio_url;
+            if (audioUrl) {
+              console.log('[VC TTS] greeting audio_url:', audioUrl);
+              vcSpeakPolly(audioUrl, VC_EXACT_GREETING_MESSAGE);
+            } else {
+              vcSpeak(VC_EXACT_GREETING_MESSAGE);
+            }
+          })
+          .catch(function(err){
+            console.warn('[VC TTS] greeting fetch failed:', err);
             vcSpeak(VC_EXACT_GREETING_MESSAGE);
-          }
-        })
-        .catch(function(err){
-          console.warn('[VC TTS] greeting fetch failed:', err);
-          vcSpeak(VC_EXACT_GREETING_MESSAGE);
-        });
+          });
+        }
       }
 
       var row=document.createElement('div'); row.className='vc-msg-row';
@@ -875,6 +894,87 @@
   var vcPreviewLimitSeconds = 15;
   var vcContinueBtn = null;
   var vcPreviewTimer = null;
+  var vcGreetingPlayBtn = null;
+  var vcGreetingAudio = null;
+  var vcGreetingAudioStarted = false;
+
+  function vcPrepareGreetingAudio() {
+    if (vcGreetingAudio) return;
+    vcGreetingAudio = new Audio('https://rasa.nextlevelrnd.info/audio/d7dbd6df2bb1285ed91ba2e0741b30671c3a5170ed2d9b9e370734d7a248cccb.mp3');
+    vcGreetingAudio.preload = 'auto';
+  }
+
+  function vcPlayGreetingFromUserTap() {
+    if (!voiceOutputOn || vcGreetingAudioStarted) return;
+    vcPrepareGreetingAudio();
+    vcGreetingAudioStarted = true;
+
+    try {
+      vcCurrentAudio = vcGreetingAudio;
+      vcGreetingAudio.play().then(function() {
+        vcRemoveGreetingPlayButton();
+        vcStartPreviewTimer();
+      }).catch(function(err) {
+        console.warn('[VC AUDIO] greeting play blocked:', err);
+        vcShowGreetingPlayButton();
+      });
+    } catch(e) {}
+  }
+
+  vcPrepareGreetingAudio();
+
+  function vcRemoveGreetingPlayButton() {
+    if (vcGreetingPlayBtn) {
+      vcGreetingPlayBtn.remove();
+      vcGreetingPlayBtn = null;
+    }
+  }
+
+  function vcShowGreetingPlayButton() {
+    vcRemoveGreetingPlayButton();
+
+    var wrap = document.createElement('div');
+    wrap.className = 'vc-btns-wrap';
+
+    var btn = document.createElement('button');
+    btn.className = 'vc-qr-btn';
+    btn.textContent = '▶ Play Greeting';
+
+    btn.addEventListener('click', function() {
+      vcRemoveGreetingPlayButton();
+
+      var greetingUrl = 'https://rasa.nextlevelrnd.info/audio/d7dbd6df2bb1285ed91ba2e0741b30671c3a5170ed2d9b9e370734d7a248cccb.mp3';
+
+      vcResetAudioPreviewState(true);
+      vcCurrentAudio = new Audio(greetingUrl);
+
+      vcCurrentAudio.onended = function() {
+        vcRemoveContinueButton();
+        if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
+        vcPreviewTimer = null;
+        vcCurrentAudio = null;
+      };
+
+      vcCurrentAudio.onerror = function() {
+        vcRemoveContinueButton();
+        if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
+        vcPreviewTimer = null;
+        vcCurrentAudio = null;
+        vcSpeak(VC_EXACT_GREETING_MESSAGE);
+      };
+
+      vcCurrentAudio.play().then(function() {
+        vcStartPreviewTimer();
+      }).catch(function(err) {
+        console.warn('[VC AUDIO] manual greeting play failed:', err);
+      });
+    });
+
+    wrap.appendChild(btn);
+    messages.appendChild(wrap);
+    vcGreetingPlayBtn = wrap;
+    messages.scrollTop = messages.scrollHeight;
+  }
 
   function vcRemoveContinueButton() {
     if (vcContinueBtn) {
@@ -884,6 +984,7 @@
   }
 
   function vcResetAudioPreviewState(resetCurrentTime) {
+    vcRemoveGreetingPlayButton();
     vcRemoveContinueButton();
     if (vcPreviewTimer) clearTimeout(vcPreviewTimer);
     vcPreviewTimer = null;
