@@ -173,7 +173,7 @@ Current production artifacts are stored here:
 Rasa calls the RAG API using the internal Docker network:
 
 ```
-http://rag-api:8000/ask
+http://mortgage-rag-api-prod:8000/ask
 ```
 
 Important production constraints:
@@ -266,7 +266,7 @@ docker-compose.production.yml
 ## Final State Expectations
 
 - Service running on **port 8000**
-- Rasa can reach `http://rag-api:8000/ask`
+- Rasa can reach `http://mortgage-rag-api-prod:8000/ask`
 - `/health` returns `{"status":"ok"}`
 - `/ask` returns structured JSON responses
 - Vector store artifacts loaded under `data/index/`
